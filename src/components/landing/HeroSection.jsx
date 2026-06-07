@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/22e7593d1_ChatGPTImage7202623_09_17.png';
+const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c76ad59b7_image.png';
 
 export default function HeroSection() {
   return (
@@ -35,19 +35,13 @@ export default function HeroSection() {
           transition={{ duration: 0.8 }}
           className="flex flex-col"
         >
-          {/* Logo + bureau name */}
-          <div className="flex items-center gap-4 mb-10">
+          {/* Logo */}
+          <div className="mb-8">
             <img
               src={LOGO_URL}
-              alt="Логотип Жар-птица"
-              className="h-16 w-16 rounded-2xl object-cover border border-border shadow-lg"
+              alt="Логотип Жар-птица — дизайн-бюро"
+              className="h-28 w-auto object-contain"
             />
-            <div className="flex flex-col">
-              <span className="font-display text-lg italic text-foreground leading-tight">Жар-птица</span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
-                Дизайн-бюро
-              </span>
-            </div>
           </div>
 
           <h1
@@ -101,7 +95,7 @@ export default function HeroSection() {
           <img
             src={LOGO_URL}
             alt="Жар-птица — птица с архитектурной планировкой"
-            className="w-full max-w-md rounded-3xl object-contain drop-shadow-2xl"
+            className="w-full max-w-lg object-contain drop-shadow-2xl"
             loading="eager"
           />
         </motion.div>

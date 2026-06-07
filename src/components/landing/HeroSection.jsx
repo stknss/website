@@ -2,12 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/22e7593d1_ChatGPTImage7202623_09_17.png';
-const BANNER_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/22e7593d1_ChatGPTImage7202623_09_17.png';
 
 export default function HeroSection() {
   return (
     <section id="top" className="relative min-h-screen overflow-hidden border-b border-border" aria-labelledby="hero-title">
-      {/* Subtle blueprint grid lines */}
+      {/* Blueprint grid */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
@@ -15,7 +14,16 @@ export default function HeroSection() {
           backgroundImage:
             'linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px), linear-gradient(180deg, hsl(var(--border)) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
-          opacity: 0.35,
+          opacity: 0.5,
+        }}
+      />
+
+      {/* Warm radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        aria-hidden="true"
+        style={{
+          background: 'radial-gradient(ellipse 60% 55% at 68% 50%, hsl(var(--primary) / 0.13), transparent 70%)',
         }}
       />
 
@@ -25,18 +33,21 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col order-2 lg:order-1"
+          className="flex flex-col"
         >
           {/* Logo + bureau name */}
-          <div className="flex items-center gap-3 mb-8">
+          <div className="flex items-center gap-4 mb-10">
             <img
               src={LOGO_URL}
               alt="Логотип Жар-птица"
-              className="h-12 w-12 rounded-full object-cover border border-border shadow"
+              className="h-16 w-16 rounded-2xl object-cover border border-border shadow-lg"
             />
-            <span className="font-mono text-xs uppercase tracking-[0.26em] text-muted-foreground">
-              Дизайн-бюро «Жар-птица»
-            </span>
+            <div className="flex flex-col">
+              <span className="font-display text-lg italic text-foreground leading-tight">Жар-птица</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
+                Дизайн-бюро
+              </span>
+            </div>
           </div>
 
           <h1
@@ -80,19 +91,18 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right: banner image */}
+        {/* Right: logo large */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.97 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative flex items-center justify-center order-1 lg:order-2"
+          transition={{ duration: 1.1 }}
+          className="hidden lg:flex items-center justify-center"
         >
           <img
-            src={BANNER_URL}
-            alt="Дизайн-бюро Жар-птица — создаём уникальные интерьеры с душой"
-            className="w-full max-w-lg rounded-[2rem] object-contain shadow-2xl lg:max-w-full"
+            src={LOGO_URL}
+            alt="Жар-птица — птица с архитектурной планировкой"
+            className="w-full max-w-md rounded-3xl object-contain drop-shadow-2xl"
             loading="eager"
-            style={{ background: 'hsl(var(--background))' }}
           />
         </motion.div>
       </div>

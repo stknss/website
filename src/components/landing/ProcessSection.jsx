@@ -7,7 +7,7 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="px-6 py-24 lg:px-10 lg:py-32 bg-secondary/40" aria-labelledby="process-title">
+    <section id="process" className="px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="process-title">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid gap-6 lg:grid-cols-12">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary lg:col-span-3">Процесс под ключ</p>

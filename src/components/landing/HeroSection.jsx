@@ -95,7 +95,7 @@ export default function HeroSection() {
           <img
             src={LOGO_URL}
             alt="Жар-птица — птица с архитектурной планировкой"
-            className="w-full max-w-lg object-contain drop-shadow-2xl"
+            className="w-full max-w-lg object-contain drop-shadow-2xl rounded-[28px] opacity-100"
             loading="eager" />
           
         </motion.div>

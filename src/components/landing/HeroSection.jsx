@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/112534335_ChatGPT_Image_13__2026___22_08_44.png';
+const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/561e2c803_ChatGPTImage13202622_08_44.png';
 
 export default function HeroSection() {
   return (
@@ -27,7 +27,20 @@ export default function HeroSection() {
         }} />
       
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-2 lg:px-10">
+      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-2 lg:gap-0 lg:px-10">
+        {/* Logo for tablet & mobile */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1 }}
+          className="flex items-center justify-center lg:hidden">
+          <img
+            src={LOGO_URL}
+            alt="Жар-птица — символ бюро"
+            className="w-full max-w-sm object-contain sm:max-w-md"
+            loading="eager" />
+        </motion.div>
+
         {/* Left: text */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -71,19 +84,16 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right: logo */}
+        {/* Right: logo — desktop */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
-          className="hidden lg:flex items-center justify-center">
+          className="hidden lg:flex items-center justify-center lg:col-span-1">
           <img
             src={LOGO_URL}
             alt="Жар-птица — символ бюро"
-            className="w-full object-contain opacity-90 mr-32 pt-32 pb-24 mb-30 max-w-5xl drop-shadow-3xl"
-            style={{
-              filter: 'sepia(0.25) saturate(1.3) hue-rotate(-10deg) brightness(0.95) contrast(1.05)'
-            }}
+            className="w-full h-full object-cover"
             loading="eager" />
         </motion.div>
       </div>

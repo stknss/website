@@ -11,7 +11,7 @@ export default function ProcessSection() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 grid gap-6 lg:grid-cols-12">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary lg:col-span-3">Процесс под ключ</p>
-          <h2 id="process-title" className="font-display text-5xl font-light italic leading-none text-foreground md:text-7xl lg:col-span-7">Поэтапный процесс
+          <h2 id="process-title" className="font-display text-5xl font-light italic leading-none text-foreground md:text-7xl lg:col-span-7">От система работы
 
           </h2>
         </div>

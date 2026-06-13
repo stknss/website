@@ -8,9 +8,9 @@ export default function ProofSection() {
           <img
             src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
             alt="Основатели бюро изучают чертежи и образцы материалов в тёплой студии"
-            className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl"
-            loading="lazy"
-          />
+            className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl hidden"
+            loading="lazy" />
+          
         </div>
         <div className="lg:col-span-7">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Семейное бюро</p>
@@ -33,6 +33,6 @@ export default function ProofSection() {
           </blockquote>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }

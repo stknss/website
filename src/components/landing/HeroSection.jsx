@@ -36,7 +36,7 @@ export default function HeroSection() {
           className="flex flex-col">
           
           {/* Logo */}
-          <div className="my-8 opacity-95">
+          <div className="my-8 opacity-100">
             <img
               src={LOGO_URL}
               alt="Логотип Жар-птица — дизайн-бюро"

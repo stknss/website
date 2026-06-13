@@ -5,11 +5,11 @@ export default function ProofSection() {
     <section id="philosophy" className="px-6 py-24 lg:px-10 lg:py-32 bg-secondary/30" aria-labelledby="proof-title">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
         <div className="lg:col-span-5">
-          <img
-            src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
-            alt="Основатели бюро изучают чертежи и образцы материалов в тёплой студии"
-            className="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-xl hidden"
-            loading="lazy" />
+          
+
+
+
+          
           
         </div>
         <div className="lg:col-span-7">

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/61b727b5e_generated_image.png';
+const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/112534335_ChatGPT_Image_13__2026___22_08_44.png';
 
 export default function HeroSection() {
   return (
@@ -77,11 +77,14 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/112534335_ChatGPT_Image_13__2026___22_08_44.png"
-
-          alt="Жар-птица — символ бюро"
-          className="w-full max-w-lg object-contain drop-shadow-2xl"
-          loading="eager" />
+          <img
+            src={LOGO_URL}
+            alt="Жар-птица — символ бюро"
+            className="w-full max-w-2xl object-contain drop-shadow-2xl"
+            style={{
+              filter: 'sepia(0.25) saturate(1.3) hue-rotate(-10deg) brightness(0.95) contrast(1.05)',
+            }}
+            loading="eager" />
         </motion.div>
       </div>
     </section>);

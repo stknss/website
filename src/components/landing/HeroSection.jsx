@@ -12,20 +12,20 @@ export default function HeroSection() {
         aria-hidden="true"
         style={{
           backgroundImage:
-            'linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px), linear-gradient(180deg, hsl(var(--border)) 1px, transparent 1px)',
+          'linear-gradient(90deg, hsl(var(--border)) 1px, transparent 1px), linear-gradient(180deg, hsl(var(--border)) 1px, transparent 1px)',
           backgroundSize: '80px 80px',
-          opacity: 0.5,
-        }}
-      />
+          opacity: 0.5
+        }} />
+      
 
       {/* Warm radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"
         style={{
-          background: 'radial-gradient(ellipse 60% 55% at 68% 50%, hsl(var(--primary) / 0.13), transparent 70%)',
-        }}
-      />
+          background: 'radial-gradient(ellipse 60% 55% at 68% 50%, hsl(var(--primary) / 0.13), transparent 70%)'
+        }} />
+      
 
       <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-2 lg:px-10">
         {/* Left: text */}
@@ -33,21 +33,21 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col"
-        >
+          className="flex flex-col">
+          
           {/* Logo */}
           <div className="mb-8">
             <img
               src={LOGO_URL}
               alt="Логотип Жар-птица — дизайн-бюро"
-              className="h-28 w-auto object-contain"
-            />
+              className="h-28 w-auto object-contain opacity-95" />
+            
           </div>
 
           <h1
             id="hero-title"
-            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl"
-          >
+            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl">
+            
             От первой искры до финального камня
           </h1>
 
@@ -58,28 +58,28 @@ export default function HeroSection() {
 
           {/* Tags */}
           <div className="mt-6 flex flex-wrap gap-3">
-            {['Дизайн', 'Проектирование', 'Реализация'].map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-primary"
-              >
+            {['Дизайн', 'Проектирование', 'Реализация'].map((tag) =>
+            <span
+              key={tag}
+              className="rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-primary">
+              
                 {tag}
               </span>
-            ))}
+            )}
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#contact"
-              className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
-            >
+              className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
+              
               Забронировать встречу
               <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
             </a>
             <a
               href="#portfolio"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition hover:bg-secondary"
-            >
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition hover:bg-secondary">
+              
               Смотреть работы
             </a>
           </div>
@@ -90,16 +90,16 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
-          className="hidden lg:flex items-center justify-center"
-        >
+          className="hidden lg:flex items-center justify-center">
+          
           <img
             src={LOGO_URL}
             alt="Жар-птица — птица с архитектурной планировкой"
             className="w-full max-w-lg object-contain drop-shadow-2xl"
-            loading="eager"
-          />
+            loading="eager" />
+          
         </motion.div>
       </div>
-    </section>
-  );
+    </section>);
+
 }

@@ -80,7 +80,7 @@ export default function HeroSection() {
           <img
             src={LOGO_URL}
             alt="Жар-птица — символ бюро"
-            className="w-full max-w-5xl object-contain drop-shadow-2xl opacity-90 mr-32 pt-32 pb-24 mb-3"
+            className="w-full object-contain drop-shadow-2xl opacity-90 mr-32 pt-32 pb-24 mb-30 max-w-xl"
             style={{
               filter: 'sepia(0.25) saturate(1.3) hue-rotate(-10deg) brightness(0.95) contrast(1.05)'
             }}

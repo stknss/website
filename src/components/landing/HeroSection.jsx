@@ -50,8 +50,8 @@ export default function HeroSection() {
 
           <h1
             id="hero-title"
-            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl">
-            От первой искры до финального камня
+            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl">Дизайн-бюро "Жар-птица"
+
           </h1>
 
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">

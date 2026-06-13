@@ -77,11 +77,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center">
-          <img
-            src={LOGO_URL}
-            alt="Жар-птица — символ бюро"
-            className="w-full max-w-lg object-contain drop-shadow-2xl"
-            loading="eager" />
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/112534335_ChatGPT_Image_13__2026___22_08_44.png"
+
+          alt="Жар-птица — символ бюро"
+          className="w-full max-w-lg object-contain drop-shadow-2xl"
+          loading="eager" />
         </motion.div>
       </div>
     </section>);

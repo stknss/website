@@ -7,7 +7,7 @@ const projects = [
   wide: true
 },
 {
-  title: "Clever\xA0",
+  title: "Clever park\xA0",
   meta: '92 м² · проект + комплектация',
   image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c9a039afa_generated_7fd7e794.png',
   alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',

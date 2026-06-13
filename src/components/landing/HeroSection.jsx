@@ -37,10 +37,10 @@ export default function HeroSection() {
           
           {/* Logo */}
           <div className="my-8 opacity-100">
-            <img
-              src={LOGO_URL}
-              alt="Логотип Жар-птица — дизайн-бюро"
-              className="h-28 w-auto object-contain opacity-100 rounded-[28px] hidden" />
+            
+
+
+            
             
           </div>
 

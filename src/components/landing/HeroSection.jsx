@@ -37,7 +37,7 @@ export default function HeroSection() {
           <img
             src={LOGO_URL}
             alt="Жар-птица — символ бюро"
-            className="w-full max-w-sm object-contain sm:max-w-md"
+            className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
             loading="eager" />
         </motion.div>
 

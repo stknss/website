@@ -54,9 +54,9 @@ export default function HeroSection() {
 
           </h1>
 
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
-            Семейное бюро архитектора и инженера-строителя. Дизайн, проектирование и реализация
-            интерьеров под ключ — с душой и вниманием к каждой детали.
+          <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">Создаем уникальные интерьеры с душой и вниманием к деталям
+
+
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">

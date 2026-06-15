@@ -17,7 +17,7 @@ const navItems = [
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-background text-foreground">
-      <nav className="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-10 lg:flex pb-6 pr-1" aria-label="Навигация по странице">
+      <nav className="fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 flex-col gap-10 lg:flex pl-1" aria-label="Навигация по странице">
         {navItems.map(([label, href]) =>
         href.startsWith('#') ?
         <a key={href} href={href} className="origin-center rotate-90 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground transition hover:text-primary pb-12 pl-4 pt-5">

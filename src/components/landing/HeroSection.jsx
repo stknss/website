@@ -54,7 +54,7 @@ export default function HeroSection() {
 
           </h1>
 
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground mt-6">Создаем уникальные интерьеры с душой и вниманием к деталям. Полный цикл - от идеи до воплощения
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground mt-8">Создаем уникальные интерьеры с душой и вниманием к деталям. Полный цикл - от идеи до воплощения
 
 
           </p>

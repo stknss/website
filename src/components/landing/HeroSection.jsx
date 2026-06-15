@@ -34,7 +34,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/60f8054af_ChatGPT_Image_13__2026___22_08_44.png"
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ef9903847_ChatGPT_Image_15__2026___15_24_56.png"
 
           alt="Жар-птица — символ бюро"
           className="w-full max-w-sm object-contain sm:max-w-md opacity-85"

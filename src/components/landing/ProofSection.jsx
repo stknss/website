@@ -17,9 +17,9 @@ export default function ProofSection() {
           <h2 id="proof-title" className="mt-5 font-display text-5xl font-light italic leading-none text-foreground md:text-7xl">
             В проекте всегда две силы: душа архитектора и дисциплина инженера
           </h2>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Мы рядом от первой идеи до последнего предмета на полке: видим пространство художественно,
-            считаем технически и бережно ведём клиента через весь путь ремонта.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Мы ведём проект от первой идеи до последнего предмета на полке: видим пространство художественно, считаем технически и бережно ведём клиента через весь путь ремонта.
+
+
           </p>
           <blockquote className="mt-12 border-l-2 border-primary pl-7">
             <Quote className="mb-5 h-8 w-8 text-primary opacity-60" />

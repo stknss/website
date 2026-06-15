@@ -19,7 +19,7 @@ export default function PortfolioSection() {
   return (
     <section id="portfolio" className="py-20" aria-labelledby="portfolio-title">
       <div className="mx-auto mb-12 max-w-7xl px-6 lg:px-10">
-        <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Живой архив</p>
+        <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши Проекты</p>
         <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl">
           Интерьеры, где красота держится на точном расчёте
         </h2>

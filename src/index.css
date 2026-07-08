@@ -6,30 +6,30 @@
 
 @layer base {
   :root {
-    --background: 32 20% 6%;
-    --foreground: 36 28% 90%;
-    --card: 32 16% 10%;
-    --card-foreground: 36 28% 90%;
-    --popover: 32 16% 10%;
-    --popover-foreground: 36 28% 90%;
-    --primary: 30 34% 42%;
-    --primary-foreground: 36 30% 95%;
-    --secondary: 30 14% 22%;
-    --secondary-foreground: 36 28% 90%;
-    --muted: 30 10% 24%;
-    --muted-foreground: 32 12% 58%;
-    --accent: 36 38% 80%;
-    --accent-foreground: 32 20% 6%;
-    --destructive: 0 50% 48%;
-    --destructive-foreground: 36 30% 95%;
-    --border: 36 22% 85% / 0.12;
-    --input: 36 22% 85% / 0.16;
-    --ring: 30 34% 42%;
-    --chart-1: 30 34% 42%;
-    --chart-2: 36 38% 80%;
-    --chart-3: 32 12% 58%;
-    --chart-4: 28 24% 52%;
-    --chart-5: 36 28% 90%;
+    --background: 27 10% 9%;
+    --foreground: 35 26% 88%;
+    --card: 28 10% 12%;
+    --card-foreground: 35 26% 88%;
+    --popover: 28 10% 12%;
+    --popover-foreground: 35 26% 88%;
+    --primary: 14 56% 44%;
+    --primary-foreground: 35 26% 95%;
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 35 26% 88%;
+    --muted: 30 9% 19%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 32 38% 72%;
+    --accent-foreground: 27 8% 9%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 35 26% 95%;
+    --border: 35 18% 88% / 0.14;
+    --input: 35 18% 88% / 0.18;
+    --ring: 14 56% 44%;
+    --chart-1: 14 56% 44%;
+    --chart-2: 32 38% 72%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 25 22% 42%;
+    --chart-5: 35 26% 88%;
     --radius: 1.25rem;
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -46,30 +46,30 @@
   }
 
   .dark {
-    --background: 32 20% 6%;
-    --foreground: 36 28% 90%;
-    --card: 32 16% 10%;
-    --card-foreground: 36 28% 90%;
-    --popover: 32 16% 10%;
-    --popover-foreground: 36 28% 90%;
-    --primary: 30 34% 42%;
-    --primary-foreground: 36 30% 95%;
-    --secondary: 30 14% 22%;
-    --secondary-foreground: 36 28% 90%;
-    --muted: 30 10% 24%;
-    --muted-foreground: 32 12% 58%;
-    --accent: 36 38% 80%;
-    --accent-foreground: 32 20% 6%;
-    --destructive: 0 50% 48%;
-    --destructive-foreground: 36 30% 95%;
-    --border: 36 22% 85% / 0.12;
-    --input: 36 22% 85% / 0.16;
-    --ring: 30 34% 42%;
-    --chart-1: 30 34% 42%;
-    --chart-2: 36 38% 80%;
-    --chart-3: 32 12% 58%;
-    --chart-4: 28 24% 52%;
-    --chart-5: 36 28% 90%;
+    --background: 27 8% 9%;
+    --foreground: 35 26% 88%;
+    --card: 28 10% 12%;
+    --card-foreground: 35 26% 88%;
+    --popover: 28 10% 12%;
+    --popover-foreground: 35 26% 88%;
+    --primary: 14 56% 44%;
+    --primary-foreground: 35 26% 95%;
+    --secondary: 30 12% 18%;
+    --secondary-foreground: 35 26% 88%;
+    --muted: 30 9% 19%;
+    --muted-foreground: 0 0% 55%;
+    --accent: 32 38% 72%;
+    --accent-foreground: 27 8% 9%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 35 26% 95%;
+    --border: 35 18% 88% / 0.14;
+    --input: 35 18% 88% / 0.18;
+    --ring: 14 56% 44%;
+    --chart-1: 14 56% 44%;
+    --chart-2: 32 38% 72%;
+    --chart-3: 0 0% 55%;
+    --chart-4: 25 22% 42%;
+    --chart-5: 35 26% 88%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,19 +99,5 @@
 
   ::selection {
     @apply bg-primary text-primary-foreground;
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: 40;
-    pointer-events: none;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .vertical-text {
-    writing-mode: vertical-rl;
   }
 }

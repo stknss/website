@@ -4,14 +4,14 @@ import { Quote } from 'lucide-react';
 export default function ProofSection() {
   return (
     <section id="philosophy" className="px-6 py-24 lg:px-10 lg:py-32 bg-secondary/30" aria-labelledby="proof-title">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-stretch">
         <div className="lg:col-span-5">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
-            className="grid grid-cols-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border"
+            className="grid h-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border"
           >
             {[
               { value: '60+', label: 'Реализованных проектов' },
@@ -19,7 +19,7 @@ export default function ProofSection() {
               { value: '100%', label: 'Сдача в срок' },
               { value: '2', label: 'Специалиста в команде' },
             ].map((stat) => (
-              <div key={stat.label} className="bg-card p-8">
+              <div key={stat.label} className="flex flex-col justify-center bg-card p-8">
                 <p className="font-display text-5xl font-light italic text-primary">{stat.value}</p>
                 <p className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{stat.label}</p>
               </div>

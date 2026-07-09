@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import projects from '@/lib/projects';
 
 export default function PortfolioSection() {
@@ -26,6 +27,15 @@ export default function PortfolioSection() {
             </div>
           </Link>
         )}
+      </div>
+      <div className="mx-auto mt-14 flex max-w-7xl justify-center px-6 lg:px-10">
+        <Link
+          to="/portfolio"
+          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
+        >
+          Смотреть все работы
+          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+        </Link>
       </div>
     </section>);
 

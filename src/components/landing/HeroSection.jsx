@@ -27,7 +27,7 @@ export default function HeroSection() {
         }} />
       
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-center gap-12 px-6 py-24 lg:grid-cols-2 lg:gap-0 lg:px-10">
+      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-start gap-8 px-6 pt-28 pb-20 lg:grid-cols-2 lg:items-center lg:gap-0 lg:px-10 lg:py-24">
         {/* Logo for tablet & mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
@@ -50,7 +50,7 @@ export default function HeroSection() {
 
           <h1
             id="hero-title"
-            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl">Дизайн-бюро "Жар-птица"
+            className="font-display text-5xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-8xl">Дизайн-бюро<br className="lg:hidden" /> "Жар-птица"
 
           </h1>
 

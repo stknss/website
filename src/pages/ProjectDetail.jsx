@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import projects, { getProjectBySlug } from '@/lib/projects';
+import BackButton from '@/components/BackButton';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -30,14 +31,9 @@ export default function ProjectDetail() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="px-6 py-16 lg:px-10 lg:py-24">
+      <section className="px-6 pt-24 pb-16 lg:px-10 lg:pb-24">
         <div className="mx-auto max-w-7xl">
-          <Link
-            to="/portfolio"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition hover:text-primary"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> Все проекты
-          </Link>
+          <BackButton />
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

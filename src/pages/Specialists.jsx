@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, Briefcase, GraduationCap } from 'lucide-react';
+import BackButton from '@/components/BackButton';
 
 const specialists = [
   {
@@ -27,9 +28,10 @@ const specialists = [
 export default function Specialists() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="specialists-title">
+      <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32" aria-labelledby="specialists-title">
         <div className="mx-auto max-w-7xl">
-          <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши специалисты</p>
+          <BackButton />
+          <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши специалисты</p>
           <h2
             id="specialists-title"
             className="mt-5 max-w-3xl font-display text-5xl font-light italic leading-none md:text-7xl"

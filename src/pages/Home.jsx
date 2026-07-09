@@ -1,4 +1,3 @@
-import Header from '@/components/landing/Header';
 import HeroSection from '@/components/landing/HeroSection';
 import ProcessSection from '@/components/landing/ProcessSection';
 import PortfolioSection from '@/components/landing/PortfolioSection';
@@ -8,7 +7,6 @@ import ContactSection from '@/components/landing/ContactSection';
 export default function Home() {
   return (
     <main className="relative overflow-hidden bg-background text-foreground">
-      <Header />
       <HeroSection />
       <ProcessSection />
       <PortfolioSection />

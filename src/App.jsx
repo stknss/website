@@ -10,6 +10,8 @@ import Home from './pages/Home';
 import Specialists from './pages/Specialists';
 import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Header from './components/landing/Header';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -37,13 +39,17 @@ const AuthenticatedApp = () => {
 
   // Render the main app
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/specialists" element={<Specialists />} />
-      <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/project/:slug" element={<ProjectDetail />} />
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/specialists" element={<Specialists />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/project/:slug" element={<ProjectDetail />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </>
   );
 };
 

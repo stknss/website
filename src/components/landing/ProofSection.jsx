@@ -16,8 +16,8 @@ export default function ProofSection() {
             {[
               { value: '60+', label: 'Реализованных проектов' },
               { value: '12', label: 'Лет на рынке' },
-              { value: '100%', label: 'Сдача в срок' },
-              { value: '2', label: 'Специалиста в команде' },
+              { value: '98%', label: 'Сдача в срок' },
+              { value: '2 + 30', label: 'Штатных и внештатных специалистов' },
             ].map((stat) => (
               <div key={stat.label} className="flex flex-col justify-center bg-card p-8">
                 <p className="font-display text-5xl font-light italic text-primary">{stat.value}</p>

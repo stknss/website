@@ -1,19 +1,14 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
 import projects from '@/lib/projects';
+import BackButton from '@/components/BackButton';
 
 export default function Portfolio() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      <section className="px-6 py-16 lg:px-10 lg:py-24" aria-labelledby="portfolio-title">
+      <section className="px-6 pt-24 pb-16 lg:px-10 lg:pb-24" aria-labelledby="portfolio-title">
         <div className="mx-auto max-w-7xl">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition hover:text-primary"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> На главную
-          </Link>
+          <BackButton />
 
           <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">
             Все проекты

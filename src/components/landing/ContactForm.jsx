@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight } from 'lucide-react';
 
@@ -67,6 +68,12 @@ export default function ContactForm() {
         Обсудить проект
         <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
       </button>
+      <p className="mt-4 text-center text-xs leading-relaxed text-muted-foreground">
+        Нажимая на кнопку «Отправить» вы принимаете условия{' '}
+        <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">
+          Политики конфиденциальности
+        </Link>
+      </p>
     </form>
   );
 }

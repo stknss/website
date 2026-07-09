@@ -59,13 +59,12 @@ export default function HeroSection() {
 
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            {['Дизайн', 'Проектирование', 'Реализация'].map((tag) =>
-            <span
-              key={tag}
-              className="rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.18em] text-primary">
-                {tag}
-              </span>
+          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+            {['Дизайн', 'Проектирование', 'Реализация'].map((tag, i) =>
+            <div key={tag} className="flex items-center gap-7">
+              {i > 0 && <span className="h-1 w-1 rounded-full bg-primary/50" aria-hidden="true" />}
+              <span className="font-mono text-xs uppercase tracking-[0.24em] text-primary/80">{tag}</span>
+            </div>
             )}
           </div>
 
@@ -78,8 +77,9 @@ export default function HeroSection() {
             </a>
             <a
               href="#portfolio"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition hover:bg-secondary">
+              className="group inline-flex min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]">
               Смотреть работы
+              <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
             </a>
           </div>
         </motion.div>

@@ -38,10 +38,10 @@ export default function Specialists() {
             
             Люди, которые создают ваш дом
           </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground hidden">
-            Семейное бюро, где архитектор и инженер работают в паре — от первой идеи до последнего
-            предмета на полке.
-          </p>
+          
+
+
+          
         </div>
 
         <div className="mx-auto mt-16 grid max-w-7xl gap-10 lg:grid-cols-2">

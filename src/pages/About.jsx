@@ -188,8 +188,8 @@ export default function About() {
         <div className="mx-auto max-w-4xl">
           <BackButton />
           <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">О нас</p>
-          <h1 className="mt-5 font-display text-5xl font-light italic leading-none md:text-7xl">
-            Студия, где интерьер рождается из идеи и расчёта
+          <h1 className="mt-5 font-display text-5xl font-light italic leading-none md:text-7xl">О нас
+
           </h1>
 
           <div className="mt-10 space-y-6 text-lg leading-relaxed text-muted-foreground">

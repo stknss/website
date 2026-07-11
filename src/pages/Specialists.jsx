@@ -24,7 +24,8 @@ const specialists = [
   'Дмитрий отвечает за то, чтобы красота держалась на точном расчёте. 15 лет в стройке: от прораба до руководителя проектов. Он знает каждый узел, каждый норматив и умеет договориться с подрядчиками так, что объект сдаётся в срок и без сюрпризов.'
 }];
 
-const VIDEO_ID = 'dQw4w9WgXcQ'; // Замените на ID вашего видео на YouTube
+const VIDEO_ID = 'SjgB45muIQk'; // ID видео на YouTube
+const VIDEO_START = 1139; // секунда, с которой начинается воспроизведение
 
 export default function Specialists() {
   return (
@@ -105,7 +106,7 @@ export default function Specialists() {
             <div className="relative aspect-video w-full">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube.com/embed/${VIDEO_ID}`}
+                src={`https://www.youtube.com/embed/${VIDEO_ID}?start=${VIDEO_START}`}
                 title="Видеообзор проекта"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

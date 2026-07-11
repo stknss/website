@@ -68,7 +68,7 @@ export default function HeroSection() {
             )}
           </div>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:justify-start">
             <a
               href="#contact"
               className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">

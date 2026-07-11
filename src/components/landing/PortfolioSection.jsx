@@ -4,8 +4,8 @@ import projects from '@/lib/projects';
 
 export default function PortfolioSection() {
   return (
-    <section id="portfolio" className="py-20" aria-labelledby="portfolio-title">
-      <div className="mx-auto mb-12 max-w-7xl px-6 lg:px-10">
+    <section id="portfolio" className="py-12 lg:py-16" aria-labelledby="portfolio-title">
+      <div className="mx-auto mb-8 max-w-7xl px-6 lg:px-10">
         <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши Проекты</p>
         <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl">
           Интерьеры, где красота держится на точном расчёте
@@ -28,13 +28,13 @@ export default function PortfolioSection() {
           </Link>
         )}
       </div>
-      <div className="mx-auto mt-14 max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto mt-12 flex max-w-7xl justify-center px-6 lg:px-10">
         <Link
           to="/portfolio"
-          className="group flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
+          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-border bg-card px-8 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]"
         >
           Смотреть все работы
-          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground transition group-hover:translate-x-1">
             <ArrowRight className="h-3.5 w-3.5" />
           </span>
         </Link>

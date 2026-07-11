@@ -11,15 +11,16 @@ export default function ProofSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
-            className="grid h-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border"
+            className="grid h-full grid-cols-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border"
           >
             {[
               { value: '60+', label: 'Реализованных проектов' },
               { value: '12', label: 'Лет на рынке' },
               { value: '98%', label: 'Сдача в срок' },
               { value: '2 + 30', label: 'Штатных и внештатных специалистов' },
+              { value: '20+', label: 'Команда из проверенных специалистов', wide: true },
             ].map((stat) => (
-              <div key={stat.label} className="flex flex-col justify-center bg-card p-8">
+              <div key={stat.label} className={`flex flex-col justify-center bg-card p-8 ${stat.wide ? 'col-span-2' : ''}`}>
                 <p className="font-display text-5xl font-light italic text-primary">{stat.value}</p>
                 <p className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{stat.label}</p>
               </div>

@@ -24,6 +24,7 @@ const specialists = [
   'Дмитрий отвечает за то, чтобы красота держалась на точном расчёте. 15 лет в стройке: от прораба до руководителя проектов. Он знает каждый узел, каждый норматив и умеет договориться с подрядчиками так, что объект сдаётся в срок и без сюрпризов.'
 }];
 
+const VIDEO_ID = 'dQw4w9WgXcQ'; // Замените на ID вашего видео на YouTube
 
 export default function Specialists() {
   return (
@@ -31,13 +32,14 @@ export default function Specialists() {
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32" aria-labelledby="specialists-title">
         <div className="mx-auto max-w-7xl">
           <BackButton />
-          <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши специалисты</p>
-          <h2
-            id="specialists-title"
-            className="mt-5 max-w-3xl font-display text-5xl font-light italic leading-none md:text-7xl">
-            
-            Люди, которые создают ваш дом
-          </h2>
+          <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-baseline md:gap-10">
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary md:shrink-0">Наши специалисты</p>
+            <h2
+              id="specialists-title"
+              className="font-display text-5xl font-light italic leading-none md:text-7xl">
+              Люди, которые создают ваш дом
+            </h2>
+          </div>
           
 
 
@@ -94,6 +96,22 @@ export default function Specialists() {
 
 
             </p>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-16 max-w-7xl">
+          <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Видеообзор одного из проектов</p>
+          <div className="mt-6 overflow-hidden rounded-[2rem] border border-border">
+            <div className="relative aspect-video w-full">
+              <iframe
+                className="absolute inset-0 h-full w-full"
+                src={`https://www.youtube.com/embed/${VIDEO_ID}`}
+                title="Видеообзор проекта"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
           </div>
         </div>
       </section>

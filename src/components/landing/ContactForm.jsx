@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -45,16 +45,24 @@ export default function ContactForm() {
           className="min-h-12 rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary placeholder:text-muted-foreground"
         />
       </div>
-      <select
-        value={form.project_type}
-        onChange={(e) => update('project_type', e.target.value)}
-        className="mt-4 min-h-12 w-full rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary"
-      >
-        <option value="apartment">Квартира</option>
-        <option value="house">Дом</option>
-        <option value="commercial">Коммерческий интерьер</option>
-        <option value="consultation">Консультация</option>
-      </select>
+      <div className="mt-4">
+        <label className="mb-2 block font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          Тип проекта
+        </label>
+        <div className="relative">
+          <select
+            value={form.project_type}
+            onChange={(e) => update('project_type', e.target.value)}
+            className="min-h-12 w-full appearance-none rounded-full border-2 border-primary/40 bg-background px-5 pr-12 text-base text-foreground outline-none transition focus:border-primary"
+          >
+            <option value="apartment">Квартира</option>
+            <option value="house">Дом</option>
+            <option value="commercial">Коммерческий интерьер</option>
+            <option value="consultation">Консультация</option>
+          </select>
+          <ChevronDown className="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-primary" />
+        </div>
+      </div>
       <textarea
         value={form.message}
         onChange={(e) => update('message', e.target.value)}

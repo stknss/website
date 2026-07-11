@@ -59,11 +59,11 @@ export default function HeroSection() {
 
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
+          <div className="mt-8 flex flex-nowrap items-center gap-x-3 sm:gap-x-7">
             {['Дизайн', 'Проектирование', 'Реализация'].map((tag, i) =>
-            <div key={tag} className="flex items-center gap-7">
+            <div key={tag} className="flex items-center gap-3 sm:gap-7">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-primary/50" aria-hidden="true" />}
-              <span className="font-mono text-xs uppercase tracking-[0.24em] text-primary/80">{tag}</span>
+              <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] text-primary/80 whitespace-nowrap">{tag}</span>
             </div>
             )}
           </div>
@@ -73,13 +73,17 @@ export default function HeroSection() {
               href="#contact"
               className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
               Забронировать встречу
-              <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
+              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </a>
             <a
               href="#portfolio"
               className="group inline-flex min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]">
               Смотреть работы
-              <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
+              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-border transition group-hover:translate-x-1">
+                <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </a>
           </div>
         </motion.div>

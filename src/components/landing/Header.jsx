@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Процесс', href: '#process' },
@@ -10,12 +12,14 @@ const navItems = [
 
 export default function Header() {
   const location = useLocation();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleLogoClick = (e) => {
     if (location.pathname === '/') {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    setMobileOpen(false);
   };
 
   return (
@@ -43,7 +47,35 @@ export default function Header() {
             );
           })}
         </nav>
+        <button
+          onClick={() => setMobileOpen((v) => !v)}
+          className="lg:hidden inline-flex h-10 w-10 items-center justify-center text-foreground transition hover:text-primary"
+          aria-label="Меню"
+          aria-expanded={mobileOpen}
+        >
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
+      {mobileOpen && (
+        <nav className="lg:hidden border-t border-border bg-background px-6 py-5" aria-label="Мобильная навигация">
+          <div className="flex flex-col gap-5">
+            {navItems.map((item) => {
+              const isAnchor = item.href.startsWith('#');
+              const to = isAnchor ? `/${item.href}` : item.href;
+              return (
+                <Link
+                  key={item.href}
+                  to={to}
+                  onClick={() => setMobileOpen(false)}
+                  className="font-mono text-sm uppercase tracking-[0.18em] text-muted-foreground transition hover:text-primary"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

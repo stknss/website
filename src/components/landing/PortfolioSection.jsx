@@ -28,13 +28,15 @@ export default function PortfolioSection() {
           </Link>
         )}
       </div>
-      <div className="mx-auto mt-14 flex max-w-7xl justify-center px-6 lg:px-10">
+      <div className="mx-auto mt-14 max-w-7xl px-6 lg:px-10">
         <Link
           to="/portfolio"
-          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
+          className="group flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-primary px-8 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
         >
           Смотреть все работы
-          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+          <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
+            <ArrowRight className="h-3.5 w-3.5" />
+          </span>
         </Link>
       </div>
     </section>);

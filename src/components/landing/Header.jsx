@@ -6,6 +6,7 @@ const navItems = [
   { label: 'Процесс', href: '#process' },
   { label: 'Философия', href: '#philosophy' },
   { label: 'Работы', href: '#portfolio' },
+  { label: 'О нас', href: '/about' },
   { label: 'Специалисты', href: '/specialists' },
   { label: 'Контакты', href: '#contact' },
 ];

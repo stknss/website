@@ -11,6 +11,7 @@ import Specialists from './pages/Specialists';
 import Portfolio from './pages/Portfolio';
 import ProjectDetail from './pages/ProjectDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import About from './pages/About';
 import Header from './components/landing/Header';
 // Add page imports here
 
@@ -47,6 +48,7 @@ const AuthenticatedApp = () => {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

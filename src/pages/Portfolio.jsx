@@ -19,10 +19,6 @@ export default function Portfolio() {
           >
             Интерьеры, где красота держится на точном расчёте
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Каждый проект — это история семьи, воплощённая в пространстве. От планировки до последнего
-            предмета декора.
-          </p>
         </div>
 
         <div className="mx-auto mt-14 grid max-w-7xl gap-8 md:grid-cols-2">

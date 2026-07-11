@@ -94,7 +94,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center lg:col-span-1">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9e69d4798_1ChatGPT_Image_Jul_9__2026_at_11_01_32_PM.png"
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fb241ae5f_ChatGPT_Image_Jul_12__2026__02_54_09_AM.png"
 
           alt="Жар-птица — символ бюро"
           className="w-full h-full object-cover"

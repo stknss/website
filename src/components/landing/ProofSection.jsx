@@ -34,7 +34,7 @@ export default function ProofSection() {
           
         </div>
         <div className="lg:col-span-7">
-          <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary hidden">Семейное бюро</p>
+          
           <h2 id="proof-title" className="mt-5 font-display text-5xl font-light italic leading-none text-foreground md:text-7xl">В нашей работе баланс: взгляд архитектора и подход инженера-строителя
 
           </h2>

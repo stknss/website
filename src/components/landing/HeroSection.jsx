@@ -71,11 +71,11 @@ export default function HeroSection() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href="#contact"
-              className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
-              Забронировать встречу
-              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
-                <ArrowRight className="h-3.5 w-3.5" />
-              </span>
+              className="group inline-flex min-h-12 items-center justify-center rounded-full bg-primary font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)] py-4">ЗАБРОНИРОВАТЬ ВСТРЕЧУ
+
+
+
+
             </a>
             <a
               href="#portfolio"

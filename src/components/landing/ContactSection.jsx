@@ -16,7 +16,7 @@ export default function ContactSection() {
           <h2 id="contact-title" className="mt-6 font-display text-6xl font-light italic leading-[0.9] text-foreground md:text-8xl">
             Давайте зажжём ваш будущий дом
           </h2>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Оставьте контакты в заявке или свяжитесь с нами по указанным ниже реквизитам — мы уточним задачу, формат объекта и предложим первый шаг: консультацию, концепцию или полный проект под ключ.
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Оставьте контакты в заявке или свяжитесь с нами по указанным ниже контактам — мы уточним задачу, формат объекта и предложим первый шаг: консультацию, концепцию или полный проект под ключ.
 
 
           </p>

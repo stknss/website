@@ -31,14 +31,27 @@ const projects = [
     slug: 'zhk-kandinskiy',
     title: 'ЖК «Кандинский»',
     meta: '95 м² · Екатеринбург · реализация под ключ',
-    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1d475d74f_generated_d8f4b13f.png',
-    alt: 'Гостиная с камином, натуральным деревом и тёплым вечерним светом',
-    wide: true,
+    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/78656c4e0_4.png',
+    alt: 'Вид из коридора в гостиную-столовую квартиры в ЖК Кандинский',
+    wide: false,
     description: 'Квартира в жилом комплексе «Кандинский» — проект, где классические идеи встречаются с современным комфортом. Натуральные материалы — дуб, камень, текстиль — создают тёплую, камерную атмосферу, а скрытые системы хранения и инженерные решения обеспечили безупречный порядок. Помимо этого квартира оснащена системой умного дома с полной автоматизацией всего - от климата с влажностью и температурой, до закрытия входной двери и поднятия штор утром при пробуждении.',
     gallery: [
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1d475d74f_generated_d8f4b13f.png',
-      'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80',
-      'https://images.unsplash.com/photo-1617103996702-96ff29b1c467?w=800&q=80',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/4b0977886_2.png',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/32bcc9ee3_3-3.png',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9d1a292ec_IMG_1407-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/4ab446cca_IMG_1412-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/b0c221ec8_IMG_1427-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/685a0d66a_IMG_1497-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/eda88fa87_IMG_1512-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/e1455577d_IMG_1547-HDR-.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d66d050ac_IMG_1572-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/5374325c6_IMG_1582-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/82ad97480_IMG_1764-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/028591ff4_IMG_21649-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/13e9238e5_IMG_31689-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c0dc5140a_IMG_31714-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/10e70b2b3_IMG_81639-HDR.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/78656c4e0_4.png',
     ],
   },
   {
@@ -47,7 +60,7 @@ const projects = [
     meta: 'Советский · АБК · реализация под ключ',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
     alt: 'Здание административно-бытового комбината лесоперерабатывающего комбината в Советском',
-    wide: false,
+    wide: true,
     description: 'Здание АБК лесоперерабатывающего комбината в городе Советском — масштабный проект, подразумевающий проектировку и реализацию всех помещений предприятия, от офисов до производственных цехов. Нашей задачей было создать функциональное и современное пространство, отражающее характер предприятия: открытые рабочие зоны, офисные помещения с акцентом на древесные фактуры и продуманную навигацию. Материалы — шпон, камень, металл — подчёркивают промышленную эстетику, а грамотный учет естественного света делает здание комфортным для сотрудников.',
     gallery: [
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
@@ -101,7 +114,7 @@ const projects = [
 
 export default projects;
 
-export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'green-park-hotel'];
+export const featuredSlugs = ['zhk-kandinskiy', 'green-park-hotel', 'clever-park', 'office-nefteyugansk'];
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug);

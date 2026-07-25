@@ -54,7 +54,7 @@ export default function About() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-7xl">
           <BackButton />
           <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">О нас</p>
           <h1 className="mt-5 font-display text-5xl font-light italic leading-none md:text-7xl">Команда профессионалов в сфере интерьерного дизайна
@@ -75,19 +75,19 @@ export default function About() {
         </div>
 
         {/* Направления */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Основные направления</SectionTitle>
           <List items={directions} />
         </div>
 
         {/* Что делаем */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Что мы делаем</SectionTitle>
           <List items={services} />
         </div>
 
         {/* Ход работы */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Ход работы</SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Каждый проект начинается с погружения в задачу: важно понять не только стилистические

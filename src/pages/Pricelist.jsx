@@ -44,7 +44,7 @@ const packages = [
   fits: 'занятых клиентов, которые хотят сэкономить время и избежать ошибок при подборе.'
 },
 {
-  name: 'Авторское сопровождение',
+  name: 'Управление проектом',
   includes: [
   'регулярные выезды на объект;',
   'контроль соответствия стройки проекту;',
@@ -53,7 +53,7 @@ const packages = [
   'контроль ключевых узлов и деталей;',
   'взаимодействие с поставщиками и исполнителями.'],
 
-  fits: 'контроля соответствия реализации дизайн-проекту.',
+  fits: 'клиентов, кто хотел бы полного контроля соответствия реализации дизайн-проекту.',
   note: 'Авторское сопровождение не заменяет технический надзор, но помогает сохранить идею проекта в реализации.'
 }];
 
@@ -101,7 +101,7 @@ const prices = [
   audience: 'для занятых клиентов, которые ценят время, хотят избежать ошибок в выборе и получить целостный интерьер.'
 },
 {
-  name: 'Авторское сопровождение',
+  name: 'Управление проектом',
   price: 'от 50 000 руб./месяц',
   desc: 'Даже продуманный проект требует внимания во время реализации. Авторское сопровождение помогает сохранить идею интерьера, вовремя решать вопросы на объекте и довести результат до задуманного уровня.',
   includes: [
@@ -157,7 +157,7 @@ export default function Pricelist() {
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-7xl">
           <BackButton />
           <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">Прайс-лист</p>
           <h1 className="mt-5 font-display text-5xl font-light italic leading-none md:text-7xl">Стоимость услуг и пакетов проектирования</h1>
@@ -211,14 +211,14 @@ export default function Pricelist() {
         </div>
 
         {/* Стоимость */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Что влияет на стоимость</SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">Стоимость рассчитывается индивидуально и зависит от:</p>
           <List items={costFactors} />
         </div>
 
         {/* Как работаем */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Как мы работаем</SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Стараемся сделать процесс максимально понятным и комфортным. Сначала обсуждаем задачи, образ
@@ -228,7 +228,7 @@ export default function Pricelist() {
         </div>
 
         {/* Комплексные решения */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <SectionTitle>Комплексные решения для вашего интерьера</SectionTitle>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Мы предлагаем полный спектр услуг по созданию пространства для жизни и работы. Каждый проект
@@ -242,7 +242,7 @@ export default function Pricelist() {
         </div>
 
         {/* CTA */}
-        <div className="mx-auto mt-20 max-w-4xl">
+        <div className="mx-auto mt-20 max-w-7xl">
           <div className="rounded-[2rem] border border-primary/40 bg-primary/10 p-8 text-center md:p-12">
             <h3 className="font-display text-3xl font-light italic text-foreground md:text-4xl">Хотите обсудить ваш проект?
 

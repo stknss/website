@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import projects from '@/lib/projects';
+import projects, { featuredSlugs } from '@/lib/projects';
 
 export default function PortfolioSection() {
+  const featuredProjects = featuredSlugs
+    .map((slug) => projects.find((p) => p.slug === slug))
+    .filter(Boolean);
+
   return (
     <section id="portfolio" className="py-12 lg:py-16" aria-labelledby="portfolio-title">
       <div className="mx-auto mb-8 max-w-7xl px-6 lg:px-10">
@@ -12,7 +16,7 @@ export default function PortfolioSection() {
         </h2>
       </div>
       <div className="grid gap-6 px-4 md:grid-cols-12 md:px-6">
-        {projects.map((project) =>
+        {featuredProjects.map((project) =>
         <Link
           to={`/project/${project.slug}`}
           key={project.slug}

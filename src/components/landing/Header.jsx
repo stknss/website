@@ -4,10 +4,10 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { label: 'Процесс', href: '#process' },
-  { label: 'Философия', href: '#philosophy' },
   { label: 'Работы', href: '#portfolio' },
   { label: 'О нас', href: '/about' },
   { label: 'Специалисты', href: '/specialists' },
+  { label: 'Прайс-лист', href: '/pricelist' },
   { label: 'Контакты', href: '#contact' },
 ];
 

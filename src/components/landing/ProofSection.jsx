@@ -14,9 +14,9 @@ export default function ProofSection() {
             className="grid h-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border">
             
             {[
-            { value: '60+', label: 'Реализованных проектов' },
+            { value: '40+', label: 'Реализованных проектов' },
             { value: '12', label: 'Лет на рынке' },
-            { value: '98%', label: 'Сдача в срок' },
+            { value: '>95%', label: 'Сдача в срок' },
             { value: '30+', label: 'Большой штат проверенных подрядчиков' }].
             map((stat) =>
             <div key={stat.label} className="flex flex-col justify-center bg-card p-8">

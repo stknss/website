@@ -21,11 +21,11 @@ export default function ContactSection() {
 
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:gap-6">
-            <a href="mailto:hello@zhar-ptitsa.design" className="font-mono text-sm text-primary hover:underline">
-              hello@zhar-ptitsa.design
+            <a href="mailto:studio@zhar-ptitsa.ru" className="font-mono text-sm text-primary hover:underline">
+              studio@zhar-ptitsa.ru
             </a>
-            <a href="tel:+79990000000" className="font-mono text-sm text-primary hover:underline">
-              +7 999 000-00-00
+            <a href="tel:+79122474749" className="font-mono text-sm text-primary hover:underline">
+              +7 912 247-47-49
             </a>
           </div>
         </div>

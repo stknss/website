@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Award, Briefcase, GraduationCap } from 'lucide-react';
 import BackButton from '@/components/BackButton';
+import Lightbox from '@/components/Lightbox';
 
 const specialists = [
 {
@@ -28,6 +30,7 @@ const VIDEO_ID = 'SjgB45muIQk'; // ID видео на YouTube
 const VIDEO_START = 1139; // секунда, с которой начинается воспроизведение
 
 export default function Specialists() {
+  const [lightboxImg, setLightboxImg] = useState(null);
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32" aria-labelledby="specialists-title">
@@ -60,8 +63,9 @@ export default function Specialists() {
                 <img
                 src={person.photo}
                 alt={person.alt}
-                className="h-48 w-48 shrink-0 rounded-[1.5rem] object-cover shadow-lg"
-                loading="lazy" />
+                className="h-48 w-48 shrink-0 cursor-pointer rounded-[1.5rem] object-cover shadow-lg transition hover:opacity-90"
+                loading="lazy"
+                onClick={() => setLightboxImg(person.photo)} />
               
                 <div className="flex-1">
                   <h3 className="font-display text-3xl font-light italic">{person.name}</h3>
@@ -116,6 +120,13 @@ export default function Specialists() {
           </div>
         </div>
       </section>
+      {lightboxImg && (
+        <Lightbox
+          images={[lightboxImg]}
+          showNavigation={false}
+          onClose={() => setLightboxImg(null)}
+        />
+      )}
     </main>);
 
 }

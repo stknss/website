@@ -11,7 +11,7 @@ export default function PortfolioSection() {
     <section id="portfolio" className="px-6 py-12 lg:px-10 lg:py-16" aria-labelledby="portfolio-title">
       <div className="mx-auto mb-8 max-w-7xl">
         <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши Проекты</p>
-        <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl">
+        <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-4xl font-light italic leading-none md:text-7xl">
           Интерьеры, где красота держится на точном расчёте
         </h2>
       </div>
@@ -25,9 +25,9 @@ export default function PortfolioSection() {
             <img src={project.image} alt={project.alt} className="h-[50vh] min-h-[340px] w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
             <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[linear-gradient(45deg,transparent_48%,hsl(var(--primary)/0.35)_49%,transparent_51%),linear-gradient(-45deg,transparent_48%,hsl(var(--accent)/0.18)_49%,transparent_51%)] bg-[length:48px_48px]" aria-hidden="true" />
-            <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-2 rounded-2xl border border-border bg-background/70 p-5 backdrop-blur-md sm:flex-row sm:items-end sm:justify-between">
-              <h3 className="text-2xl font-medium hyphens-manual lg:hyphens-none">{project.title}</h3>
-              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{project.meta}</p>
+            <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
+              <h3 className="text-lg font-medium hyphens-manual md:text-2xl">{project.title}</h3>
+              <p className="ml-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{project.meta}</p>
             </div>
           </Link>
         )}

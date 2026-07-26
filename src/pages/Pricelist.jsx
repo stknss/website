@@ -5,6 +5,7 @@ import BackButton from '@/components/BackButton';
 const packages = [
 {
   name: 'Эскизный проект',
+  price: 'от 2 500 руб./м²',
   includes: [
   'обмерный план;',
   'техническое задание и бриф;',
@@ -18,6 +19,7 @@ const packages = [
 },
 {
   name: 'Дизайн-проект',
+  price: 'от 4 000 руб./м²',
   includes: [
   'всё из эскизного проекта;',
   'финальное планировочное решение;',
@@ -33,6 +35,7 @@ const packages = [
 },
 {
   name: 'Полный дизайн-проект + комплектация',
+  price: 'от 5 500 руб./м²',
   includes: [
   'полный дизайн-проект;',
   'подбор чистовых материалов;',
@@ -45,6 +48,7 @@ const packages = [
 },
 {
   name: 'Управление проектом',
+  price: 'от 50 000 руб./месяц',
   includes: [
   'регулярные выезды на объект;',
   'контроль соответствия стройки проекту;',
@@ -53,8 +57,7 @@ const packages = [
   'контроль ключевых узлов и деталей;',
   'взаимодействие с поставщиками и исполнителями.'],
 
-  fits: 'клиентов, кто хотел бы полного контроля соответствия реализации дизайн-проекту.',
-  note: 'Авторское сопровождение не заменяет технический надзор, но помогает сохранить идею проекта в реализации.'
+  fits: 'клиентов, кто хотел бы полного контроля соответствия реализации дизайн-проекту.'
 }];
 
 
@@ -169,7 +172,10 @@ export default function Pricelist() {
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {packages.map((pkg) =>
             <div key={pkg.name} className="rounded-[2rem] border border-border bg-card p-8">
-                <h3 className="font-display text-2xl font-light italic text-foreground">{pkg.name}</h3>
+                <div className="flex flex-wrap items-baseline justify-between gap-3">
+                  <h3 className="font-display text-2xl font-light italic text-foreground">{pkg.name}</h3>
+                  <span className="font-mono text-sm uppercase tracking-[0.14em] text-primary">{pkg.price}</span>
+                </div>
                 <List items={pkg.includes} />
                 {pkg.fits &&
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
@@ -177,34 +183,6 @@ export default function Pricelist() {
                     {pkg.fits}
                   </p>
               }
-                {pkg.note &&
-              <p className="mt-4 rounded-xl border border-primary/30 bg-primary/5 p-4 text-sm leading-relaxed text-muted-foreground">
-                    <span className="font-mono uppercase tracking-[0.14em] text-primary">Важно: </span>
-                    {pkg.note}
-                  </p>
-              }
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Услуги и цены */}
-        <div className="mx-auto mt-20 max-w-7xl">
-          <SectionTitle>Услуги и цены</SectionTitle>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {prices.map((item) =>
-            <div key={item.name} className="flex flex-col rounded-[2rem] border border-border bg-card p-8">
-                <div className="flex flex-wrap items-baseline justify-between gap-3">
-                  <h3 className="font-display text-2xl font-light italic text-foreground">{item.name}</h3>
-                  <span className="font-mono text-sm uppercase tracking-[0.14em] text-primary">{item.price}</span>
-                </div>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{item.desc}</p>
-                <p className="mt-5 font-mono text-xs uppercase tracking-[0.18em] text-primary">Что входит</p>
-                <List items={item.includes} />
-                <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
-                  <span className="font-mono uppercase tracking-[0.14em] text-primary">Для кого: </span>
-                  {item.audience}
-                </p>
               </div>
             )}
           </div>

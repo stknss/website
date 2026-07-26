@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import projects, { getProjectBySlug } from '@/lib/projects';
 import BackButton from '@/components/BackButton';
+import Lightbox from '@/components/Lightbox';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
+  const [lightboxIndex, setLightboxIndex] = useState(null);
 
   if (!project) {
     return (
@@ -59,14 +62,20 @@ export default function ProjectDetail() {
                 alt={`${project.title} — фото ${i + 1}`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                className={`h-[50vh] w-full rounded-[2rem] object-cover shadow-lg ${
-                  i === 0 ? 'md:col-span-2' : ''
-                }`}
+                transition={{ duration: 0.6, delay: Math.min(i * 0.1, 1) }}
+                className="h-[50vh] w-full cursor-pointer rounded-[2rem] object-cover shadow-lg transition hover:opacity-90"
                 loading="lazy"
+                onClick={() => setLightboxIndex(i)}
               />
             ))}
           </div>
+          {lightboxIndex !== null && (
+            <Lightbox
+              images={project.gallery}
+              initialIndex={lightboxIndex}
+              onClose={() => setLightboxIndex(null)}
+            />
+          )}
 
           <div className="mt-14 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
             <Link

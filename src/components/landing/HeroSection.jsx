@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import SparkleOverlay from './SparkleOverlay';
 
 const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/561e2c803_ChatGPTImage13202622_08_44.png';
 
@@ -35,12 +34,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <SparkleOverlay>
-            <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
-            alt="Жар-птица — символ бюро"
-            className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
-            loading="eager" />
-          </SparkleOverlay>
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
+
+          alt="Жар-птица — символ бюро"
+          className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
+          loading="eager" />
         </motion.div>
 
         {/* Left: text */}
@@ -75,7 +73,7 @@ export default function HeroSection() {
               href="#contact"
               className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
               Забронировать встречу
-              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-background transition group-hover:translate-x-1">
+              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </a>
@@ -83,7 +81,7 @@ export default function HeroSection() {
               href="#portfolio"
               className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]">
               Смотреть работы
-              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full bg-primary text-primary-foreground transition group-hover:translate-x-1">
+              <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-border transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </a>
@@ -96,12 +94,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center lg:col-span-1">
-          <SparkleOverlay className="w-full">
-            <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
-            alt="Жар-птица — символ бюро"
-            className="w-full h-full object-cover"
-            loading="eager" />
-          </SparkleOverlay>
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
+
+          alt="Жар-птица — символ бюро"
+          className="w-full h-full object-cover"
+          loading="eager" />
         </motion.div>
       </div>
     </section>);

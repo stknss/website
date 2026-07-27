@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react';
 import projects, { getProjectBySlug } from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 import Lightbox from '@/components/Lightbox';
+import GalleryImage from '@/components/GalleryImage';
 
 export default function ProjectDetail() {
   const { slug } = useParams();
@@ -56,15 +57,11 @@ export default function ProjectDetail() {
 
           <div className="mt-14 columns-1 gap-6 sm:columns-2">
             {project.gallery.map((img, i) => (
-              <motion.img
+              <GalleryImage
                 key={i}
                 src={img}
                 alt={`${project.title} — фото ${i + 1}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: Math.min(i * 0.1, 1) }}
-                className="mb-6 block w-full break-inside-avoid cursor-pointer rounded-[2rem] shadow-lg transition hover:opacity-90"
-                loading="lazy"
+                index={i}
                 onClick={() => setLightboxIndex(i)}
               />
             ))}

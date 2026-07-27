@@ -5,7 +5,7 @@ const projects = [
     meta: 'Екатеринбург · редизайн интерьеров · реализация под ключ',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0561ea45a_2.jpg',
     alt: 'Лобби гостиницы Грин Парк Отель после редизайна',
-    wide: true,
+    wide: false,
     description: 'Редизайн интерьеров гостиницы «Грин Парк Отель» — масштабный проект, в котором мы обновили общественные зоны и номера, сохранив узнаваемый характер отеля. Новая концепция строится на натуральной палитре, тактильных материалах и продуманном свете. Номера отеля получили обновлённую мебель, текстиль и декор, стали спокойнее и уютнее. Интерес посетителей к отелю вырос после редизайна.',
     gallery: [
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0561ea45a_2.jpg',
@@ -78,28 +78,61 @@ const projects = [
     slug: 'dom-italian-provence',
     title: 'Дом в стиле Итальянский прованс',
     meta: '450 м² · Свердловская область · реализация под ключ',
-    image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',
+    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/672f9dc72_1.jpg',
     alt: 'Частный дом в стиле Итальянский прованс в Свердловской области',
     wide: false,
     description: 'Дом в стиле Итальянский прованс — проект, в котором мы воплотили мечту о загородной жизни с южноевропейским колоритом. Тёплые терракотовые оттенки, натуральный камень, штукатурка и дерево создают атмосферу итальянской виллы. Просторные террасы, внутренний дворик с фонтаном и панорамные окна связывают интерьер с природой. Проект реализован под ключ — от архитектурной концепции до ландшафтного дизайна.',
     gallery: [
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80',
-      'https://images.unsplash.com/photo-1613490493576-7fde63acd311?w=800&q=80',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/672f9dc72_1.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/5c5ceacda_2.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a161cf5f3_3.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2db0d2150_4.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0e1cdf726_5.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a86f337c2_6.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/3a777c982_7.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/440e65697_8.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0ad2c4055_9.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/3f0fc402c_10.jpg',
     ],
   },
   {
     slug: 'clever-park-95',
     title: 'Clever park',
     meta: '95 м² · Екатеринбург · реализация под ключ',
-    image: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80',
+    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/50f0d500e_1.jpg',
     alt: 'Современная квартира в Clever park с тёплыми фактурами и продуманным светом',
     wide: false,
     description: 'Квартира в Clever park — лаконичный, функциональный интерьер с акцентом на текстуры и свет. Кухня-гостиная стала сердцем дома: здесь готовят, принимают гостей и проводят вечера. Деревянные фасады, микроцемент и тёплая подсветка создают уют, а продуманная эргономика делает каждый квадратный метр рабочим. Проект реализован под ключ — от первой идеи до финального предмета декора.',
     gallery: [
-      'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=80',
-      'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80',
-      'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/50f0d500e_1.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/08ebce47b_2.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8e347575b_3.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/3b856bc92_4.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6c58bae15_5.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/42dc906c9_6.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/dda366638_7.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8babb4a64_8.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ad663efa2_9.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/853959cc4_10.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9be890830_11.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/41c32cf0c_12.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0e9990676_13.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fc65f8d9f_14.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/364184d67_15.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1086f9939_16.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7444cc413_17.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c93eb67bf_18.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/4abc785cd_19.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2e23a615d_20.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/86ae661d5_21.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fd046aa10_22.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2290777e1_23.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/50a92e2e1_24.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c2fd823d7_25.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/cadf6f7f3_26.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/be06f09f4_27.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/4becd3186_28.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/35bb7a421_29.jpg',
     ],
   },
   {
@@ -122,7 +155,7 @@ const projects = [
     meta: '160 м² · Екатеринбург · реализация под ключ',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
     alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',
-    wide: false,
+    wide: true,
     description: 'Просторная квартира в Clever park для молодой семьи — лаконичный, функциональный интерьер с акцентом на текстуры и свет. Кухня-гостиная с каменным островом стала сердцем дома: здесь готовят, принимают гостей и проводят вечера. Офис, выделенный под отдельную комнату, получился одновременно строгим и уютным за счёт внедрения элементов арт-деко в проект. Помимо этого, здесь полностью было реализовано оснащение квартиры не только мебелью и бытовой техникой, но и электроникой, как, например, сделанный в корпусе стола рабочий ПК с водяным охлаждением. Проект оснащен современной системой умного дома и  реализован под ключ — от первой идеи до финального предмета декора.',
     gallery: [
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
@@ -149,7 +182,8 @@ const projects = [
 
 export default projects;
 
-export const featuredSlugs = ['zhk-kandinskiy', 'green-park-hotel', 'clever-park', 'office-nefteyugansk'];
+// Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), Грин Парк (узкий), АБК (широкий)
+export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'green-park-hotel', 'office-nefteyugansk'];
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug);

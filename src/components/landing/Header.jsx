@@ -34,7 +34,7 @@ export default function Header() {
           <img
             src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/f8707a36c_logo1.png"
             alt="Жар-птица"
-            className="h-10 w-10 object-contain lg:mr-2"
+            className="h-10 w-10 rounded-full object-cover lg:mr-2"
           />
           <span className="hidden font-display text-xl font-light italic text-foreground lg:inline">Жар-птица</span>
         </Link>

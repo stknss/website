@@ -11,7 +11,7 @@ const specialists = [
   photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1c27f127c_DSCF3297.jpg',
   alt: 'Светлана Лекомцева — дизайнер-архитектор бюро Жар-птица',
   experience: '25 лет',
-  education: ['УрГАХА, факультет архитектуры и дизайна', 'Кунгур, художественное училище'],
+  education: 'УрГАХА, факультет архитектуры и дизайна\nКунгур, художественное училище',
   description:
   'Светлана — душа каждого проекта. Она видит пространство художественно: чувствует пропорции, свет и фактуры. За 25 лет практики спроектировала более 100 различных интерьеров — от компактных студий до загородных резиденций. Её подход: сначала понять, как живёт семья, и только потом — приступать к проектированию.'
 },
@@ -21,7 +21,7 @@ const specialists = [
   photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a9a8e456f_AI-3.jpg',
   alt: 'Сергей Сеткин — инженер-строитель бюро Жар-птица',
   experience: '30 лет',
-  education: ['УПИ им. С. М. Кирова, механико-машиностроительный факультет'],
+  education: 'УПИ им. С. М. Кирова, механико-машиностроительный факультет',
   description:
   'За все время работы в строительной сфере, Сергей прошел путь от прораба до руководителя крупных строек, в число которых входят торговые центры, спортивные сооружения, заводы и даже атомная электростанция. Перейдя в сферу частных заказов, Сергей стал отвечать за то, чтобы задуманная красота проекта держалась на точном расчёте и правильной реализации. Весь опыт и знания успешно учитываются в каждом отдельном проекте — он знает каждый узел, каждый норматив и умеет договориться с подрядчиками так, чтобы объект был сдан в срок и без сюрпризов.'
 }];
@@ -76,11 +76,10 @@ export default function Specialists() {
                     <span className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs text-muted-foreground">
                       <Briefcase className="h-3.5 w-3.5 text-primary" /> Стаж: {person.experience}
                     </span>
-                    {(Array.isArray(person.education) ? person.education : [person.education]).map((edu, idx) => (
-                    <span key={idx} className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs text-muted-foreground">
-                      <GraduationCap className="h-3.5 w-3.5 text-primary" /> {edu}
+                    <span className="inline-flex items-start gap-2 rounded-full border border-border px-4 py-1.5 font-mono text-xs text-muted-foreground">
+                      <GraduationCap className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                      <span className="whitespace-pre-line">{person.education}</span>
                     </span>
-                    ))}
                   </div>
                 </div>
               </div>

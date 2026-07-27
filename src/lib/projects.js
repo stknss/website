@@ -5,7 +5,7 @@ const projects = [
     meta: 'Екатеринбург · редизайн интерьеров · реализация под ключ',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0561ea45a_2.jpg',
     alt: 'Лобби гостиницы Грин Парк Отель после редизайна',
-    wide: false,
+    wide: true,
     description: 'Редизайн интерьеров гостиницы «Грин Парк Отель» — масштабный проект, в котором мы обновили общественные зоны и номера, сохранив узнаваемый характер отеля. Новая концепция строится на натуральной палитре, тактильных материалах и продуманном свете. Номера отеля получили обновлённую мебель, текстиль и декор, стали спокойнее и уютнее. Интерес посетителей к отелю вырос после редизайна.',
     gallery: [
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0561ea45a_2.jpg',
@@ -20,17 +20,32 @@ const projects = [
     ],
   },
   {
-    slug: 'dom-palniks',
-    title: 'Частный дом',
-    meta: 'п. Палникс · проектирование и реализация ландшафтного освещения',
-    image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80',
-    alt: 'Частный дом в посёлке Палникс с архитектурной подсветкой фасадов',
-    wide: false,
-    description: 'Это проект, где свет стал главным инструментом для нашей команды. Задача состояла в реконструкции устаревших светильников и областей освещения. Мы спроектировали и реализовали многоуровневую систему ландшафтного освещения: архитектурную подсветку фасадов, сценарии для террасы и сада, акцентный свет на архитектурных деталях и тёплый рассеянный свет в интерьерах. Каждый сценарий настроен под время суток или настроение — от торжественного приёма гостей до тихого семейного вечера.',
+    slug: 'clever-park',
+    title: 'Clever park',
+    meta: '160 м² · Екатеринбург · реализация под ключ',
+    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
+    alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',
+    wide: true,
+    description: 'Просторная квартира в Clever park для молодой семьи — лаконичный, функциональный интерьер с акцентом на текстуры и свет. Кухня-гостиная с каменным островом стала сердцем дома: здесь готовят, принимают гостей и проводят вечера. Офис, выделенный под отдельную комнату, получился одновременно строгим и уютным за счёт внедрения элементов арт-деко в проект. Помимо этого, здесь полностью было реализовано оснащение квартиры не только мебелью и бытовой техникой, но и электроникой, как, например, сделанный в корпусе стола рабочий ПК с водяным охлаждением. Проект оснащен современной системой умного дома и  реализован под ключ — от первой идеи до финального предмета декора.',
     gallery: [
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80',
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-      'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4e65ea0d_17.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/f1469a6cb_16.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2ef225149_15.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d9bf7972b_14.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1a0d987f0_13.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/18172ee75_12.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/81e89db39_11.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9bfe691fd_10.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6453d516a_9.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d20936b79_7.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8841a64df_6.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/62273d6a6_5.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ef8fe4413_4.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2a46d4fee_3.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/082738b8b_18.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ebc1a5056_2.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2dac6cc2f_1.jpg',
     ],
   },
   {
@@ -66,7 +81,7 @@ const projects = [
     meta: 'Советский · административно-бытовой комплекс · реализация под ключ',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
     alt: 'Здание административно-бытового комбината лесоперерабатывающего комбината в Советском',
-    wide: true,
+    wide: false,
     description: 'Здание АБК лесоперерабатывающего комбината в ХМАО  — масштабный проект, подразумевающий полное обновление здания, от усиления силового каркаса здания, изменения фасадов до интерьеров помещений вместе со всеми инженерными коммуникациями.  Нашей задачей было создать функциональное и современное пространство, отражающее характер предприятия: открытые рабочие зоны, офисные помещения с акцентом на древесные фактуры и продуманную навигацию. Современные материалы и проектные решения подчёркивают промышленную эстетику и делают здание комфортным для сотрудников.',
     gallery: [
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
@@ -150,40 +165,25 @@ const projects = [
     ],
   },
   {
-    slug: 'clever-park',
-    title: 'Clever park',
-    meta: '160 м² · Екатеринбург · реализация под ключ',
-    image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
-    alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',
-    wide: true,
-    description: 'Просторная квартира в Clever park для молодой семьи — лаконичный, функциональный интерьер с акцентом на текстуры и свет. Кухня-гостиная с каменным островом стала сердцем дома: здесь готовят, принимают гостей и проводят вечера. Офис, выделенный под отдельную комнату, получился одновременно строгим и уютным за счёт внедрения элементов арт-деко в проект. Помимо этого, здесь полностью было реализовано оснащение квартиры не только мебелью и бытовой техникой, но и электроникой, как, например, сделанный в корпусе стола рабочий ПК с водяным охлаждением. Проект оснащен современной системой умного дома и  реализован под ключ — от первой идеи до финального предмета декора.',
+    slug: 'dom-palniks',
+    title: 'Частный дом',
+    meta: 'п. Палникс · проектирование и реализация ландшафтного освещения',
+    image: 'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80',
+    alt: 'Частный дом в посёлке Палникс с архитектурной подсветкой фасадов',
+    wide: false,
+    description: 'Это проект, где свет стал главным инструментом для нашей команды. Задача состояла в реконструкции устаревших светильников и областей освещения. Мы спроектировали и реализовали многоуровневую систему ландшафтного освещения: архитектурную подсветку фасадов, сценарии для террасы и сада, акцентный свет на архитектурных деталях и тёплый рассеянный свет в интерьерах. Каждый сценарий настроен под время суток или настроение — от торжественного приёма гостей до тихого семейного вечера.',
     gallery: [
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/fffc8def5_8.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4e65ea0d_17.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/f1469a6cb_16.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2ef225149_15.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d9bf7972b_14.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1a0d987f0_13.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/18172ee75_12.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/81e89db39_11.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9bfe691fd_10.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6453d516a_9.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d20936b79_7.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8841a64df_6.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/62273d6a6_5.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ef8fe4413_4.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2a46d4fee_3.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/082738b8b_18.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ebc1a5056_2.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2dac6cc2f_1.jpg',
+      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=1200&q=80',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+      'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=800&q=80',
     ],
   },
 ];
 
 export default projects;
 
-// Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), Грин Парк (узкий), АБК (широкий)
-export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'green-park-hotel', 'office-nefteyugansk'];
+// Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), АБК (узкий), Грин Парк (широкий)
+export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'green-park-hotel'];
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug);

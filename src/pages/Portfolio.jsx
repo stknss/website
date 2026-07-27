@@ -39,7 +39,7 @@ export default function Portfolio() {
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
-                  <h3 className="text-2xl font-medium hyphens-manual lg:hyphens-none">{project.title}</h3>
+                  <h3 className="text-2xl font-medium hyphens-manual">{project.title}</h3>
                   <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
                     {project.meta}
                   </p>

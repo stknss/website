@@ -14,8 +14,8 @@ export default function ProofSection() {
             className="grid h-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border">
             
             {[
-            { value: '70+', label: 'Реализованных проектов' },
-            { value: '20', label: 'Лет на рынке' },
+            { value: '65+', label: 'Реализованных проектов' },
+            { value: '18', label: 'Лет на рынке' },
             { value: '>95%', label: 'Сдача в срок' },
             { value: '30+', label: 'Большой штат проверенных подрядчиков' }].
             map((stat) =>
@@ -34,7 +34,7 @@ export default function ProofSection() {
         </div>
         <div className="lg:col-span-7">
           
-          <h2 id="proof-title" className="font-display text-[1.75rem] font-light italic leading-none text-foreground md:text-7xl">В нашей работе баланс: взгляд архитектора и подход инженера-строителя
+          <h2 id="proof-title" className="font-display text-[2rem] font-light italic leading-none text-foreground md:text-7xl">В нашей работе баланс: взгляд архитектора и подход инженера-строителя
 
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Мы ведём проект от первой идеи до последнего предмета на полке: видим пространство художественно, считаем технически и информируем клиента по всем нюансам ремонта.

@@ -13,14 +13,14 @@ export default function ContactSection() {
       <div className="relative mx-auto grid max-w-7xl gap-14 lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-7">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Начнём с разговора</p>
-          <h2 id="contact-title" className="mt-6 font-display text-[1.75rem] font-light italic leading-[0.9] text-foreground md:text-8xl">Давайте создадим ваш будущий дом
+          <h2 id="contact-title" className="mt-6 font-display text-[2rem] font-light italic leading-[0.9] text-foreground md:text-8xl">Давайте создадим ваш будущий дом
 
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Оставьте контакты в заявке или свяжитесь с нами по указанному ниже номеру — мы уточним задачу, формат объекта и предложим первый шаг: консультацию, концепцию или полный проект под ключ.
 
 
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-3 sm:gap-6">
+          <div className="mt-10 flex flex-col gap-3 sm:max-w-xl sm:flex-row sm:items-center sm:justify-between">
             <a href="mailto:studio@zhar-ptitsa.ru" className="font-mono text-sm text-primary hover:underline">
               studio@zhar-ptitsa.ru
             </a>

@@ -163,13 +163,12 @@ export default function Pricelist() {
         <div className="mx-auto max-w-7xl">
           <BackButton />
           <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">Прайс-лист</p>
-          <h1 className="mt-5 font-display text-5xl font-light italic leading-none md:text-7xl">Стоимость услуг и пакетов проектирования</h1>
+          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
         </div>
 
         {/* Пакеты */}
         <div className="mx-auto mt-20 max-w-7xl">
-          <SectionTitle>Пакеты по проектированию</SectionTitle>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {packages.map((pkg) =>
             <div key={pkg.name} className="rounded-[2rem] border border-border bg-card p-8">
                 <div className="flex flex-wrap items-baseline justify-between gap-3">

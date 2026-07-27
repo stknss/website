@@ -8,10 +8,10 @@ export default function PortfolioSection() {
     .filter(Boolean);
 
   return (
-    <section id="portfolio" className="px-6 py-12 lg:px-10 lg:py-16" aria-labelledby="portfolio-title">
-      <div className="mx-auto mb-8 max-w-7xl">
+    <section className="px-6 py-12 lg:px-10 lg:py-16" aria-labelledby="portfolio-title">
+      <div id="portfolio" className="mx-auto mb-8 max-w-7xl scroll-mt-16">
         <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Наши Проекты</p>
-        <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-[1.75rem] font-light italic leading-none md:text-7xl">
+        <h2 id="portfolio-title" className="mt-5 max-w-4xl font-display text-[2rem] font-light italic leading-none md:text-7xl">
           Интерьеры, где красота держится на точном расчёте
         </h2>
       </div>

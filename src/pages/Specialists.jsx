@@ -18,7 +18,7 @@ const specialists = [
 {
   name: 'Сергей Сеткин',
   role: 'Инженер-строитель, основатель',
-  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6e7e49bad_DSC_9758.jpg',
+  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d0c866bdc_.jpg',
   alt: 'Сергей Сеткин — инженер-строитель бюро Жар-птица',
   experience: '30 лет',
   education: 'УПИ им. С. М. Кирова, строительный факультет',

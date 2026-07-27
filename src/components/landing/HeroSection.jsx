@@ -59,9 +59,9 @@ export default function HeroSection() {
 
           </p>
 
-          <div className="mt-8 flex flex-nowrap items-center gap-x-3 sm:gap-x-7">
+          <div className="mt-8 flex flex-nowrap items-center gap-x-4 sm:gap-x-9">
             {['Дизайн', 'Проектирование', 'Реализация'].map((tag, i) =>
-            <div key={tag} className="flex items-center gap-3 sm:gap-7">
+            <div key={tag} className="flex items-center gap-4 sm:gap-9">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-primary/50" aria-hidden="true" />}
               <span className="font-mono text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.24em] text-primary/80 whitespace-nowrap">{tag}</span>
             </div>

@@ -90,7 +90,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 4rem;
+    scroll-padding-top: calc(4rem + 4px);
   }
 
   body {

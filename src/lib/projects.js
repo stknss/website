@@ -5,18 +5,18 @@ const projects = [
     meta: 'Екатеринбург · редизайн интерьеров · реализация под ключ',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ba4c1c122_1.jpg',
     alt: 'Лобби гостиницы Грин Парк Отель после редизайна',
-    wide: false,
+    wide: true,
     description: 'Редизайн интерьеров гостиницы «Грин Парк Отель» — масштабный проект, в котором мы обновили общественные зоны и номера, сохранив узнаваемый характер отеля. Новая концепция строится на натуральной палитре, тактильных материалах и продуманном свете. Номера отеля получили обновлённую мебель, текстиль и декор, стали спокойнее и уютнее. Интерес посетителей к отелю вырос после редизайна.',
     gallery: [
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ba4c1c122_1.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ef65ca1bb_5.jpg',
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0561ea45a_2.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/684de075d_4.jpg',
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/e0f1563df_3.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/684de075d_4.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ef65ca1bb_5.jpg',
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/da89e6a46_6.jpg',
-      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/bc093efa5_9.jpg',
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/e250ac540_7.jpg',
       'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a17a15bdb_8.jpg',
+      'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/bc093efa5_9.jpg',
     ],
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     meta: 'Советский · административно-бытовой комплекс · реализация под ключ',
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
     alt: 'Здание административно-бытового комбината лесоперерабатывающего комбината в Советском',
-    wide: true,
+    wide: false,
     description: 'Здание АБК лесоперерабатывающего комбината в ХМАО  — масштабный проект, подразумевающий полное обновление здания, от усиления силового каркаса здания, изменения фасадов до интерьеров помещений вместе со всеми инженерными коммуникациями.  Нашей задачей было создать функциональное и современное пространство, отражающее характер предприятия: открытые рабочие зоны, офисные помещения с акцентом на древесные фактуры и продуманную навигацию. Современные материалы и проектные решения подчёркивают промышленную эстетику и делают здание комфортным для сотрудников.',
     gallery: [
       'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=80',
@@ -182,8 +182,8 @@ const projects = [
 
 export default projects;
 
-// Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), АБК (широкий), Грин Парк (узкий)
-export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'green-park-hotel'];
+// Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), Грин Парк (широкий), АБК (узкий)
+export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'green-park-hotel', 'office-nefteyugansk'];
 
 export function getProjectBySlug(slug) {
   return projects.find((p) => p.slug === slug);

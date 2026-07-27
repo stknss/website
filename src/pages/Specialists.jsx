@@ -11,7 +11,7 @@ const specialists = [
   photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1c27f127c_DSCF3297.jpg',
   alt: 'Светлана Лекомцева — дизайнер-архитектор бюро Жар-птица',
   experience: '25 лет',
-  education: 'УрГАХА, факультет архитектуры и дизайна\nКунгур, художественное училище',
+  education: "\u0423\u0440\u0413\u0410\u0425\u0410, \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442 \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u0443\u0440\u044B \u0438 \u0434\u0438\u0437\u0430\u0439\u043D\u0430;\n\u041A\u0443\u043D\u0433\u0443\u0440, \u0445\u0443\u0434\u043E\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u0443\u0447\u0438\u043B\u0438\u0449\u0435",
   description:
   'Светлана — душа каждого проекта. Она видит пространство художественно: чувствует пропорции, свет и фактуры. За 25 лет практики спроектировала более 100 различных интерьеров — от компактных студий до загородных резиденций. Её подход: сначала понять, как живёт семья, и только потом — приступать к проектированию.'
 },
@@ -115,19 +115,19 @@ export default function Specialists() {
                 title="Видеообзор проекта"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+                allowFullScreen />
+              
             </div>
           </div>
         </div>
       </section>
-      {lightboxImg && (
-        <Lightbox
-          images={[lightboxImg]}
-          showNavigation={false}
-          onClose={() => setLightboxImg(null)}
-        />
-      )}
+      {lightboxImg &&
+      <Lightbox
+        images={[lightboxImg]}
+        showNavigation={false}
+        onClose={() => setLightboxImg(null)} />
+
+      }
     </main>);
 
 }

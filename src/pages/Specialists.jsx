@@ -50,7 +50,7 @@ export default function Specialists() {
           
         </div>
 
-        <div className="mx-auto mt-8 grid max-w-7xl gap-10 md:mt-16 lg:grid-cols-2">
+        <div className="mx-auto mt-5 grid max-w-7xl gap-10 md:mt-16 lg:grid-cols-2">
           {specialists.map((person, i) =>
           <motion.article
             key={person.name}

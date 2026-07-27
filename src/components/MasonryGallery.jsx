@@ -1,8 +1,18 @@
 import GalleryImage from './GalleryImage';
 
 export default function MasonryGallery({ gallery, title, onImageClick }) {
-  const left = gallery.map((img, i) => ({ img, i })).filter(({ i }) => i % 2 === 0);
-  const right = gallery.map((img, i) => ({ img, i })).filter(({ i }) => i % 2 === 1);
+  const total = gallery.length;
+  const pairs = Math.floor(total / 2) * 2;
+  const left = [];
+  const right = [];
+  gallery.forEach((img, i) => {
+    if (i < pairs) {
+      if (i % 2 === 0) left.push({ img, i });
+      else right.push({ img, i });
+    } else {
+      right.push({ img, i });
+    }
+  });
 
   return (
     <>

@@ -54,7 +54,7 @@ export default function ProjectDetail() {
             </p>
           </motion.div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
+          <div className="mt-14 columns-1 gap-6 sm:columns-2">
             {project.gallery.map((img, i) => (
               <motion.img
                 key={i}
@@ -63,7 +63,7 @@ export default function ProjectDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: Math.min(i * 0.1, 1) }}
-                className="h-[50vh] w-full cursor-pointer rounded-[2rem] object-cover shadow-lg transition hover:opacity-90"
+                className="mb-6 block w-full break-inside-avoid cursor-pointer rounded-[2rem] shadow-lg transition hover:opacity-90"
                 loading="lazy"
                 onClick={() => setLightboxIndex(i)}
               />

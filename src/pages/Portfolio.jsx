@@ -5,7 +5,7 @@ import BackButton from '@/components/BackButton';
 import ProjectCover from '@/components/landing/ProjectCover';
 
 export default function Portfolio() {
-  const orderedSlugs = ['office-nefteyugansk', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'clever-park-95', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks'];
+  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks'];
   const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -35,7 +35,7 @@ export default function Portfolio() {
             >
               <ProjectCover
                 project={project}
-                className={`h-[60vh] min-h-[380px] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`}
+                className={`aspect-[3/2] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

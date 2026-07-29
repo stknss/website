@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation, useNavigationType } from "react-router-dom";
 
 const getHashId = (hash) => {
@@ -14,6 +14,7 @@ const getHashId = (hash) => {
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
   const navigationType = useNavigationType();
+  const firstLoad = useRef(true);
 
   useEffect(() => {
     if (navigationType === "POP") return;
@@ -28,6 +29,16 @@ export default function ScrollToTop() {
 
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname, hash, navigationType]);
+
+  useEffect(() => {
+    if (firstLoad.current) {
+      firstLoad.current = false;
+      return;
+    }
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", { page_path: pathname, page_location: window.location.href });
+    }
+  }, [pathname]);
 
   return null;
 }

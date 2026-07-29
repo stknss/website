@@ -36,7 +36,7 @@ export default function Header() {
             alt="Жар-птица"
             className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover mr-2"
           />
-          <span className="font-display text-lg sm:text-xl font-light italic text-foreground">Жар-птица</span>
+          <span className="hidden sm:inline font-display text-lg sm:text-xl font-light italic text-foreground">Жар-птица</span>
         </Link>
         <nav className="hidden lg:flex lg:items-center lg:gap-8" aria-label="Главная навигация">
           {navItems.map((item) => {

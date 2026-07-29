@@ -5,8 +5,6 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   const [index, setIndex] = useState(initialIndex);
   const touchStartX = useRef(null);
   const justSwiped = useRef(false);
-  const [imgDims, setImgDims] = useState({ w: 0, h: 0 });
-  const [vp, setVp] = useState({ w: 1280, h: 800 });
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % images.length);
@@ -53,34 +51,9 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
     };
   }, [onClose, next, prev, showNavigation, images.length]);
 
-  useEffect(() => {
-    const onResize = () => setVp({ w: window.innerWidth, h: window.innerHeight });
-    setVp({ w: window.innerWidth, h: window.innerHeight });
-    window.addEventListener('resize', onResize);
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => setImgDims({ w: img.naturalWidth, h: img.naturalHeight });
-    img.src = images[index];
-  }, [index, images]);
-
-  const aspect = imgDims.h > 0 ? imgDims.w / imgDims.h : 1;
-  const availW = vp.w - 40;
-  const availH = vp.h - 40;
-  let fillByWidth = imgDims.w >= imgDims.h;
-  if (fillByWidth) {
-    const fillH = availW / aspect;
-    if (fillH > availH && (fillH - availH) / fillH > 0.2) fillByWidth = false;
-  }
-  const imgClass = fillByWidth
-    ? 'w-full h-auto max-w-[calc(100vw-40px)] rounded-[1rem] sm:rounded-[1.5rem]'
-    : 'h-full w-auto max-h-[calc(100vh-40px)] max-w-[calc(100vw-40px)] rounded-[1rem] sm:rounded-[1.5rem]';
-
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-background/95 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm"
       onClick={handleOverlayClick}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -104,7 +77,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       <img
         src={images[index]}
         alt=""
-        className={imgClass}
+        className="max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:max-h-[calc(100vh-40px)] sm:max-w-[calc(100vw-40px)]"
         onClick={(e) => e.stopPropagation()}
       />
       {showNavigation && images.length > 1 && (

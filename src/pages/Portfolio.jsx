@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
+import ProjectCover from '@/components/landing/ProjectCover';
 
 export default function Portfolio() {
   const orderedSlugs = ['green-park-hotel', 'office-nefteyugansk', 'zhk-kandinskiy', 'clever-park', 'clever-park-95', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks'];
@@ -32,11 +33,9 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="group relative overflow-hidden rounded-[2rem]"
             >
-              <img
-                src={project.image}
-                alt={project.alt}
+              <ProjectCover
+                project={project}
                 className={`h-[60vh] min-h-[380px] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`}
-                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">

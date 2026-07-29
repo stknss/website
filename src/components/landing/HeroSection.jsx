@@ -34,7 +34,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/204d9b9be_logomain-2.png"
 
           alt="Жар-птица — символ бюро"
           className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
@@ -50,7 +50,7 @@ export default function HeroSection() {
 
           <h1
             id="hero-title"
-            className="font-display text-6xl font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-[6.75rem]">Дизайн-бюро<br className="lg:hidden" /> "Жар-птица"
+            className="font-display text-[4.25rem] font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-[6.75rem]">Дизайн-бюро<br className="lg:hidden" /> "Жар-птица"
 
           </h1>
 
@@ -94,10 +94,10 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center lg:col-span-1">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d4df25bc0_Adobe_Express_-_file__1_.png"
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/204d9b9be_logomain-2.png"
 
           alt="Жар-птица — символ бюро"
-          className="w-full h-full object-cover"
+          className="w-full max-h-[75vh] object-contain"
           loading="eager" />
         </motion.div>
       </div>

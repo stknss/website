@@ -21,6 +21,7 @@ export default function GalleryImage({ src, alt, index, onClick }) {
           : 'h-[300px] sm:h-[480px]'
       }`}
       loading="lazy"
+      decoding="async"
       onClick={onClick}
     />
   );

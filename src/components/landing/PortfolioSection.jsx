@@ -22,10 +22,10 @@ export default function PortfolioSection() {
           key={project.slug}
           className={`${project.wide ? 'md:col-span-7' : 'md:col-span-5'} group relative overflow-hidden rounded-[2rem] block`}
         >
-            <img src={project.image} alt={project.alt} className="h-[50vh] min-h-[340px] w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/25 to-transparent" />
+            <img src={project.image} alt={project.alt} className="h-[55vh] min-h-[380px] w-full object-cover object-bottom transition duration-700 group-hover:scale-105" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
             <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[linear-gradient(45deg,transparent_48%,hsl(var(--primary)/0.35)_49%,transparent_51%),linear-gradient(-45deg,transparent_48%,hsl(var(--accent)/0.18)_49%,transparent_51%)] bg-[length:48px_48px]" aria-hidden="true" />
-            <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-2 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:p-5">
+            <div className="absolute bottom-2 left-4 right-4 flex flex-col gap-2 rounded-2xl border border-border bg-background/70 p-3 backdrop-blur-md sm:bottom-4 sm:left-6 sm:right-6 sm:p-5">
               <h3 className="text-lg font-medium hyphens-manual md:text-2xl">{project.title}</h3>
               <p className="ml-2 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{project.meta}</p>
             </div>

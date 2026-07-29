@@ -34,9 +34,9 @@ export default function Header() {
           <img
             src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9ee3dc890_logo2.png"
             alt="Жар-птица"
-            className="h-10 w-10 rounded-full object-cover lg:mr-2"
+            className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover mr-2"
           />
-          <span className="hidden font-display text-xl font-light italic text-foreground lg:inline">Жар-птица</span>
+          <span className="font-display text-lg sm:text-xl font-light italic text-foreground">Жар-птица</span>
         </Link>
         <nav className="hidden lg:flex lg:items-center lg:gap-8" aria-label="Главная навигация">
           {navItems.map((item) => {

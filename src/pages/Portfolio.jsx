@@ -4,6 +4,8 @@ import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 
 export default function Portfolio() {
+  const orderedSlugs = ['green-park-hotel', 'clever-park', 'zhk-kandinskiy', 'office-nefteyugansk', 'clever-park-95', 'dom-italian-provence', 'house-sverdlovsk', 'dom-palniks'];
+  const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-16 lg:px-10 lg:pb-24" aria-labelledby="portfolio-title">
@@ -22,7 +24,7 @@ export default function Portfolio() {
         </div>
 
         <div className="mx-auto mt-14 grid max-w-7xl gap-8 md:grid-cols-2">
-          {projects.map((project, i) => (
+          {ordered.map((project, i) => (
             <motion.article
               key={project.slug}
               initial={{ opacity: 0, y: 24 }}
@@ -33,11 +35,11 @@ export default function Portfolio() {
               <img
                 src={project.image}
                 alt={project.alt}
-                className="h-[60vh] min-h-[380px] w-full object-cover transition duration-700 group-hover:scale-105"
+                className="h-[60vh] min-h-[380px] w-full object-cover object-bottom transition duration-700 group-hover:scale-105"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <h3 className="text-2xl font-medium hyphens-manual">{project.title}</h3>
                   <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">

@@ -20,7 +20,7 @@ export default function ContactSection() {
 
 
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-14">
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-20">
             <a href="mailto:studio@zhar-ptitsa.ru" className="font-mono text-sm text-primary hover:underline">
               studio@zhar-ptitsa.ru
             </a>

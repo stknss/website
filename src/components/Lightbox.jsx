@@ -77,7 +77,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       <img
         src={images[index]}
         alt=""
-        className="max-h-[88vh] max-w-full rounded-none object-contain sm:rounded-2xl sm:max-h-[92vh] sm:max-w-[95vw]"
+        className="max-h-[88vh] max-w-full rounded-none object-contain sm:rounded-2xl sm:max-h-[96vh] sm:max-w-[98vw]"
         onClick={(e) => e.stopPropagation()}
       />
       {showNavigation && images.length > 1 && (

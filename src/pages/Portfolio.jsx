@@ -4,7 +4,7 @@ import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 
 export default function Portfolio() {
-  const orderedSlugs = ['green-park-hotel', 'clever-park', 'zhk-kandinskiy', 'office-nefteyugansk', 'clever-park-95', 'dom-italian-provence', 'house-sverdlovsk', 'dom-palniks'];
+  const orderedSlugs = ['green-park-hotel', 'office-nefteyugansk', 'zhk-kandinskiy', 'clever-park', 'clever-park-95', 'dom-italian-provence', 'house-sverdlovsk', 'dom-palniks'];
   const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -35,7 +35,7 @@ export default function Portfolio() {
               <img
                 src={project.image}
                 alt={project.alt}
-                className="h-[60vh] min-h-[380px] w-full object-cover object-bottom transition duration-700 group-hover:scale-105"
+                className={`h-[60vh] min-h-[380px] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />

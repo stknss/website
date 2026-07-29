@@ -64,6 +64,7 @@ export default function Specialists() {
                 src={person.photo}
                 alt={person.alt}
                 className="h-48 w-48 shrink-0 cursor-pointer rounded-[1.5rem] object-cover shadow-lg transition hover:opacity-90"
+                style={{ filter: 'blur(0.3px)' }}
                 loading="lazy"
                 onClick={() => setLightboxImg(person.photo)} />
               

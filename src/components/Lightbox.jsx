@@ -66,14 +66,21 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
     img.src = images[index];
   }, [index, images]);
 
-  const fillWidth = imgDims.w === 0 || imgDims.h === 0 || imgDims.w / imgDims.h >= vp.w / vp.h;
-  const imgClass = fillWidth
-    ? 'w-full h-auto max-w-[calc(100vw-40px)] max-h-[calc(100vh-40px)] rounded-[1rem] sm:rounded-[1.5rem]'
+  const aspect = imgDims.h > 0 ? imgDims.w / imgDims.h : 1;
+  const availW = vp.w - 40;
+  const availH = vp.h - 40;
+  let fillByWidth = imgDims.w >= imgDims.h;
+  if (fillByWidth) {
+    const fillH = availW / aspect;
+    if (fillH > availH && (fillH - availH) / fillH > 0.2) fillByWidth = false;
+  }
+  const imgClass = fillByWidth
+    ? 'w-full h-auto max-w-[calc(100vw-40px)] rounded-[1rem] sm:rounded-[1.5rem]'
     : 'h-full w-auto max-h-[calc(100vh-40px)] max-w-[calc(100vw-40px)] rounded-[1rem] sm:rounded-[1.5rem]';
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-background/95 backdrop-blur-sm"
       onClick={handleOverlayClick}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}

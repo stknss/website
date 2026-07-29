@@ -16,14 +16,14 @@ export default function PortfolioSection() {
           Интерьеры, где красота держится на точном расчёте
         </h2>
       </div>
-      <div className="mx-auto grid max-w-7xl items-start gap-6 md:grid-cols-12">
+      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-12">
         {featuredProjects.map((project) =>
         <Link
           to={`/project/${project.slug}`}
           key={project.slug}
-          className={`${project.wide ? 'md:col-span-7 aspect-[3/2]' : 'md:col-span-5 aspect-[4/5]'} group relative overflow-hidden rounded-[2rem] block`}
+          className={`${project.wide ? 'md:col-span-7' : 'md:col-span-5'} group relative overflow-hidden rounded-[2rem] block`}
         >
-            <ProjectCover project={project} className={`w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`} />
+            <ProjectCover project={project} className={`h-[55vh] min-h-[380px] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`} />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
             <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[linear-gradient(45deg,transparent_48%,hsl(var(--primary)/0.35)_49%,transparent_51%),linear-gradient(-45deg,transparent_48%,hsl(var(--accent)/0.18)_49%,transparent_51%)] bg-[length:48px_48px]" aria-hidden="true" />
             <div className="absolute bottom-2 left-4 right-4 flex flex-col gap-1.5 rounded-2xl border border-border bg-background/50 p-2 backdrop-blur-md sm:bottom-4 sm:left-6 sm:right-6 sm:p-3">

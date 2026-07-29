@@ -34,7 +34,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/204d9b9be_logomain-2.png"
+          <img src="https://i.imgur.com/pAIZJIR.jpg"
 
           alt="Жар-птица — символ бюро"
           className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
@@ -94,10 +94,10 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center lg:col-span-1">
-          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/204d9b9be_logomain-2.png"
+          <img src="https://i.imgur.com/pAIZJIR.jpg"
 
           alt="Жар-птица — символ бюро"
-          className="w-full max-h-[75vh] object-contain"
+          className="w-full max-h-[85vh] object-contain"
           loading="eager" />
         </motion.div>
       </div>

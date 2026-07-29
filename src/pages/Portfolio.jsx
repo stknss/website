@@ -4,7 +4,7 @@ import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 
 export default function Portfolio() {
-  const orderedSlugs = ['green-park-hotel', 'office-nefteyugansk', 'zhk-kandinskiy', 'clever-park', 'clever-park-95', 'dom-italian-provence', 'house-sverdlovsk', 'dom-palniks'];
+  const orderedSlugs = ['green-park-hotel', 'office-nefteyugansk', 'zhk-kandinskiy', 'clever-park', 'clever-park-95', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks'];
   const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
   return (
     <main className="min-h-screen bg-background text-foreground">

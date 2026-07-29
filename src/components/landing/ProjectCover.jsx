@@ -22,6 +22,11 @@ export default function ProjectCover({ project, className }) {
       setSrc(project.image);
       return;
     }
+    // Explicit per-project mobile cover overrides auto-detection.
+    if (project.mobileImage) {
+      setSrc(project.mobileImage);
+      return;
+    }
     let cancelled = false;
     (async () => {
       const cover = await loadDims(project.image);

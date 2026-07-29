@@ -3,15 +3,18 @@ import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
 export default function Lightbox({ images, initialIndex = 0, showNavigation = true, onClose }) {
   const [index, setIndex] = useState(initialIndex);
+  const [dims, setDims] = useState({ w: 0, h: 0 });
   const touchStartX = useRef(null);
   const justSwiped = useRef(false);
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % images.length);
+    setDims({ w: 0, h: 0 });
   }, [images.length]);
 
   const prev = useCallback(() => {
     setIndex((i) => (i - 1 + images.length) % images.length);
+    setDims({ w: 0, h: 0 });
   }, [images.length]);
 
   const handleTouchStart = (e) => {
@@ -77,7 +80,12 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       <img
         src={images[index]}
         alt=""
-        className="max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:max-h-[calc(100vh-40px)] sm:max-w-[calc(100vw-40px)]"
+        onLoad={(e) => setDims({ w: e.target.naturalWidth, h: e.target.naturalHeight })}
+        className={
+          dims.w >= dims.h
+            ? "max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:h-[calc(100vh-40px)] sm:max-w-[calc(100vw-40px)]"
+            : "max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:max-h-[calc(83vh-33px)] sm:max-w-[calc(100vw-40px)]"
+        }
         onClick={(e) => e.stopPropagation()}
       />
       {showNavigation && images.length > 1 && (

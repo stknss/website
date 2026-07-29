@@ -84,7 +84,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
         className={
           dims.w >= dims.h
             ? "max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:h-[calc(100vh-40px)] sm:max-w-[calc(100vw-40px)]"
-            : "max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:max-h-[calc(83vh-33px)] sm:max-w-[calc(100vw-40px)]"
+            : "max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:h-[calc(100vh-50px)] sm:max-w-[calc(100vw-40px)]"
         }
         onClick={(e) => e.stopPropagation()}
       />

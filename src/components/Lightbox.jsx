@@ -5,6 +5,8 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   const [index, setIndex] = useState(initialIndex);
   const touchStartX = useRef(null);
   const justSwiped = useRef(false);
+  const [imgDims, setImgDims] = useState({ w: 0, h: 0 });
+  const [vp, setVp] = useState({ w: 1280, h: 800 });
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % images.length);
@@ -51,6 +53,24 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
     };
   }, [onClose, next, prev, showNavigation, images.length]);
 
+  useEffect(() => {
+    const onResize = () => setVp({ w: window.innerWidth, h: window.innerHeight });
+    setVp({ w: window.innerWidth, h: window.innerHeight });
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setImgDims({ w: img.naturalWidth, h: img.naturalHeight });
+    img.src = images[index];
+  }, [index, images]);
+
+  const fillWidth = imgDims.w === 0 || imgDims.h === 0 || imgDims.w / imgDims.h >= vp.w / vp.h;
+  const imgClass = fillWidth
+    ? 'w-full h-auto max-w-[calc(100vw-40px)] max-h-[calc(100vh-40px)] rounded-[1rem] sm:rounded-[1.5rem]'
+    : 'h-full w-auto max-h-[calc(100vh-40px)] max-w-[calc(100vw-40px)] rounded-[1rem] sm:rounded-[1.5rem]';
+
   return (
     <div
       className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm"
@@ -77,7 +97,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       <img
         src={images[index]}
         alt=""
-        className="max-h-[88vh] max-w-full rounded-[1rem] sm:rounded-[1.5rem] sm:max-h-[calc(100vh-40px)] sm:max-w-[calc(100vw-40px)]"
+        className={imgClass}
         onClick={(e) => e.stopPropagation()}
       />
       {showNavigation && images.length > 1 && (

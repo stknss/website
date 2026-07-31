@@ -251,7 +251,6 @@ const projects = [
       'https://i.imgur.com/d4FfKXv.jpg',
       'https://i.imgur.com/uVRD2oh.jpg',
       'https://i.imgur.com/LGxDZr0.jpg',
-      'https://i.imgur.com/LGxDZr0.jpg',
       'https://i.imgur.com/IMlVWHS.jpg',
       'https://i.imgur.com/Oh2EyIN.jpg',
       'https://i.imgur.com/ivtqPTB.jpg',

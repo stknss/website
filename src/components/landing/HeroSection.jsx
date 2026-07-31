@@ -63,7 +63,7 @@ export default function HeroSection() {
             {['Дизайн', 'Проектирование', 'Реализация'].map((tag, i) =>
             <div key={tag} className="flex items-center gap-4 sm:gap-9">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-primary/50" aria-hidden="true" />}
-              <span className="font-mono text-[0.85rem] sm:text-sm uppercase tracking-[0.18em] sm:tracking-[0.24em] text-primary/80 whitespace-nowrap">{tag}</span>
+              <span className="font-mono text-[0.75rem] sm:text-[0.825rem] uppercase tracking-[0.18em] sm:tracking-[0.24em] text-primary/80 whitespace-nowrap">{tag}</span>
             </div>
             )}
           </div>

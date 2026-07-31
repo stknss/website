@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import projects from '@/lib/projects';
@@ -11,21 +10,15 @@ const trackProjectClick = (slug) => {
   }
 };
 
-// Единый формат карточки — по обложке ЖК «Кандинский».
-const KANDINSKIY_COVER = projects.find((p) => p.slug === 'zhk-kandinskiy')?.image;
-
 export default function Portfolio() {
-  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'ekaterininskiy-3d', 'dom-palniks'];
-  const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
-  const [cardAspect, setCardAspect] = useState('3 / 4');
-  useEffect(() => {
-    if (!KANDINSKIY_COVER) return;
-    const img = new Image();
-    img.onload = () => {
-      if (img.naturalWidth && img.naturalHeight) setCardAspect(`${img.naturalWidth} / ${img.naturalHeight}`);
-    };
-    img.src = KANDINSKIY_COVER;
-  }, []);
+  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks', 'ekaterininskiy-3d'];
+  const ordered = orderedSlugs.map((slug) => {
+    const p = projects.find((p) => p.slug === slug);
+    if (!p) return null;
+    if (slug === 'clever-park') return { ...p, image: p.gallery[1] };
+    return p;
+  }).filter(Boolean);
+  const cardAspect = '9 / 10';
   return (
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-16 lg:px-10 lg:pb-24" aria-labelledby="portfolio-title">

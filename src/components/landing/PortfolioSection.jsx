@@ -3,6 +3,12 @@ import { ArrowRight } from 'lucide-react';
 import projects, { featuredSlugs } from '@/lib/projects';
 import ProjectCover from '@/components/landing/ProjectCover';
 
+const trackProjectClick = (slug) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "select_project", { project_slug: slug });
+  }
+};
+
 export default function PortfolioSection() {
   const featuredProjects = featuredSlugs
     .map((slug) => projects.find((p) => p.slug === slug))
@@ -21,6 +27,7 @@ export default function PortfolioSection() {
         <Link
           to={`/project/${project.slug}`}
           key={project.slug}
+          onClick={() => trackProjectClick(project.slug)}
           className={`${project.wide ? 'md:col-span-7' : 'md:col-span-5'} group relative overflow-hidden rounded-[2rem] block`}
         >
             <ProjectCover project={project} className={`h-[55vh] min-h-[380px] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`} />

@@ -2,7 +2,13 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
-import ProjectCover from '@/components/landing/ProjectCover';
+import PortfolioCover from '@/components/landing/PortfolioCover';
+
+const trackProjectClick = (slug) => {
+  if (typeof window.gtag === "function") {
+    window.gtag("event", "select_project", { project_slug: slug });
+  }
+};
 
 export default function Portfolio() {
   const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks'];
@@ -33,9 +39,9 @@ export default function Portfolio() {
               transition={{ duration: 0.5, delay: i * 0.12 }}
               className="group relative overflow-hidden rounded-[2rem]"
             >
-              <ProjectCover
+              <PortfolioCover
                 project={project}
-                className={`aspect-[3/2] w-full object-cover ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`}
+                imgClassName="transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
               <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -47,6 +53,7 @@ export default function Portfolio() {
                 </div>
                 <Link
                   to={`/project/${project.slug}`}
+                  onClick={() => trackProjectClick(project.slug)}
                   className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-lg"
                 >
                   Подробнее

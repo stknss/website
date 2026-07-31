@@ -240,7 +240,7 @@ const projects = [
   {
     slug: 'ekaterininskiy-3d',
     title: 'ЖК Екатерининский, 3D-визуализация',
-    meta: 'пример работы · формат PDF · техническая документация',
+    meta: 'формат PDF · техническая документация',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/5a35a4e6a_.jpg',
     mobileImage: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/636f20e45_.jpg',
     alt: '3D-визуализация интерьера квартиры в ЖК Екатерининский',

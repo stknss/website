@@ -15,7 +15,7 @@ const trackProjectClick = (slug) => {
 const KANDINSKIY_COVER = projects.find((p) => p.slug === 'zhk-kandinskiy')?.image;
 
 export default function Portfolio() {
-  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks', 'ekaterininskiy-3d'];
+  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'ekaterininskiy-3d', 'dom-palniks'];
   const ordered = orderedSlugs.map((slug) => projects.find((p) => p.slug === slug)).filter(Boolean);
   const [cardAspect, setCardAspect] = useState('3 / 4');
   useEffect(() => {

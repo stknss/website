@@ -10,13 +10,12 @@ function loadDims(src) {
   });
 }
 
-// Cover that reserves space (default 3/2) and snaps to the image's natural
-// aspect ratio once loaded — so it scales proportionally with viewport width
-// and never crops a portrait cover into a small rectangle.
-export default function PortfolioCover({ project, className = '', imgClassName = '' }) {
+// Обложка карточки проекта в /portfolio. Использует фиксированный формат
+// (передаётся через aspect), одинаковый для всех карточек — горизонтальные
+// фото кропятся в этот вертикальный формат через object-cover.
+export default function PortfolioCover({ project, aspect = '3 / 4', className = '', imgClassName = '' }) {
   const isMobile = useIsMobile();
   const [src, setSrc] = useState(project.image);
-  const [aspect, setAspect] = useState('3 / 2');
 
   useEffect(() => {
     if (!isMobile) {
@@ -50,11 +49,6 @@ export default function PortfolioCover({ project, className = '', imgClassName =
     };
   }, [isMobile, project.image, project.gallery, project.mobileImage]);
 
-  const handleLoad = (e) => {
-    const { naturalWidth: w, naturalHeight: h } = e.target;
-    if (w && h) setAspect(`${w} / ${h}`);
-  };
-
   return (
     <div
       className={`relative w-full overflow-hidden ${className}`}
@@ -63,7 +57,6 @@ export default function PortfolioCover({ project, className = '', imgClassName =
       <img
         src={src}
         alt={project.alt}
-        onLoad={handleLoad}
         loading="lazy"
         className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`}
       />

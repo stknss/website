@@ -16,9 +16,7 @@ export default function GalleryImage({ src, alt, index, onClick }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: Math.min(index * 0.1, 1) }}
       className={`block w-full cursor-pointer rounded-[2rem] object-cover shadow-lg transition hover:opacity-90 ${
-        orientation === 'portrait'
-          ? 'h-[460px] sm:h-[700px]'
-          : 'h-[300px] sm:h-[480px]'
+        orientation === 'portrait' ? 'aspect-[9/10]' : 'aspect-[4/3]'
       }`}
       loading="lazy"
       decoding="async"

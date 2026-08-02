@@ -38,35 +38,39 @@ export default function Portfolio() {
 
         <div className="mx-auto mt-14 grid max-w-7xl gap-8 md:grid-cols-2">
           {ordered.map((project, i) => (
-            <motion.article
+            <Link
               key={project.slug}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-              className="group relative overflow-hidden rounded-[2rem]"
+              to={`/project/${project.slug}`}
+              onClick={() => trackProjectClick(project.slug)}
+              className="block"
             >
-              <PortfolioCover
-                project={project}
-                aspect={cardAspect}
-                imgClassName="transition duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-              <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h3 className="text-2xl font-medium hyphens-manual">{project.title}</h3>
-                  <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    {project.meta}
-                  </p>
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="group relative block overflow-hidden rounded-[2rem]"
+              >
+                <PortfolioCover
+                  project={project}
+                  aspect={cardAspect}
+                  imgClassName="transition duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <h3 className="text-2xl font-medium hyphens-manual">{project.title}</h3>
+                    <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      {project.meta}
+                    </p>
+                  </div>
+                  <span
+                    className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition group-hover:-translate-y-0.5 group-hover:shadow-lg"
+                  >
+                    Подробнее
+                  </span>
                 </div>
-                <Link
-                  to={`/project/${project.slug}`}
-                  onClick={() => trackProjectClick(project.slug)}
-                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  Подробнее
-                </Link>
-              </div>
-            </motion.article>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </section>

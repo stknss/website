@@ -21,8 +21,8 @@ export default function ContactSection() {
 
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-20">
-            <a href="mailto:studio@zhar-ptitsa.ru" className="font-mono text-sm text-primary hover:underline">
-              studio@zhar-ptitsa.ru
+            <a href="mailto:studio@zhar-ptizza.ru" className="font-mono text-sm text-primary hover:underline">
+              studio@zhar-ptizza.ru
             </a>
             <a href="tel:+79122474749" className="font-mono text-sm text-primary hover:underline">
               +7 912 247-47-49

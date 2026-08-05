@@ -10,7 +10,7 @@ export default function MasonryGallery({ gallery, title, onImageClick }) {
       if (i % 2 === 0) left.push({ img, i });
       else right.push({ img, i });
     } else {
-      right.push({ img, i });
+      left.push({ img, i });
     }
   });
 

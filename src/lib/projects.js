@@ -239,7 +239,7 @@ const projects = [
   },
   {
     slug: 'ekaterininskiy-3d',
-    title: 'Екатерининский,\u00a03D\u2011визуализация',
+    title: 'Екатерининский, 3D\u2011визуализация',
     meta: 'формат PDF · техническая документация',
     image: 'https://i.imgur.com/CUeg8fp.jpg',
     mobileImage: 'https://i.imgur.com/CUeg8fp.jpg',

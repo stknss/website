@@ -35,7 +35,7 @@ export default function PortfolioSection() {
             <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[linear-gradient(45deg,transparent_48%,hsl(var(--primary)/0.35)_49%,transparent_51%),linear-gradient(-45deg,transparent_48%,hsl(var(--accent)/0.18)_49%,transparent_51%)] bg-[length:48px_48px]" aria-hidden="true" />
             <div className="absolute bottom-2 left-4 right-4 flex flex-col gap-1.5 rounded-2xl border border-border bg-background/50 p-2 backdrop-blur-md sm:bottom-4 sm:left-6 sm:right-6 sm:p-3">
               <h3 className="text-lg font-medium hyphens-manual md:text-2xl">{project.title}</h3>
-              <p className="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">{project.meta}</p>
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">{project.meta}</p>
             </div>
           </Link>
         )}

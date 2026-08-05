@@ -2,7 +2,7 @@ const projects = [
   {
     slug: 'green-park-hotel',
     title: 'Грин Парк Отель',
-    meta: 'Екатеринбург · редизайн интерьеров · реализация под ключ',
+    meta: 'Екатеринбург · редизайн интерьеров · реализация под ключ',
     image: 'https://i.imgur.com/2bG15ls.jpg',
     mobileImage: 'https://i.imgur.com/sKGXO5r.jpg',
     alt: 'Интерьер гостиницы Грин Парк Отель после редизайна',
@@ -23,7 +23,7 @@ const projects = [
   {
     slug: 'clever-park',
     title: 'Clever park',
-    meta: '160 м² · Екатеринбург · реализация под ключ',
+    meta: '160 м² · Екатеринбург · реализация под ключ',
     image: 'https://i.imgur.com/HXblAhn.jpg',
     mobileImage: 'https://i.imgur.com/Cmxn6VZ.jpg',
     alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',
@@ -53,7 +53,7 @@ const projects = [
   {
     slug: 'zhk-kandinskiy',
     title: 'ЖК «Кандинский»',
-    meta: '95 м² · Екатеринбург · реализация под ключ',
+    meta: '95 м² · Екатеринбург · реализация под ключ',
     image: 'https://i.imgur.com/CjLozm8.jpg',
     alt: 'Интерьер квартиры в ЖК Кандинский',
     wide: false,
@@ -81,7 +81,7 @@ const projects = [
   {
     slug: 'office-nefteyugansk',
     title: 'АБК лесоперерабаты\u00ADвающего комбината',
-    meta: 'Советский · административно-бытовой комплекс · реализация под ключ',
+    meta: 'Советский · административно-бытовой комплекс · реализация под ключ',
     image: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7f7232a54_2.jpg',
     mobileImage: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7f7232a54_2.jpg',
     alt: 'Здание административно-бытового комбината лесоперерабатывающего комбината в Советском',
@@ -100,7 +100,7 @@ const projects = [
   {
     slug: 'dom-italian-provence',
     title: 'Дом в стиле Итальянский прованс',
-    meta: '450 м² · Свердловская область · реализация под ключ',
+    meta: '450 м² · Свердловская область · реализация под ключ',
     image: 'https://i.imgur.com/kUyoVm8.jpg',
     mobileImage: 'https://i.imgur.com/XSIouMz.jpg',
     alt: 'Частный дом в стиле Итальянский прованс в Свердловской области',
@@ -122,7 +122,7 @@ const projects = [
   {
     slug: 'clever-park-95',
     title: 'Clever park',
-    meta: '95 м² · Екатеринбург · реализация под ключ',
+    meta: '95 м² · Екатеринбург · реализация под ключ',
     image: 'https://i.imgur.com/L70CAdU.jpg',
     mobileImage: 'https://i.imgur.com/L70CAdU.jpg',
     alt: 'Современная квартира в Clever park с тёплыми фактурами и продуманным светом',
@@ -163,7 +163,7 @@ const projects = [
   {
     slug: 'house-sverdlovsk',
     title: 'Частный дом',
-    meta: 'п. Заповедник · создание дизайн-проекта',
+    meta: 'п. Заповедник · создание дизайн-проекта',
     image: 'https://i.imgur.com/m3B7lqa.jpg',
     mobileImage: 'https://i.imgur.com/xdPFezj.jpg',
     alt: 'Частный загородный дом в посёлке Заповедник с панорамными окнами',
@@ -212,7 +212,7 @@ const projects = [
   {
     slug: 'dom-palniks',
     title: 'Частный дом',
-    meta: 'п. Палникс · проектирование и реализация ландшафтного освещения',
+    meta: 'п. Палникс · проектирование и реализация ландшафтного освещения',
     image: 'https://i.imgur.com/Et8yjev.jpg',
     mobileImage: 'https://i.imgur.com/Et8yjev.jpg',
     alt: 'Частный дом в посёлке Палникс с архитектурной подсветкой фасадов',
@@ -240,7 +240,7 @@ const projects = [
   {
     slug: 'ekaterininskiy-3d',
     title: 'Екатерининский, 3D\u2011визуализация',
-    meta: 'формат PDF · техническая документация',
+    meta: 'формат PDF · техническая документация',
     image: 'https://i.imgur.com/CUeg8fp.jpg',
     mobileImage: 'https://i.imgur.com/CUeg8fp.jpg',
     alt: '3D-визуализация интерьера квартиры в ЖК Екатерининский',

@@ -11,7 +11,7 @@ const trackProjectClick = (slug) => {
 };
 
 export default function Portfolio() {
-  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'dom-palniks', 'ekaterininskiy-3d'];
+  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'office-nefteyugansk', 'house-sverdlovsk', 'dom-italian-provence', 'ekaterininskiy-3d', 'dom-palniks'];
   const ordered = orderedSlugs.map((slug) => {
     const p = projects.find((p) => p.slug === slug);
     if (!p) return null;

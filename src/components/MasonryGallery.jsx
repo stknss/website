@@ -1,18 +1,44 @@
 import GalleryImage from './GalleryImage';
 
-export default function MasonryGallery({ gallery, title, onImageClick }) {
+export default function MasonryGallery({ gallery, title, onImageClick, lastOnRight = false }) {
   const total = gallery.length;
-  const pairs = Math.floor(total / 2) * 2;
   const left = [];
   const right = [];
-  gallery.forEach((img, i) => {
-    if (i < pairs) {
-      if (i % 2 === 0) left.push({ img, i });
-      else right.push({ img, i });
-    } else {
-      left.push({ img, i });
-    }
-  });
+  if (lastOnRight) {
+    // Оригинальный порядок: последняя фотография справа
+    const pairs = Math.floor(total / 2) * 2;
+    gallery.forEach((img, i) => {
+      if (i < pairs) {
+        if (i % 2 === 0) left.push({ img, i });
+        else right.push({ img, i });
+      } else {
+        right.push({ img, i });
+      }
+    });
+  } else if (total % 2 === 1) {
+    // Нечётное кол-во: последняя фотография слева
+    const pairs = total - 1;
+    gallery.forEach((img, i) => {
+      if (i < pairs) {
+        if (i % 2 === 0) left.push({ img, i });
+        else right.push({ img, i });
+      } else {
+        left.push({ img, i });
+      }
+    });
+  } else {
+    // Чётное кол-во: меняем местами последнюю пару, чтобы последняя была слева
+    gallery.forEach((img, i) => {
+      if (i < total - 2) {
+        if (i % 2 === 0) left.push({ img, i });
+        else right.push({ img, i });
+      } else if (i === total - 2) {
+        right.push({ img, i });
+      } else {
+        left.push({ img, i });
+      }
+    });
+  }
 
   return (
     <>

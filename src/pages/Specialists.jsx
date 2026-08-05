@@ -8,7 +8,7 @@ const specialists = [
 {
   name: 'Светлана Лекомцева',
   role: 'Дизайнер-архитектор, основатель',
-  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/f3f299c6d_full.jpg',
+  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c347d9136_full1.jpg',
   thumb: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8b803dee0_preview.jpg',
   alt: 'Светлана Лекомцева — дизайнер-архитектор бюро Жар-птица',
   experience: '25 лет',
@@ -19,8 +19,8 @@ const specialists = [
 {
   name: 'Сергей Сеткин',
   role: 'Инженер, руководитель проектов, основатель',
-  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/e6940e135_full.jpg',
-  thumb: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a12385ae2_preview.jpg',
+  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/eb542d3b4_full1.jpg',
+  thumb: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6bafeb935_preview1.jpg',
   alt: 'Сергей Сеткин — инженер-строитель бюро Жар-птица',
   experience: '30 лет',
   education: 'УПИ им. С. М. Кирова, механико-машиностроительный факультет',

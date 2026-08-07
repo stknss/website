@@ -8,8 +8,9 @@ const specialists = [
 {
   name: 'Светлана Лекомцева',
   role: 'Дизайнер-архитектор, основатель',
-  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/934575d44_full2.jpg',
-  thumb: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/934575d44_full2.jpg',
+  photo: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2bd793a40_1full-2.jpg',
+  thumb: 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2bd793a40_1full-2.jpg',
+  thumbClass: 'object-[center_30%]',
   alt: 'Светлана Лекомцева — дизайнер-архитектор бюро Жар-птица',
   experience: '25 лет',
   education: "\u0423\u0440\u0413\u0410\u0425\u0410, \u0444\u0430\u043A\u0443\u043B\u044C\u0442\u0435\u0442 \u0430\u0440\u0445\u0438\u0442\u0435\u043A\u0442\u0443\u0440\u044B \u0438 \u0434\u0438\u0437\u0430\u0439\u043D\u0430;\n\u041A\u0443\u043D\u0433\u0443\u0440, \u0445\u0443\u0434\u043E\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435 \u0443\u0447\u0438\u043B\u0438\u0449\u0435",
@@ -65,7 +66,7 @@ export default function Specialists() {
                 <img
                 src={person.thumb}
                 alt={person.alt}
-                className="h-48 w-48 shrink-0 cursor-pointer rounded-[1.5rem] object-cover shadow-lg transition hover:opacity-90"
+                className={`h-48 w-48 shrink-0 cursor-pointer rounded-[1.5rem] object-cover shadow-lg transition hover:opacity-90 ${person.thumbClass || ''}`}
                 loading="lazy"
                 onClick={() => setLightboxImg(person.photo)} />
               

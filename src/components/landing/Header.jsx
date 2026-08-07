@@ -32,11 +32,11 @@ export default function Header() {
           className="flex items-center transition hover:text-primary"
         >
           <img
-            src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ca6cef73b_favicon.png"
+            src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/67dd47dff_favicon3.png"
             alt="Жар-птица"
             className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover mr-2"
           />
-          <span className="hidden sm:inline font-display text-lg sm:text-xl font-light italic text-foreground">Жар-птица</span>
+          <span className="font-display text-lg sm:text-xl font-light italic text-foreground">Жар-птица</span>
         </Link>
         <nav className="hidden lg:flex lg:items-center lg:gap-8" aria-label="Главная навигация">
           {navItems.map((item) => {

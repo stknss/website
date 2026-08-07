@@ -16,18 +16,20 @@ export default function ProcessSection() {
         </div>
         <div className="grid mt-8 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map(([number, title, text], i) =>
-          <motion.article
+          <motion.div
             key={number}
             initial={{ opacity: 0, y: 32 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="group min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition-[box-shadow,border-color] duration-300 hover:transition-[transform,box-shadow,border-color] hover:duration-150 hover:-translate-y-2 hover:shadow-lg hover:border-primary/40">
-            
+            className="h-full"
+          >
+            <article className="group h-full min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition-[box-shadow,border-color] duration-300 hover:transition-[transform,box-shadow,border-color] hover:duration-200 hover:-translate-y-2 hover:shadow-lg hover:border-primary/40">
               <span className="font-mono text-2xl font-medium text-primary">{number}</span>
               <h3 className="mt-12 text-2xl font-medium text-foreground">{title}</h3>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{text}</p>
-            </motion.article>
+            </article>
+          </motion.div>
           )}
         </div>
       </div>

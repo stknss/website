@@ -14,8 +14,8 @@ export default function ProofSection() {
             className="grid h-full grid-cols-2 grid-rows-2 gap-px overflow-hidden rounded-[2rem] border border-border bg-border">
             
             {[
-            { value: '65+', label: 'Реализованных проектов' },
-            { value: '18', label: 'Лет на рынке' },
+            { value: '75+', label: 'Реализованных проектов' },
+            { value: '19', label: 'Лет на рынке' },
             { value: '>95%', label: 'Сдача в срок' },
             { value: '30+', label: 'Большой штат проверенных подрядчиков' }].
             map((stat) =>

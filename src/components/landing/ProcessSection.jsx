@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 const steps = [
 ['01', 'Видение', 'Собираем образ жизни, привычки семьи и художественное направление будущего дома.'],
-['02', 'Проект', 'Переводим идею в планировки, узлы, спецификации и инженерную логику.'],
+['02', 'Проект', 'Переводим образ проекта в планировки, узлы, спецификации и инженерную логику.'],
 ['03', 'Детали', 'Финально собираем интерьер: свет, фактуры, декор и ощущение дома.'],
 ['04', 'Реализация', 'Ведём объект, координируем подрядчиков и держим качество на каждом этапе.']];
 
@@ -22,7 +22,8 @@ export default function ProcessSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.6, delay: i * 0.12 }}
-            className="group min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-primary/40">
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className="group min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition duration-300 hover:shadow-lg hover:border-primary/40">
             
               <span className="font-mono text-2xl font-medium text-primary">{number}</span>
               <h3 className="mt-12 text-2xl font-medium text-foreground">{title}</h3>

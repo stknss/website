@@ -10,16 +10,19 @@ function getImageDimensions(src) {
   });
 }
 
-// Greedy masonry: each next image goes to the shorter column, so images
-// keep their sequence order but stack without internal gaps (1 left, 2 right,
-// 3 left...). Only the very last item may leave a small trailing imbalance.
+const GAP = 24; // gap-6 = 1.5rem
+// Если боковые края двух подряд идущих фотографий соприкасаются менее чем на
+// 60% (по высоте новой фотографии), следующая кладётся ПОД предыдущей, а не
+// сбоку — так сохраняется читаемая «змеиная» последовательность без щелей и
+// staggered-углов между соседними кадрами.
+const TOUCH_THRESHOLD = 0.6;
+
 export default function MasonryGallery({ gallery, title, onImageClick }) {
   const containerRef = useRef(null);
   const [layout, setLayout] = useState({ ready: false, single: true, left: [], right: [] });
 
   useEffect(() => {
     let active = true;
-    const GAP = 24; // gap-6 = 1.5rem
     const compute = async () => {
       const el = containerRef.current;
       if (!el) return;
@@ -31,20 +34,55 @@ export default function MasonryGallery({ gallery, title, onImageClick }) {
       const colWidth = (el.clientWidth - GAP) / 2;
       const dims = await Promise.all(gallery.map((src) => getImageDimensions(src)));
       if (!active) return;
-      const heights = dims.map((d) => (d.w ? d.h * (colWidth / d.w) : (colWidth * 3) / 4) + GAP);
+      const heights = dims.map((d) => (d.w ? d.h * (colWidth / d.w) : (colWidth * 3) / 4));
+
       const left = [];
       const right = [];
       let hL = 0;
       let hR = 0;
-      heights.forEach((h, i) => {
-        if (hL <= hR) {
+      let prevCol = null; // 'L' | 'R'
+      let prevTop = 0;
+      let prevBottom = 0;
+
+      const place = (col, i, h) => {
+        if (col === 'L') {
           left.push(i);
-          hL += h;
+          prevTop = hL;
+          hL += h + GAP;
+          prevBottom = hL - GAP;
         } else {
           right.push(i);
-          hR += h;
+          prevTop = hR;
+          hR += h + GAP;
+          prevBottom = hR - GAP;
+        }
+        prevCol = col;
+      };
+
+      heights.forEach((h, i) => {
+        if (prevCol === null) {
+          place('L', i, h);
+          return;
+        }
+        const greedyCol = hL <= hR ? 'L' : 'R';
+        if (greedyCol === prevCol) {
+          // более короткая колонка та же, что и у предыдущего — кладём под ним
+          place(prevCol, i, h);
+          return;
+        }
+        // greedy выбрал другую колонку — проверяем соприкосновение с предыдущим
+        const otherTop = greedyCol === 'L' ? hL : hR;
+        const otherBottom = otherTop + h;
+        const overlap = Math.max(0, Math.min(prevBottom, otherBottom) - Math.max(prevTop, otherTop));
+        const ratio = h > 0 ? overlap / h : 1;
+        if (ratio >= TOUCH_THRESHOLD) {
+          place(greedyCol, i, h);
+        } else {
+          // касаются менее 60% — кладём под предыдущим (в его колонку)
+          place(prevCol, i, h);
         }
       });
+
       if (active) setLayout({ ready: true, single: false, left, right });
     };
     compute();

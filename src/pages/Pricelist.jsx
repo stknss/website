@@ -165,7 +165,7 @@ export default function Pricelist() {
             <BackButton />
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Прайс-лист</p>
           </div>
-          <h1 className="mt-4 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
+          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
         </div>
 
         {/* Пакеты */}

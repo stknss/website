@@ -4,7 +4,7 @@ const steps = [
 ['01', 'Видение', 'Собираем образ жизни, привычки семьи и художественное направление будущего дома.'],
 ['02', 'Проект', 'Переводим идею в планировки, узлы, спецификации и инженерную логику.'],
 ['03', 'Детали', 'Финально собираем интерьер: свет, фактуры, декор и ощущение дома.'],
-['04', 'Реализация', 'Ведём объект, координируем подрядчиков и держим качество на каждом этапе.']];
+['04', 'Реализация', 'Ведём объект, координируем подрядчиков и следим за качеством на каждом этапе.']];
 
 
 export default function ProcessSection() {
@@ -24,7 +24,7 @@ export default function ProcessSection() {
             transition={{ duration: 0.6, delay: i * 0.12 }}
             className="h-full"
           >
-            <article className="group h-full min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition-[box-shadow,border-color] duration-300 hover:transition-[transform,box-shadow,border-color] hover:duration-200 hover:-translate-y-2 hover:shadow-lg hover:border-primary/40">
+            <article className="group h-full min-h-72 border border-border bg-card p-7 rounded-[1.5rem] transition duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-primary/40">
               <span className="font-mono text-2xl font-medium text-primary">{number}</span>
               <h3 className="mt-12 text-2xl font-medium text-foreground">{title}</h3>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">{text}</p>

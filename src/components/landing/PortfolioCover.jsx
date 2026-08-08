@@ -13,7 +13,7 @@ function loadDims(src) {
 // Обложка карточки проекта в /portfolio. Использует фиксированный формат
 // (передаётся через aspect), одинаковый для всех карточек — горизонтальные
 // фото кропятся в этот вертикальный формат через object-cover.
-export default function PortfolioCover({ project, aspect = '3 / 4', className = '', imgClassName = '' }) {
+export default function PortfolioCover({ project, aspect = '3 / 4', mobileAspect, className = '', imgClassName = '' }) {
   const isMobile = useIsMobile();
   const [src, setSrc] = useState(project.image);
 
@@ -52,7 +52,7 @@ export default function PortfolioCover({ project, aspect = '3 / 4', className = 
   return (
     <div
       className={`relative w-full overflow-hidden ${className}`}
-      style={{ aspectRatio: aspect }}
+      style={{ aspectRatio: isMobile && mobileAspect ? mobileAspect : aspect }}
     >
       <img
         src={src}

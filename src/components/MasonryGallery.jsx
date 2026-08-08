@@ -1,45 +1,6 @@
 import GalleryImage from './GalleryImage';
 
-export default function MasonryGallery({ gallery, title, onImageClick, lastOnRight = false }) {
-  const total = gallery.length;
-  const left = [];
-  const right = [];
-  if (lastOnRight) {
-    // Оригинальный порядок: последняя фотография справа
-    const pairs = Math.floor(total / 2) * 2;
-    gallery.forEach((img, i) => {
-      if (i < pairs) {
-        if (i % 2 === 0) left.push({ img, i });
-        else right.push({ img, i });
-      } else {
-        right.push({ img, i });
-      }
-    });
-  } else if (total % 2 === 1) {
-    // Нечётное кол-во: последняя фотография слева
-    const pairs = total - 1;
-    gallery.forEach((img, i) => {
-      if (i < pairs) {
-        if (i % 2 === 0) left.push({ img, i });
-        else right.push({ img, i });
-      } else {
-        left.push({ img, i });
-      }
-    });
-  } else {
-    // Чётное кол-во: меняем местами последнюю пару, чтобы последняя была слева
-    gallery.forEach((img, i) => {
-      if (i < total - 2) {
-        if (i % 2 === 0) left.push({ img, i });
-        else right.push({ img, i });
-      } else if (i === total - 2) {
-        right.push({ img, i });
-      } else {
-        left.push({ img, i });
-      }
-    });
-  }
-
+export default function MasonryGallery({ gallery, title, onImageClick }) {
   return (
     <>
       {/* Mobile: single column, sequential order */}
@@ -54,30 +15,19 @@ export default function MasonryGallery({ gallery, title, onImageClick, lastOnRig
           />
         ))}
       </div>
-      {/* Desktop: two columns, reading order preserved (left-right, top-to-bottom) */}
-      <div className="mt-14 hidden sm:grid sm:grid-cols-2 sm:gap-6">
-        <div className="flex flex-col gap-6">
-          {left.map(({ img, i }) => (
-            <GalleryImage
-              key={i}
-              src={img}
-              alt={`${title} — фото ${i + 1}`}
-              index={i}
-              onClick={() => onImageClick(i)}
-            />
-          ))}
-        </div>
-        <div className="flex flex-col gap-6">
-          {right.map(({ img, i }) => (
-            <GalleryImage
-              key={i}
-              src={img}
-              alt={`${title} — фото ${i + 1}`}
-              index={i}
-              onClick={() => onImageClick(i)}
-            />
-          ))}
-        </div>
+      {/* Desktop: strict row-major 2-column grid. Each image keeps its natural
+          aspect ratio; rows align so the reading order is always left-to-right,
+          top-to-bottom — exactly the gallery order. */}
+      <div className="mt-14 hidden sm:grid sm:grid-cols-2 sm:items-start sm:gap-6">
+        {gallery.map((img, i) => (
+          <GalleryImage
+            key={i}
+            src={img}
+            alt={`${title} — фото ${i + 1}`}
+            index={i}
+            onClick={() => onImageClick(i)}
+          />
+        ))}
       </div>
     </>
   );

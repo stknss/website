@@ -53,18 +53,19 @@ export default function Portfolio() {
                 <PortfolioCover
                   project={project}
                   aspect={cardAspect}
+                  mobileAspect="3 / 4"
                   imgClassName="transition duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-                <div className="absolute bottom-4 left-6 right-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <h3 className="text-2xl font-medium hyphens-manual">{project.title}</h3>
-                    <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                <div className="absolute bottom-3 left-4 right-4 flex flex-col gap-3 sm:bottom-4 sm:left-6 sm:right-6 sm:flex-row sm:items-end sm:justify-between">
+                  <div className="rounded-2xl border border-border bg-card/70 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+                    <h3 className="text-lg font-body hyphens-manual sm:text-2xl">{project.title}</h3>
+                    <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground [word-spacing:-0.12em] sm:[word-spacing:0]">
                       {project.meta}
                     </p>
                   </div>
                   <span
-                    className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition group-hover:-translate-y-0.5 group-hover:shadow-lg"
+                    className="inline-flex shrink-0 items-center gap-2 self-start rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition group-hover:-translate-y-0.5 group-hover:shadow-lg"
                   >
                     Подробнее
                   </span>

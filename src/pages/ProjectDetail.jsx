@@ -59,6 +59,7 @@ export default function ProjectDetail() {
             gallery={project.gallery}
             title={project.title}
             onImageClick={setLightboxIndex}
+            displayOrder={project.displayOrder}
             lastOnRight={project.slug === 'green-park-hotel'}
           />
           {lightboxIndex !== null && (

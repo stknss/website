@@ -45,7 +45,7 @@ export default function ProjectDetail() {
             transition={{ duration: 0.6 }}
           >
             <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">
-              {project.meta}
+              {project.detailMeta || project.meta}
             </p>
             <h1 className="mt-4 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl">
               {project.title}

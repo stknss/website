@@ -55,7 +55,7 @@ export default function Portfolio() {
                   project={project}
                   aspect={cardAspect}
                   mobileAspect="3 / 4"
-                  imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[20%_50%]' : ''}`}
+                  imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[15%_50%]' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 flex flex-col gap-2 sm:bottom-4 sm:left-6 sm:right-6 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
@@ -73,7 +73,7 @@ export default function Portfolio() {
                     </p>
                   </div>
                   <span
-                    className="inline-flex w-full shrink-0 items-center justify-center gap-2 self-start rounded-full bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-[0.14em] text-primary-foreground transition group-hover:-translate-y-0.5 group-hover:shadow-lg sm:w-auto"
+                    className="inline-flex w-full shrink-0 items-center justify-center gap-2 self-end rounded-full bg-primary px-5 py-2.5 font-body text-xs text-primary-foreground transition group-hover:-translate-y-0.5 group-hover:shadow-lg sm:w-auto"
                   >
                     Подробнее
                   </span>

@@ -169,7 +169,7 @@ export default function Pricelist() {
         </div>
 
         {/* Пакеты */}
-        <div className="mx-auto mt-12 max-w-7xl">
+        <div className="mx-auto mt-10 max-w-7xl">
           <div className="grid gap-6 md:grid-cols-2">
             {packages.map((pkg) =>
             <div key={pkg.name} className="rounded-[2rem] border border-border bg-card p-8">

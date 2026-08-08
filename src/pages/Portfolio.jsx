@@ -31,7 +31,7 @@ export default function Portfolio() {
           </div>
           <h1
             id="portfolio-title"
-            className="mt-8 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl"
+            className="mt-4 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl"
           >
             Интерьеры, где красота держится на точном расчёте
           </h1>
@@ -59,7 +59,7 @@ export default function Portfolio() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 flex flex-col gap-2 sm:bottom-4 sm:left-6 sm:right-6 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
-                  <div className="rounded-2xl border border-border bg-card/40 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+                  <div className="rounded-2xl border border-border bg-card/30 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
                     <h3 className="text-[22px] font-body hyphens-manual sm:text-[25px]">{project.title}</h3>
                     <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground [word-spacing:-0.12em] sm:[word-spacing:0]">
                       {project.slug === 'green-park-hotel' ? (

@@ -44,7 +44,7 @@ export default function Specialists() {
           </div>
           <h2
             id="specialists-title"
-            className="mt-8 font-display text-4xl font-light italic leading-none md:text-5xl">
+            className="mt-4 font-display text-4xl font-light italic leading-none md:text-5xl">
             Давайте познакомимся
           </h2>
           

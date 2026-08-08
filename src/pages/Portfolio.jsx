@@ -23,14 +23,15 @@ export default function Portfolio() {
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-16 lg:px-10 lg:pb-24" aria-labelledby="portfolio-title">
         <div className="mx-auto max-w-7xl">
-          <BackButton />
-
-          <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">
-            Все проекты
-          </p>
+          <div className="flex items-center gap-4">
+            <BackButton />
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">
+              Все проекты
+            </p>
+          </div>
           <h1
             id="portfolio-title"
-            className="mt-4 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl"
+            className="mt-8 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl"
           >
             Интерьеры, где красота держится на точном расчёте
           </h1>
@@ -54,14 +55,21 @@ export default function Portfolio() {
                   project={project}
                   aspect={cardAspect}
                   mobileAspect="3 / 4"
-                  imgClassName="transition duration-700 group-hover:scale-105"
+                  imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-left' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                 <div className="absolute bottom-3 left-4 right-4 flex flex-col gap-2 sm:bottom-4 sm:left-6 sm:right-6 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
-                  <div className="rounded-2xl border border-border bg-card/50 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
-                    <h3 className="text-xl font-body hyphens-manual sm:text-[25px]">{project.title}</h3>
+                  <div className="rounded-2xl border border-border bg-card/40 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
+                    <h3 className="text-[22px] font-body hyphens-manual sm:text-[25px]">{project.title}</h3>
                     <p className="mt-1 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground [word-spacing:-0.12em] sm:[word-spacing:0]">
-                      {project.meta}
+                      {project.slug === 'green-park-hotel' ? (
+                        <span>
+                          <span className="hidden sm:inline">{project.meta.split('·')[0].trim()} · </span>
+                          {project.meta.split('·').slice(1).join('·').trim()}
+                        </span>
+                      ) : (
+                        project.meta
+                      )}
                     </p>
                   </div>
                   <span

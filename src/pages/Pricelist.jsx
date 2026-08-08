@@ -161,9 +161,11 @@ export default function Pricelist() {
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32">
         <div className="mx-auto max-w-7xl">
-          <BackButton />
-          <p className="mt-8 font-mono text-sm uppercase tracking-[0.28em] text-primary">Прайс-лист</p>
-          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
+          <div className="flex items-center gap-4">
+            <BackButton />
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Прайс-лист</p>
+          </div>
+          <h1 className="mt-8 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
         </div>
 
         {/* Пакеты */}

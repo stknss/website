@@ -38,15 +38,15 @@ export default function Specialists() {
     <main className="min-h-screen bg-background text-foreground">
       <section className="px-6 pt-24 pb-24 lg:px-10 lg:pb-32" aria-labelledby="specialists-title">
         <div className="mx-auto max-w-7xl">
-          <BackButton />
-          <div className="mt-8 flex flex-col gap-3 md:flex-row md:items-center md:gap-10">
-            <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary md:shrink-0">Кто мы?</p>
-            <h2
-              id="specialists-title"
-              className="font-display text-4xl font-light italic leading-none md:text-5xl">
-              Давайте познакомимся
-            </h2>
+          <div className="flex items-center gap-4">
+            <BackButton />
+            <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Кто мы?</p>
           </div>
+          <h2
+            id="specialists-title"
+            className="mt-8 font-display text-4xl font-light italic leading-none md:text-5xl">
+            Давайте познакомимся
+          </h2>
           
 
 

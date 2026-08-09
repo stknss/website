@@ -101,9 +101,11 @@ export default function About() {
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             Такой подход позволяет создать комфортный, функциональный и эмоционально привлекательный и стильный интерьер, отражающий образ жизни заказчика.
           </p>
-          <p className="mt-10 font-mono text-sm uppercase tracking-[0.18em] text-primary">
-            ИП Сеткин Сергей Валерьевич, ИНН 667411428664
-          </p>
+          <div className="mt-10 font-mono text-sm uppercase tracking-[0.18em] text-primary leading-relaxed">
+            <p>ИП Сеткин Сергей Валерьевич</p>
+            <p>ИНН: 667411428664</p>
+            <p>ОГРНИП: 317665800174223</p>
+          </div>
         </div>
       </section>
     </main>);

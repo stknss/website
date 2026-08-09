@@ -13,6 +13,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import About from './pages/About';
 import Pricelist from './pages/Pricelist';
+import Consent from './pages/Consent';
 import Header from './components/landing/Header';
 // Add page imports here
 
@@ -51,6 +52,7 @@ const AuthenticatedApp = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/about" element={<About />} />
         <Route path="/pricelist" element={<Pricelist />} />
+        <Route path="/consent" element={<Consent />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>

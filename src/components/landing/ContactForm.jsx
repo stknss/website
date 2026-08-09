@@ -80,6 +80,10 @@ export default function ContactForm() {
         Нажимая на кнопку «Отправить» вы принимаете условия{' '}
         <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">
           Политики конфиденциальности
+        </Link>{' '}
+        и выражаете{' '}
+        <Link to="/consent" className="underline text-primary transition hover:text-primary/80">
+          Согласие на обработку персональных данных
         </Link>
       </p>
     </form>

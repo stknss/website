@@ -33,8 +33,8 @@ export default function PortfolioSection() {
             <ProjectCover project={project} className={`aspect-[4/5] w-full object-cover ${project.wide ? 'md:aspect-[7/4]' : 'md:aspect-[5/4]'} ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`} />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
             <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[linear-gradient(45deg,transparent_48%,hsl(var(--primary)/0.35)_49%,transparent_51%),linear-gradient(-45deg,transparent_48%,hsl(var(--accent)/0.18)_49%,transparent_51%)] bg-[length:48px_48px]" aria-hidden="true" />
-            <div className="absolute bottom-2 left-6 right-6 flex flex-col gap-1.5 rounded-2xl border border-border bg-background/50 p-3 backdrop-blur-md sm:bottom-4 sm:left-8 sm:right-8 sm:p-4">
-              <h3 className="text-xl font-body hyphens-manual md:text-[25px]">{project.title}</h3>
+            <div className="absolute bottom-2 left-6 right-6 flex flex-col gap-1.5 rounded-2xl border border-border bg-background/65 p-3 backdrop-blur-[10px] sm:bottom-4 sm:left-8 sm:right-8 sm:p-4 md:p-3 lg:p-4">
+              <h3 className="text-xl font-body hyphens-manual md:text-[22px] lg:text-[25px]">{project.title}</h3>
               <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground [word-spacing:-0.12em] sm:[word-spacing:0]">{project.meta}</p>
             </div>
           </Link>

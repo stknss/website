@@ -66,6 +66,7 @@ export default function ProjectDetail() {
               images={project.gallery}
               initialIndex={lightboxIndex}
               onClose={() => setLightboxIndex(null)}
+              title={project.title}
             />
           )}
 

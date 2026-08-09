@@ -46,11 +46,11 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col">
+          className="flex flex-col md:items-center md:text-center lg:items-start lg:text-left">
 
           <h1
             id="hero-title"
-            className="font-display text-[4.25rem] font-light italic leading-[0.92] tracking-tight text-foreground md:text-7xl lg:text-[6.75rem]">Дизайн-бюро<br className="lg:hidden" /> "Жар-птица"
+            className="font-display text-[4.25rem] font-light italic leading-[0.92] tracking-tight text-foreground md:text-[5rem] lg:text-[6.75rem]">Дизайн-бюро<br className="lg:hidden" /> "Жар-птица"
 
           </h1>
 
@@ -59,7 +59,7 @@ export default function HeroSection() {
 
           </p>
 
-          <div className="mt-8 flex flex-nowrap items-center gap-x-4 sm:gap-x-9">
+          <div className="mt-8 flex flex-nowrap items-center gap-x-4 sm:gap-x-9 md:justify-center lg:justify-start">
             {['Дизайн', 'Проектирование', 'Реализация'].map((tag, i) =>
             <div key={tag} className="flex items-center gap-4 sm:gap-9">
               {i > 0 && <span className="h-1 w-1 rounded-full bg-primary/50" aria-hidden="true" />}
@@ -68,7 +68,7 @@ export default function HeroSection() {
             )}
           </div>
 
-          <div className="mt-10 -ml-1 flex flex-col items-start gap-4 sm:flex-row sm:justify-start">
+          <div className="mt-10 -ml-1 flex flex-col items-start gap-4 sm:flex-row sm:justify-start md:ml-0 md:justify-center lg:justify-start">
             <a
               href="#contact"
               className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">

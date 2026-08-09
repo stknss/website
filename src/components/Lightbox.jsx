@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { ArrowLeft, ArrowRight, X } from 'lucide-react';
 
-export default function Lightbox({ images, initialIndex = 0, showNavigation = true, onClose }) {
+export default function Lightbox({ images, initialIndex = 0, showNavigation = true, onClose, title = '' }) {
   const [index, setIndex] = useState(initialIndex);
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const touchStartX = useRef(null);
@@ -53,6 +53,17 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       document.body.style.overflow = '';
     };
   }, [onClose, next, prev, showNavigation, images.length]);
+
+  useEffect(() => {
+    if (typeof window.gtag === 'function' && images.length > 1) {
+      window.gtag('event', 'view_gallery_photo', {
+        project_title: title,
+        photo_number: index + 1,
+        photo_index: index,
+        total_photos: images.length,
+      });
+    }
+  }, [index, title, images.length]);
 
   return (
     <div

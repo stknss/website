@@ -5,12 +5,19 @@ import { ArrowRight, ChevronDown } from 'lucide-react';
 
 export default function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [consented, setConsented] = useState(false);
+  const [showConsentHint, setShowConsentHint] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', project_type: 'apartment', message: '' });
 
   const update = (field, value) => setForm((current) => ({ ...current, [field]: value }));
 
   const submit = async (event) => {
     event.preventDefault();
+    if (!consented) {
+      setShowConsentHint(true);
+      return;
+    }
+    setShowConsentHint(false);
     await base44.entities.Lead.create(form);
     setSent(true);
     setForm({ name: '', phone: '', project_type: 'apartment', message: '' });
@@ -76,16 +83,33 @@ export default function ContactForm() {
         Обсудить проект
         <ArrowRight className="ml-3 h-4 w-4 transition group-hover:translate-x-1" />
       </button>
-      <p className="mt-4 text-center text-xs leading-relaxed text-muted-foreground">
-        Нажимая на кнопку «Отправить» вы принимаете условия{' '}
-        <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">
-          Политики конфиденциальности
-        </Link>{' '}
-        и выражаете{' '}
-        <Link to="/consent" className="underline text-primary transition hover:text-primary/80">
-          Согласие на обработку персональных данных
-        </Link>
-      </p>
+      {showConsentHint && (
+        <p className="mt-3 text-center text-xs text-primary">
+          * Сначала поставьте галочку согласия на обработку персональных данных
+        </p>
+      )}
+      <div className="mt-4 flex items-start gap-3">
+        <input
+          type="checkbox"
+          checked={consented}
+          onChange={(e) => {
+            setConsented(e.target.checked);
+            if (e.target.checked) setShowConsentHint(false);
+          }}
+          className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-primary"
+          id="consent-checkbox"
+        />
+        <label htmlFor="consent-checkbox" className="text-xs leading-relaxed text-muted-foreground cursor-pointer">
+          Нажимая кнопку «Отправить», я даю{' '}
+          <Link to="/consent" className="underline text-primary transition hover:text-primary/80">
+            согласие на обработку персональных данных
+          </Link>{' '}
+          в соответствии с{' '}
+          <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">
+            Политикой обработки персональных данных
+          </Link>
+        </label>
+      </div>
     </form>
   );
 }

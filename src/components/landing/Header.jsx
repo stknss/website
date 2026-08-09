@@ -32,7 +32,7 @@ export default function Header() {
           className="flex items-center transition hover:text-primary"
         >
           <img
-            src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/4b6e67a3a_favicon7-9.png"
+            src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/8692d7749_favicon7-11.png"
             alt="Жар-птица"
             className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover mr-2"
           />

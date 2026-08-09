@@ -3,7 +3,7 @@ import BackButton from '@/components/BackButton';
 const sections = [
   {
     title: 'Кто мы',
-    paragraphs: ['Наш адрес сайта: https://zhar-ptitsa-studio.base44.app/'],
+    paragraphs: ['Наш адрес сайта: https://zhar-ptizza.ru/'],
   },
   {
     title: 'Какие персональные данные мы собираем и с какой целью',
@@ -70,7 +70,7 @@ const sections = [
   {
     title: 'Ваша контактная информация',
     paragraphs: [
-      'По вопросам, связанным с обработкой персональных данных, вы можете связаться с нами по e-mail: hello@zhar-ptitsa.design',
+      'По вопросам, связанным с обработкой персональных данных, вы можете связаться с нами по e-mail: design@zhar-ptizza.ru',
     ],
   },
   {

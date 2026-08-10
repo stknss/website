@@ -54,7 +54,7 @@ export default function Portfolio() {
                 <PortfolioCover
                   project={project}
                   aspect={cardAspect}
-                  mobileAspect="3 / 4"
+                  mobileAspect="3 / 4.3"
                   mobileCropTop
                   imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[15%_50%]' : ''}`}
                 />

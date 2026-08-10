@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/5901f99ac_eskiz.png';
-const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/ce9c33da1_real.png';
-const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/0a62738aa_bird.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6f0a32750_eskiz-2.png';
+const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/670ff8108_real-2.png';
+const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d37b60f34_bird-2.png';
 
 const INITIAL = 70; // 70% слева — реализованный проект, 30% справа — эскиз
 const HANDLE_HALF = 22; // половина рукоятки (44px)

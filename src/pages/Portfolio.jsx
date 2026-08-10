@@ -55,9 +55,11 @@ export default function Portfolio() {
                   project={project}
                   aspect={cardAspect}
                   mobileAspect="3 / 4"
+                  mobileObjectPosition="center 57%"
                   imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[15%_50%]' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background via-background/85 to-transparent sm:hidden" />
                 <div className="absolute bottom-3 left-4 right-4 flex flex-col gap-2 sm:bottom-4 sm:left-6 sm:right-6 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
                   <div className="rounded-2xl border border-border bg-card/25 p-3 backdrop-blur-[9.6px] sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0 sm:backdrop-blur-none">
                     <h3 className="text-[22px] font-body hyphens-manual sm:text-[25px]">{project.title}</h3>

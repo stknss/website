@@ -113,7 +113,7 @@ export default function ContactForm() {
         <label htmlFor="consent-checkbox" className="text-xs leading-relaxed text-muted-foreground cursor-pointer">
           Нажимая кнопку «Отправить», я даю{' '}
           <Link to="/consent" className="underline text-primary transition hover:text-primary/80">
-            согласие на обработку персональных данных
+            Согласие на обработку персональных данных
           </Link>{' '}
           в соответствии с{' '}
           <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">

@@ -6,7 +6,6 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const touchStartX = useRef(null);
   const justSwiped = useRef(false);
-  const multiTouch = useRef(false);
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % images.length);
@@ -19,19 +18,11 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   }, [images.length]);
 
   const handleTouchStart = (e) => {
-    if (e.touches.length > 1) {
-      multiTouch.current = true;
-    }
     touchStartX.current = e.touches[0].clientX;
   };
 
   const handleTouchEnd = (e) => {
     if (touchStartX.current === null) return;
-    if (multiTouch.current) {
-      multiTouch.current = false;
-      touchStartX.current = null;
-      return;
-    }
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(dx) > 50 && showNavigation && images.length > 1) {
       if (dx < 0) next();

@@ -35,7 +35,7 @@ export default function ContactForm() {
       <div className="rounded-[2rem] border border-primary/40 bg-primary/10 p-8">
         <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary">Заявка отправлена</p>
         <p className="mt-5 text-2xl font-medium leading-snug text-foreground">
-          Спасибо. Мы свяжемся с вами в ближайшее время.
+          Спасибо, мы свяжемся с вами в ближайшее время.
         </p>
       </div>
     );

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import projects from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 import PortfolioCover from '@/components/landing/PortfolioCover';
+import VideoReview from '@/components/landing/VideoReview';
 
 const trackProjectClick = (slug) => {
   if (typeof window.gtag === "function") {
@@ -54,7 +55,7 @@ export default function Portfolio() {
                 <PortfolioCover
                   project={project}
                   aspect={cardAspect}
-                  mobileAspect="3 / 4.2"
+                  mobileAspect="3 / 4.15"
                   mobileCropTop
                   imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[15%_50%]' : ''}`}
                 />
@@ -88,6 +89,8 @@ export default function Portfolio() {
             </Link>
           ))}
         </div>
+
+        <VideoReview />
       </section>
     </main>
   );

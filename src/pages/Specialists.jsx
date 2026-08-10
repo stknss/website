@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Award, Briefcase, GraduationCap } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import Lightbox from '@/components/Lightbox';
+import VideoReview from '@/components/landing/VideoReview';
 
 const specialists = [
 {
@@ -28,9 +29,6 @@ const specialists = [
   description:
   'За все время работы в строительной области, Сергей прошел путь от мастера до руководителя крупных строек, в число которых входят жилые дома, спортивные и общественные здания, промышленные сооружения и заводы. Перейдя в сферу частных заказов, Сергей стал отвечать за то, чтобы задуманная красота проекта держалась на точном расчёте и правильной реализации. Весь опыт и знания успешно учитываются в каждом отдельном проекте. — он знает узлы и нормативы и умеет договориться с подрядчиками так, чтобы объект был сдан в срок и без сюрпризов.'
 }];
-
-const VIDEO_ID = 'SjgB45muIQk'; // ID видео на YouTube
-const VIDEO_START = 1139; // секунда, с которой начинается воспроизведение
 
 export default function Specialists() {
   const [lightboxImg, setLightboxImg] = useState(null);
@@ -108,21 +106,7 @@ export default function Specialists() {
           </div>
         </div>
 
-        <div className="mx-auto mt-16 max-w-7xl">
-          <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Видеообзор одного из проектов</p>
-          <div className="mt-6 overflow-hidden rounded-[2rem] border border-border">
-            <div className="relative aspect-video w-full">
-              <iframe
-                className="absolute inset-0 h-full w-full"
-                src={`https://www.youtube.com/embed/${VIDEO_ID}?start=${VIDEO_START}`}
-                title="Видеообзор проекта"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen />
-              
-            </div>
-          </div>
-        </div>
+        <VideoReview />
       </section>
       {lightboxImg &&
       <Lightbox

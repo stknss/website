@@ -19,8 +19,8 @@ export default function ContactForm() {
   };
 
   const submit = async (event) => {
+    event.preventDefault();
     if (!consented) {
-      event.preventDefault();
       showHintTemporarily();
       return;
     }

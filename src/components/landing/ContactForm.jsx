@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { base44 } from '@/api/base44Client';
 import { ArrowRight, ChevronDown } from 'lucide-react';
@@ -8,13 +8,20 @@ export default function ContactForm() {
   const [consented, setConsented] = useState(false);
   const [showConsentHint, setShowConsentHint] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', project_type: 'apartment', message: '' });
+  const hintTimer = useRef(null);
 
   const update = (field, value) => setForm((current) => ({ ...current, [field]: value }));
 
+  const showHintTemporarily = () => {
+    setShowConsentHint(true);
+    if (hintTimer.current) clearTimeout(hintTimer.current);
+    hintTimer.current = setTimeout(() => setShowConsentHint(false), 3000);
+  };
+
   const submit = async (event) => {
-    event.preventDefault();
     if (!consented) {
-      setShowConsentHint(true);
+      event.preventDefault();
+      showHintTemporarily();
       return;
     }
     setShowConsentHint(false);
@@ -28,7 +35,7 @@ export default function ContactForm() {
       <div className="rounded-[2rem] border border-primary/40 bg-primary/10 p-8">
         <p className="font-mono text-xs uppercase tracking-[0.22em] text-primary">Заявка отправлена</p>
         <p className="mt-5 text-2xl font-medium leading-snug text-foreground">
-          Спасибо. Мы свяжемся с вами и предложим первый удобный шаг.
+          Спасибо. Мы свяжемся с вами в ближайшее время.
         </p>
       </div>
     );
@@ -41,6 +48,8 @@ export default function ContactForm() {
           required
           value={form.name}
           onChange={(e) => update('name', e.target.value)}
+          onInvalid={(e) => e.target.setCustomValidity('необходимо заполнить это поле')}
+          onInput={(e) => e.target.setCustomValidity('')}
           placeholder="Ваше имя"
           className="min-h-12 rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary placeholder:text-muted-foreground"
         />
@@ -48,6 +57,8 @@ export default function ContactForm() {
           required
           value={form.phone}
           onChange={(e) => update('phone', e.target.value)}
+          onInvalid={(e) => e.target.setCustomValidity('необходимо заполнить это поле')}
+          onInput={(e) => e.target.setCustomValidity('')}
           placeholder="Телефон"
           className="min-h-12 rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary placeholder:text-muted-foreground"
         />
@@ -85,7 +96,7 @@ export default function ContactForm() {
       </button>
       {showConsentHint && (
         <p className="mt-3 text-center text-xs text-primary">
-          * Сначала поставьте галочку согласия на обработку персональных данных
+          Необходимо отметить согласие на обработку персональных данных
         </p>
       )}
       <div className="mt-4 flex items-start gap-3">

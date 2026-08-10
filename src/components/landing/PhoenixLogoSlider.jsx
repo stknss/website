@@ -9,8 +9,10 @@ const HANDLE_HALF = 22; // половина рукоятки (44px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
 
 // Динамический логотип-слайдер «до/после».
-// Нижний слой — эскиз (чёрновик), поверх — реализованный проект,
-// обрезаемый по позиции ползунка; сверху слева — птица.
+// Контейнер всегда квадратный (aspect-square), размер задаётся через className
+// (шириной для мобильных, высотой для десктопа), поэтому границы круга
+// не обрезаются. Нижний слой — эскиз (чёрновик, слегка приподнят), поверх —
+// реализованный проект, обрезаемый по позиции ползунка; сверху слева — птица.
 // Ползунок двигается влево-вправо и не выходит за границы круга.
 export default function PhoenixLogoSlider({ className = '' }) {
   const containerRef = useRef(null);
@@ -59,7 +61,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       ref={containerRef}
       onMouseDown={startDrag}
       onTouchStart={startDrag}
-      className={`relative aspect-square w-full cursor-ew-resize select-none ${className}`}
+      className={`relative aspect-square cursor-ew-resize select-none ${className}`}
       role="slider"
       aria-valuenow={Math.round(pos)}
       aria-valuemin={0}

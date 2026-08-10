@@ -48,7 +48,7 @@ export default function ContactForm() {
           required
           value={form.name}
           onChange={(e) => update('name', e.target.value)}
-          onInvalid={(e) => e.target.setCustomValidity('необходимо заполнить это поле')}
+          onInvalid={(e) => e.target.setCustomValidity('Необходимо заполнить это поле')}
           onInput={(e) => e.target.setCustomValidity('')}
           placeholder="Ваше имя"
           className="min-h-12 rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary placeholder:text-muted-foreground"
@@ -57,7 +57,7 @@ export default function ContactForm() {
           required
           value={form.phone}
           onChange={(e) => update('phone', e.target.value)}
-          onInvalid={(e) => e.target.setCustomValidity('необходимо заполнить это поле')}
+          onInvalid={(e) => e.target.setCustomValidity('Необходимо заполнить это поле')}
           onInput={(e) => e.target.setCustomValidity('')}
           placeholder="Телефон"
           className="min-h-12 rounded-full border border-input bg-background px-5 text-base text-foreground outline-none transition focus:border-primary placeholder:text-muted-foreground"

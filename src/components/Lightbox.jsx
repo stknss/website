@@ -6,6 +6,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const touchStartX = useRef(null);
   const justSwiped = useRef(false);
+  const isPinching = useRef(false);
 
   const next = useCallback(() => {
     setIndex((i) => (i + 1) % images.length);
@@ -18,10 +19,28 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   }, [images.length]);
 
   const handleTouchStart = (e) => {
+    if (e.touches.length > 1) {
+      isPinching.current = true;
+      touchStartX.current = null;
+      return;
+    }
+    if (isPinching.current) return;
     touchStartX.current = e.touches[0].clientX;
   };
 
+  const handleTouchMove = (e) => {
+    if (e.touches.length > 1) {
+      isPinching.current = true;
+      touchStartX.current = null;
+    }
+  };
+
   const handleTouchEnd = (e) => {
+    if (isPinching.current) {
+      if (e.touches.length === 0) isPinching.current = false;
+      touchStartX.current = null;
+      return;
+    }
     if (touchStartX.current === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(dx) > 50 && showNavigation && images.length > 1) {
@@ -70,6 +89,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 backdrop-blur-sm"
       onClick={handleOverlayClick}
       onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
       <button

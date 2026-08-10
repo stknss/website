@@ -101,7 +101,7 @@ const projects = [
   },
   {
     slug: 'dom-italian-provence',
-    title: 'Дом в стиле Итальянский прованс',
+    title: 'Дом в стиле «Итальянский прованс»',
     meta: '450 м² · Свердловская обл. · проектирование · авторский надзор',
     image: 'https://storage.yandexcloud.net/zharptizza/Итальянский%20прованс/1%20(осн%20деск).jpg',
     mobileImage: 'https://storage.yandexcloud.net/zharptizza/Итальянский%20прованс/7%20(осн%20моб).jpg',
@@ -235,7 +235,7 @@ const projects = [
   },
   {
     slug: 'ekaterininskiy-3d',
-    title: 'ЖК Екатерининский парк',
+    title: 'ЖК «Екатерининский парк»',
     meta: 'формат PDF · дизайн-проект',
     image: 'https://storage.yandexcloud.net/zharptizza/ЖК%20Екатерининский/1%20(осн%20моб%20и%20деск).jpg',
     mobileImage: 'https://storage.yandexcloud.net/zharptizza/ЖК%20Екатерининский/1%20(осн%20моб%20и%20деск).jpg',

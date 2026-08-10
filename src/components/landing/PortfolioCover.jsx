@@ -13,7 +13,7 @@ function loadDims(src) {
 // Обложка карточки проекта в /portfolio. Использует фиксированный формат
 // (передаётся через aspect), одинаковый для всех карточек — горизонтальные
 // фото кропятся в этот вертикальный формат через object-cover.
-export default function PortfolioCover({ project, aspect = '3 / 4', mobileAspect, className = '', imgClassName = '', mobileObjectPosition }) {
+export default function PortfolioCover({ project, aspect = '3 / 4', mobileAspect, className = '', imgClassName = '', mobileObjectPosition, mobileCropTop = false }) {
   const isMobile = useIsMobile();
   const [src, setSrc] = useState(project.image);
 
@@ -58,8 +58,12 @@ export default function PortfolioCover({ project, aspect = '3 / 4', mobileAspect
         src={src}
         alt={project.alt}
         loading="lazy"
-        className={`absolute inset-0 h-full w-full object-cover ${imgClassName}`}
-        style={isMobile && mobileObjectPosition ? { objectPosition: mobileObjectPosition } : undefined}
+        className={
+          isMobile && mobileCropTop
+            ? `absolute bottom-0 left-0 h-[118%] w-full object-cover object-center ${imgClassName}`
+            : `absolute inset-0 h-full w-full object-cover ${imgClassName}`
+        }
+        style={isMobile && !mobileCropTop && mobileObjectPosition ? { objectPosition: mobileObjectPosition } : undefined}
       />
     </div>
   );

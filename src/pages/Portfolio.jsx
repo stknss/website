@@ -55,7 +55,7 @@ export default function Portfolio() {
                   project={project}
                   aspect={cardAspect}
                   mobileAspect="3 / 4"
-                  mobileObjectPosition="center 100%"
+                  mobileCropTop
                   imgClassName={`transition duration-700 group-hover:scale-105${project.slug === 'dom-italian-provence' ? ' sm:object-[15%_50%]' : ''}`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />

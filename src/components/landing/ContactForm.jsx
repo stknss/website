@@ -117,7 +117,7 @@ export default function ContactForm() {
           </Link>{' '}
           в соответствии с{' '}
           <Link to="/privacy-policy" className="underline text-primary transition hover:text-primary/80">
-            Политикой обработки персональных данных
+            Политикой конфиденциальности
           </Link>
         </label>
       </div>

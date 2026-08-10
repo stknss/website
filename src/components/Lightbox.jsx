@@ -5,6 +5,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   const [index, setIndex] = useState(initialIndex);
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const touchStartX = useRef(null);
+  const isMultiTouch = useRef(false);
   const justSwiped = useRef(false);
 
   const next = useCallback(() => {
@@ -18,10 +19,21 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
   }, [images.length]);
 
   const handleTouchStart = (e) => {
-    touchStartX.current = e.touches[0].clientX;
+    if (e.touches.length > 1) {
+      isMultiTouch.current = true;
+      touchStartX.current = null;
+    } else if (!isMultiTouch.current) {
+      touchStartX.current = e.touches[0].clientX;
+    }
   };
 
   const handleTouchEnd = (e) => {
+    if (isMultiTouch.current) {
+      if (e.touches.length > 0) return;
+      isMultiTouch.current = false;
+      touchStartX.current = null;
+      return;
+    }
     if (touchStartX.current === null) return;
     const dx = e.changedTouches[0].clientX - touchStartX.current;
     if (Math.abs(dx) > 50 && showNavigation && images.length > 1) {
@@ -91,6 +103,7 @@ export default function Lightbox({ images, initialIndex = 0, showNavigation = tr
       <img
         src={images[index]}
         alt=""
+        style={{ touchAction: 'pinch-zoom' }}
         onLoad={(e) => setDims({ w: e.target.naturalWidth, h: e.target.naturalHeight })}
         className={
           dims.w >= dims.h

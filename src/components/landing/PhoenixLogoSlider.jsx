@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
+import PhoenixBird from '@/components/landing/PhoenixBird';
 
 const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9c66fca55_eskiz5-1.png';
 const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7b0845187_real5wframe-1.png';
-const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2f0a0fc9a_bird3full.png';
 
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
@@ -112,13 +112,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
         </div>
       </div>
 
-      {/* Птица — верхний слой слева (104%, опущена на 5px) */}
-      <img
-        src={BIRD_URL}
-        alt="Жар-птица"
-        draggable={false}
-        style={{ transform: 'translateY(calc(-50% + 5px))' }}
-        className="pointer-events-none absolute -left-[6%] top-[53%] h-[104%] w-auto object-contain" />
+      {/* Птица — верхний слой слева. Позиция настраивается в src/components/landing/PhoenixBird.jsx */}
+      <PhoenixBird />
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}
       <div

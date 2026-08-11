@@ -1,5 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 import PhoenixBird from '@/components/landing/PhoenixBird';
+import MagicLightning from '@/components/landing/MagicLightning';
 
 const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9c66fca55_eskiz5-1.png';
 const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7b0845187_real5wframe-1.png';
@@ -7,7 +8,6 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const STREAK_COUNT = 7; // светящиеся линии вдоль разделителя
 
 // Динамический логотип-слайдер «до/после».
 // Контейнер всегда квадратный (aspect-square). Нижний слой — эскиз (чёрновик,
@@ -77,39 +77,25 @@ export default function PhoenixLogoSlider({ className = '' }) {
         className="absolute max-w-none rounded-full object-cover py-1"
         style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
 
-      {/* Верхний слой — реализованный проект, обрезается по ползунку, +7px (на 3px меньше эскиза) */}
+      {/* Верхний слой — реализованный проект, обрезается по ползунку. Размер -2px, поднят на 3px выше */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"
         draggable={false}
         className="absolute max-w-none rounded-full object-cover"
-        style={{ left: '-3.5px', top: '-3.5px', width: 'calc(100% + 7px)', height: 'calc(100% + 7px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+        style={{ left: '-2.5px', top: '-6.5px', width: 'calc(100% + 5px)', height: 'calc(100% + 5px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
 
-      {/* Линия-разделитель и светящиеся линии, обрезаются по кругу */}
+      {/* Линия-разделитель + магические молнии, обрезаются по кругу */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+        {/* Молнии в узком (±5px) диапазоне вокруг разделителя, следуют за ползунком */}
+        <div
+          className="absolute top-0 bottom-0 w-[20px] -translate-x-1/2"
+          style={{ left: `${pos}%` }}>
+          <MagicLightning />
+        </div>
         <div
           className="absolute top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent shadow-[0_0_14px_4px_rgba(250,208,120,0.55)]"
-          style={{ left: `${pos}%` }}>
-
-          {Array.from({ length: STREAK_COUNT }).map((_, i) => {
-            const base = ((i + 0.5) / STREAK_COUNT) * 100; // базовая позиция вдоль разделителя, %
-            const dir = i % 2 === 0 ? -1 : 1;
-            const factor = 0.22 + (i % 3) * 0.1;
-            const ty = (pos - 50) * dir * factor; // вертикальный сдвиг при движении ползунка
-            return (
-              <div
-                key={i}
-                className="absolute left-1/2 h-[2px] w-12 rounded-full bg-[#FAD078]/80 shadow-[0_0_7px_2px_rgba(250,208,120,0.55)]"
-                style={{
-                  top: `${base}%`,
-                  transform: `translate(-50%, ${ty.toFixed(1)}px)`,
-                  transition: 'transform 0.6s cubic-bezier(0.22,1,0.36,1)',
-                  animation: `streak-breathe 3.6s ease-in-out ${(i * 0.35).toFixed(2)}s infinite`
-                }}
-              />
-            );
-          })}
-        </div>
+          style={{ left: `${pos}%` }} />
       </div>
 
       {/* Птица — верхний слой слева. Позиция настраивается в src/components/landing/PhoenixBird.jsx */}

@@ -6,7 +6,7 @@
 //   left   — горизонтальная позиция (% от ширины контейнера)
 //   size   — высота птицы (% от высоты контейнера)
 //   dy     — дополнительный сдвиг по вертикали (px) относительно точки top
-const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/2f0a0fc9a_bird3full.png';
+const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9abc13c31_birdq1.png';
 
 // Настройки положения и размера птицы — правьте эти значения вручную:
 const BIRD_POSITION = {

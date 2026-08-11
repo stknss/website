@@ -110,7 +110,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       ref={containerRef}
       onMouseDown={startDrag}
       onTouchStart={startDrag}
-      className={`relative aspect-square cursor-ew-resize select-none ${className}`}
+      className={`relative aspect-square cursor-ew-resize select-none ml-1 ${className}`}
       role="slider"
       aria-valuenow={Math.round(pos)}
       aria-valuemin={0}
@@ -127,7 +127,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку, с отступом,
-             чтобы не перекрывать тонкую золотистую рамку эскиза */}
+              чтобы не перекрывать тонкую золотистую рамку эскиза */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"

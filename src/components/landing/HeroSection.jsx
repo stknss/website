@@ -33,7 +33,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <PhoenixLogoSlider className="w-full max-w-xs sm:max-w-sm" />
+          <PhoenixLogoSlider className="w-full max-w-[21.4rem] sm:max-w-[25.7rem]" />
         </motion.div>
 
         {/* Left: text */}
@@ -89,7 +89,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-end lg:col-span-1">
-          <PhoenixLogoSlider className="h-[56.6vh] w-auto max-w-full" />
+          <PhoenixLogoSlider className="h-[60.6vh] w-auto max-w-full" />
         </motion.div>
       </div>
     </section>);

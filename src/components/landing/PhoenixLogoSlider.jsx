@@ -115,7 +115,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       ref={containerRef}
       onMouseDown={startDrag}
       onTouchStart={startDrag}
-      className={`relative aspect-square cursor-ew-resize select-none ml-1 ${className}`}
+      className={`relative aspect-square cursor-ew-resize select-none ${className}`}
       role="slider"
       aria-valuenow={Math.round(pos)}
       aria-valuemin={0}
@@ -127,7 +127,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
         src={ESKIZ_URL}
         alt="Эскиз интерьера"
         draggable={false}
-        className="absolute left-0 w-full rounded-full object-cover py-4 px-3"
+        className="absolute left-0 w-full rounded-full object-cover py-4 px-3 mx-1"
         style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }} />
       
 

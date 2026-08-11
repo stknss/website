@@ -7,7 +7,6 @@ const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 const INITIAL = 70; // 70% слева — реализованный проект, 30% справа — эскиз
 const HANDLE_HALF = 22; // половина рукоятки (44px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const REAL_INSET = 2.4; // отступ реализованного слоя, чтобы не перекрывать рамку эскиза (%)
 const SPARKLE_BASES = [18, 42, 68, 86]; // базовые позиции блёсток вдоль линии (%)
 
 // Динамический логотип-слайдер «до/после».
@@ -28,6 +27,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
   const speedRef = useRef(0); // 0..1, текущая скорость движения ползунка
   const holdRef = useRef(false); // удерживается кнопка/палец
   const sparklesRef = useRef([]);
+  const xRef = useRef([0, 0, 0, 0]); // горизонтальные смещения блёсток (±10px)
   const offsetRef = useRef(0); // набегающий сдвиг блёсток вдоль линии
 
   const setFromClientX = useCallback((clientX) => {
@@ -91,6 +91,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       if (speedRef.current < 0.001) speedRef.current = 0;
       const flow = speedRef.current * 2.4 + (holdRef.current ? 0.25 : 0);
       offsetRef.current = (offsetRef.current + flow * k) % 100;
+      const jitter = speedRef.current * 1.8 + (holdRef.current ? 0.45 : 0); // сила хаотичного дрожания
       for (let i = 0; i < SPARKLE_BASES.length; i++) {
         const el = sparklesRef.current[i];
         if (!el) continue;
@@ -98,6 +99,10 @@ export default function PhoenixLogoSlider({ className = '' }) {
         const edge = Math.min(t, 100 - t) / 12;
         el.style.top = t + '%';
         el.style.opacity = String(Math.max(0.15, Math.min(1, edge)));
+        // хаотичное смещение по горизонтали в пределах ±10px от линии
+        const nx = xRef.current[i] + (Math.random() - 0.5) * jitter * 2;
+        xRef.current[i] = Math.max(-10, Math.min(10, nx));
+        el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), 0)`;
       }
       raf = requestAnimationFrame(loop);
     };
@@ -126,14 +131,13 @@ export default function PhoenixLogoSlider({ className = '' }) {
         style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }} />
       
 
-      {/* Верхний слой — реализованный проект, обрезается по ползунку, с отступом,
-              чтобы не перекрывать тонкую золотистую рамку эскиза */}
+      {/* Верхний слой — реализованный проект, обрезается по ползунку */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"
         draggable={false}
-        className="absolute h-full w-full rounded-full object-cover px-1"
-        style={{ top: `${REAL_INSET}%`, left: `${REAL_INSET}%`, width: `${100 - REAL_INSET * 2}%`, height: `${100 - REAL_INSET * 2}%`, clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+        className="absolute inset-0 h-full w-full rounded-full object-cover"
+        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       
 
       {/* Линия-разделитель и блёстки, обрезаются по кругу */}
@@ -157,7 +161,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[57%] h-[110%] w-auto -translate-y-1/2 object-contain" />
+        className="pointer-events-none absolute -left-[6%] top-[50%] h-[110%] w-auto -translate-y-1/2 object-contain" />
       
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}

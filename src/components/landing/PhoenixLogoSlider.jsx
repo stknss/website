@@ -7,7 +7,8 @@ const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 const INITIAL = 70; // 70% слева — реализованный проект, 30% справа — эскиз
 const HANDLE_HALF = 22; // половина рукоятки (44px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const SPARKLE_BASES = [18, 42, 68, 86]; // базовые позиции блёсток вдоль линии (%)
+const SPARKLE_COUNT = 14; // магические точечки вдоль линии
+const SPARKLE_BASES = Array.from({ length: SPARKLE_COUNT }, (_, i) => 6 + (88 * i) / (SPARKLE_COUNT - 1)); // базовые позиции вдоль линии (%)
 
 // Динамический логотип-слайдер «до/после».
 // Контейнер всегда квадратный (aspect-square); размер задаётся через className
@@ -27,7 +28,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
   const speedRef = useRef(0); // 0..1, текущая скорость движения ползунка
   const holdRef = useRef(false); // удерживается кнопка/палец
   const sparklesRef = useRef([]);
-  const xRef = useRef([0, 0, 0, 0]); // горизонтальные смещения блёсток (±10px)
+  const xRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // горизонтальные смещения точек (±15px)
+  const yRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // вертикальное дрожание точек
   const offsetRef = useRef(0); // набегающий сдвиг блёсток вдоль линии
 
   const setFromClientX = useCallback((clientX) => {
@@ -91,18 +93,24 @@ export default function PhoenixLogoSlider({ className = '' }) {
       if (speedRef.current < 0.001) speedRef.current = 0;
       const flow = speedRef.current * 2.4 + (holdRef.current ? 0.25 : 0);
       offsetRef.current = (offsetRef.current + flow * k) % 100;
-      const jitter = speedRef.current * 1.8 + (holdRef.current ? 0.45 : 0); // сила хаотичного дрожания
+      const jitter = speedRef.current * 2.4 + (holdRef.current ? 0.7 : 0); // сила хаотичного дрожания
       for (let i = 0; i < SPARKLE_BASES.length; i++) {
         const el = sparklesRef.current[i];
         if (!el) continue;
         const t = (SPARKLE_BASES[i] + offsetRef.current) % 100;
         const edge = Math.min(t, 100 - t) / 12;
+        // хаотичное смещение по горизонтали в пределах ±15px от линии
+        xRef.current[i] += (Math.random() - 0.5) * jitter * 3 + (Math.random() - 0.5) * 1.4;
+        xRef.current[i] = Math.max(-15, Math.min(15, xRef.current[i]));
+        // небольшое вертикальное дрожание
+        yRef.current[i] += (Math.random() - 0.5) * jitter * 1.6;
+        yRef.current[i] = Math.max(-7, Math.min(7, yRef.current[i]));
+        // мерцание размера и прозрачности — магические точечки
+        const twinkle = 0.45 + Math.random() * 0.55;
+        const scale = 0.6 + Math.random() * 0.9;
         el.style.top = t + '%';
-        el.style.opacity = String(Math.max(0.15, Math.min(1, edge)));
-        // хаотичное смещение по горизонтали в пределах ±10px от линии
-        const nx = xRef.current[i] + (Math.random() - 0.5) * jitter * 2;
-        xRef.current[i] = Math.max(-10, Math.min(10, nx));
-        el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), 0)`;
+        el.style.opacity = String(Math.max(0.1, Math.min(1, edge)) * twinkle);
+        el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(${scale.toFixed(2)})`;
       }
       raf = requestAnimationFrame(loop);
     };
@@ -150,18 +158,18 @@ export default function PhoenixLogoSlider({ className = '' }) {
           <span
             key={i}
             ref={(el) => {sparklesRef.current[i] = el;}}
-            className="absolute left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#FFE5A3] shadow-[0_0_6px_2px_rgba(255,229,163,0.9)]" />
+            className="absolute left-1/2 h-[2px] w-[2px] rounded-full bg-[#FFE5A3] shadow-[0_0_4px_1px_rgba(255,229,163,0.65)]" />
 
           )}
         </div>
       </div>
 
-      {/* Птица — верхний слой слева (увеличена на 15%, опущена на 7%) */}
+      {/* Птица — верхний слой слева (увеличена на 15%, опущена на 10%) */}
       <img
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[50%] h-[110%] w-auto -translate-y-1/2 object-contain" />
+        className="pointer-events-none absolute -left-[6%] top-[53%] h-[110%] w-auto -translate-y-1/2 object-contain" />
       
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}
@@ -175,8 +183,6 @@ export default function PhoenixLogoSlider({ className = '' }) {
             <path d="M9 7 L4 12 L9 17" />
             <path d="M15 7 L20 12 L15 17" />
           </svg>
-          <span className="absolute -top-1 -right-1 h-1 w-1 rounded-full bg-[#FFE5A3] shadow-[0_0_4px_2px_rgba(255,229,163,0.9)]" />
-          <span className="absolute -bottom-1 -left-1 h-[3px] w-[3px] rounded-full bg-[#FAD078] shadow-[0_0_4px_2px_rgba(250,208,120,0.8)]" />
         </div>
       </div>
     </div>);

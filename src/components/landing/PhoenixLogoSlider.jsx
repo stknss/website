@@ -1,13 +1,13 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c55717c0a_eskiz5.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a36f68707_real5wframe.png';
 const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d84872031_real5.png';
 const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/bee7ea559_bird5.png';
 
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const SPARKLE_COUNT = 40; // магические точечки вдоль линии
+const SPARKLE_COUNT = 80; // магические точечки вдоль линии
 const SPARKLE_BASES = Array.from({ length: SPARKLE_COUNT }, (_, i) => 6 + (88 * i) / (SPARKLE_COUNT - 1)); // базовые позиции вдоль линии (%)
 
 // Динамический логотип-слайдер «до/после».
@@ -99,8 +99,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
         const isStatic = i % 4 === 0; // спокойные огоньки, видны в статике
         if (active) {
           // хаотичное движение в разные стороны рядом с разделительной линией (замедлено вдвое, радиус вдвое меньше)
-          xRef.current[i] += (Math.random() - 0.5) * jitter * 2;
-          yRef.current[i] += (Math.random() - 0.5) * jitter * 2;
+          xRef.current[i] += (Math.random() - 0.5) * jitter * 1;
+          yRef.current[i] += (Math.random() - 0.5) * jitter * 1;
           xRef.current[i] = Math.max(-9, Math.min(9, xRef.current[i]));
           yRef.current[i] = Math.max(-6, Math.min(6, yRef.current[i]));
           const twinkle = 0.4 + Math.random() * 0.6;
@@ -134,22 +134,22 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-valuemax={100}
       aria-label="До и после: эскиз и реализованный проект">
       
-      {/* Нижний слой — эскиз (чёрновик), слегка приподнят */}
+      {/* Нижний слой — эскиз (чёрновик), слегка приподнят, +10px */}
       <img
         src={ESKIZ_URL}
         alt="Эскиз интерьера"
         draggable={false}
-        className="absolute left-0 w-full rounded-full object-cover py-1"
-        style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }} />
+        className="absolute max-w-none rounded-full object-cover py-1"
+        style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
       
 
-      {/* Верхний слой — реализованный проект, обрезается по ползунку */}
+      {/* Верхний слой — реализованный проект, обрезается по ползунку, +10px */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"
         draggable={false}
-        className="absolute inset-0 h-full w-full rounded-full object-cover"
-        style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+        className="absolute max-w-none rounded-full object-cover"
+        style={{ left: '-5px', top: '-5px', width: 'calc(100% + 10px)', height: 'calc(100% + 10px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       
 
       {/* Линия-разделитель и блёстки, обрезаются по кругу */}

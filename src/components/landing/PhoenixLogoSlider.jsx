@@ -1,13 +1,13 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/6f0a32750_eskiz-2.png';
-const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/670ff8108_real-2.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/32c1bfb4d_room2fullcrop.png';
+const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1e9d7f04e_room2full.png';
 const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d37b60f34_bird-2.png';
 
-const INITIAL = 70; // 70% слева — реализованный проект, 30% справа — эскиз
-const HANDLE_HALF = 22; // половина рукоятки (44px)
+const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
+const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const SPARKLE_COUNT = 14; // магические точечки вдоль линии
+const SPARKLE_COUNT = 24; // магические точечки вдоль линии
 const SPARKLE_BASES = Array.from({ length: SPARKLE_COUNT }, (_, i) => 6 + (88 * i) / (SPARKLE_COUNT - 1)); // базовые позиции вдоль линии (%)
 
 // Динамический логотип-слайдер «до/после».
@@ -30,7 +30,6 @@ export default function PhoenixLogoSlider({ className = '' }) {
   const sparklesRef = useRef([]);
   const xRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // горизонтальные смещения точек (±15px)
   const yRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // вертикальное дрожание точек
-  const offsetRef = useRef(0); // набегающий сдвиг блёсток вдоль линии
 
   const setFromClientX = useCallback((clientX) => {
     const el = containerRef.current;
@@ -91,26 +90,31 @@ export default function PhoenixLogoSlider({ className = '' }) {
       const k = dt / 16.67;
       speedRef.current *= Math.pow(0.9, k); // затухание скорости
       if (speedRef.current < 0.001) speedRef.current = 0;
-      const flow = speedRef.current * 2.4 + (holdRef.current ? 0.25 : 0);
-      offsetRef.current = (offsetRef.current + flow * k) % 100;
-      const jitter = speedRef.current * 2.4 + (holdRef.current ? 0.7 : 0); // сила хаотичного дрожания
+      const active = speedRef.current > 0.01 || holdRef.current;
+      const jitter = speedRef.current * 3 + (holdRef.current ? 1.3 : 0); // сила хаотичного дрожания
       for (let i = 0; i < SPARKLE_BASES.length; i++) {
         const el = sparklesRef.current[i];
         if (!el) continue;
-        const t = (SPARKLE_BASES[i] + offsetRef.current) % 100;
-        const edge = Math.min(t, 100 - t) / 12;
-        // хаотичное смещение по горизонтали в пределах ±15px от линии
-        xRef.current[i] += (Math.random() - 0.5) * jitter * 3 + (Math.random() - 0.5) * 1.4;
-        xRef.current[i] = Math.max(-15, Math.min(15, xRef.current[i]));
-        // небольшое вертикальное дрожание
-        yRef.current[i] += (Math.random() - 0.5) * jitter * 1.6;
-        yRef.current[i] = Math.max(-7, Math.min(7, yRef.current[i]));
-        // мерцание размера и прозрачности — магические точечки
-        const twinkle = 0.45 + Math.random() * 0.55;
-        const scale = 0.6 + Math.random() * 0.9;
+        const t = SPARKLE_BASES[i];
+        const isStatic = i % 4 === 0; // спокойные огоньки, видны в статике
+        if (active) {
+          // хаотичное движение в разные стороны рядом с разделительной линией
+          xRef.current[i] += (Math.random() - 0.5) * jitter * 4;
+          yRef.current[i] += (Math.random() - 0.5) * jitter * 4;
+          xRef.current[i] = Math.max(-18, Math.min(18, xRef.current[i]));
+          yRef.current[i] = Math.max(-12, Math.min(12, yRef.current[i]));
+          const twinkle = 0.4 + Math.random() * 0.6;
+          const scale = 0.6 + Math.random() * 0.9;
+          el.style.opacity = String(twinkle);
+          el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(${scale.toFixed(2)})`;
+        } else {
+          // статика: никакого мерцания, плавный возврат к покою
+          xRef.current[i] *= 0.8;
+          yRef.current[i] *= 0.8;
+          el.style.opacity = isStatic ? '0.5' : '0';
+          el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(1)`;
+        }
         el.style.top = t + '%';
-        el.style.opacity = String(Math.max(0.1, Math.min(1, edge)) * twinkle);
-        el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(${scale.toFixed(2)})`;
       }
       raf = requestAnimationFrame(loop);
     };
@@ -164,12 +168,12 @@ export default function PhoenixLogoSlider({ className = '' }) {
         </div>
       </div>
 
-      {/* Птица — верхний слой слева (увеличена на 15%, опущена на 10%) */}
+      {/* Птица — верхний слой слева (уменьшена на 10%, опущена на 10%) */}
       <img
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[53%] h-[110%] w-auto -translate-y-1/2 object-contain" />
+        className="pointer-events-none absolute -left-[6%] top-[53%] h-[99%] w-auto -translate-y-1/2 object-contain" />
       
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}
@@ -177,9 +181,9 @@ export default function PhoenixLogoSlider({ className = '' }) {
         className="pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
         style={{ left: `${pos}%` }}>
         
-        <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_22px_6px_rgba(250,208,120,0.45)]">
-          <span className="pointer-events-none absolute inset-[-4px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
-          <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <div className="relative flex h-8 w-8 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]">
+          <span className="pointer-events-none absolute inset-[-3px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
+          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 7 L4 12 L9 17" />
             <path d="M15 7 L20 12 L15 17" />
           </svg>

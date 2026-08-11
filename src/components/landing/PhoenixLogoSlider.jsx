@@ -122,12 +122,12 @@ export default function PhoenixLogoSlider({ className = '' }) {
         src={ESKIZ_URL}
         alt="Эскиз интерьера"
         draggable={false}
-        className="absolute left-0 w-full rounded-full object-cover"
+        className="absolute left-0 w-full rounded-full object-cover px-6 py-5"
         style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }} />
       
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку, с отступом,
-           чтобы не перекрывать тонкую золотистую рамку эскиза */}
+            чтобы не перекрывать тонкую золотистую рамку эскиза */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"

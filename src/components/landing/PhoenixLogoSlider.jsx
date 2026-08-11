@@ -39,7 +39,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
     const minX = r + HANDLE_HALF - limit;
     const maxX = r - HANDLE_HALF + limit;
     const x = Math.max(minX, Math.min(maxX, clientX - rect.left));
-    setPos((x / rect.width) * 100);
+    setPos(x / rect.width * 100);
 
     // скорость: |dx|/dt, накопительно, с ограничением
     const now = performance.now();
@@ -57,7 +57,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       e.preventDefault?.();
       setFromClientX(e.touches ? e.touches[0].clientX : e.clientX);
     };
-    const stop = () => { dragging.current = false; holdRef.current = false; };
+    const stop = () => {dragging.current = false;holdRef.current = false;};
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseup', stop);
     window.addEventListener('touchmove', move, { passive: false });
@@ -115,40 +115,40 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-valuenow={Math.round(pos)}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-label="До и после: эскиз и реализованный проект"
-    >
+      aria-label="До и после: эскиз и реализованный проект">
+      
       {/* Нижний слой — эскиз (чёрновик), слегка приподнят */}
       <img
         src={ESKIZ_URL}
         alt="Эскиз интерьера"
         draggable={false}
         className="absolute left-0 w-full rounded-full object-cover"
-        style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }}
-      />
+        style={{ top: `-${ESKIZ_LIFT}px`, height: `calc(100% + ${ESKIZ_LIFT}px)` }} />
+      
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку, с отступом,
-          чтобы не перекрывать тонкую золотистую рамку эскиза */}
+           чтобы не перекрывать тонкую золотистую рамку эскиза */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"
         draggable={false}
-        className="absolute h-full w-full rounded-full object-cover"
-        style={{ top: `${REAL_INSET}%`, left: `${REAL_INSET}%`, width: `${100 - REAL_INSET * 2}%`, height: `${100 - REAL_INSET * 2}%`, clipPath: `inset(0 ${100 - pos}% 0 0)` }}
-      />
+        className="absolute h-full w-full rounded-full object-cover px-1"
+        style={{ top: `${REAL_INSET}%`, left: `${REAL_INSET}%`, width: `${100 - REAL_INSET * 2}%`, height: `${100 - REAL_INSET * 2}%`, clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      
 
       {/* Линия-разделитель и блёстки, обрезаются по кругу */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
         <div
           className="absolute top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent shadow-[0_0_14px_4px_rgba(250,208,120,0.55)]"
-          style={{ left: `${pos}%` }}
-        >
-          {SPARKLE_BASES.map((_, i) => (
-            <span
-              key={i}
-              ref={(el) => { sparklesRef.current[i] = el; }}
-              className="absolute left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#FFE5A3] shadow-[0_0_6px_2px_rgba(255,229,163,0.9)]"
-            />
-          ))}
+          style={{ left: `${pos}%` }}>
+          
+          {SPARKLE_BASES.map((_, i) =>
+          <span
+            key={i}
+            ref={(el) => {sparklesRef.current[i] = el;}}
+            className="absolute left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#FFE5A3] shadow-[0_0_6px_2px_rgba(255,229,163,0.9)]" />
+
+          )}
         </div>
       </div>
 
@@ -157,14 +157,14 @@ export default function PhoenixLogoSlider({ className = '' }) {
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[57%] h-[110%] w-auto -translate-y-1/2 object-contain"
-      />
+        className="pointer-events-none absolute -left-[6%] top-[57%] h-[110%] w-auto -translate-y-1/2 object-contain" />
+      
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}
       <div
         className="pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ left: `${pos}%` }}
-      >
+        style={{ left: `${pos}%` }}>
+        
         <div className="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_22px_6px_rgba(250,208,120,0.45)]">
           <span className="pointer-events-none absolute inset-[-4px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
           <svg viewBox="0 0 24 24" className="h-5 w-5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -175,6 +175,6 @@ export default function PhoenixLogoSlider({ className = '' }) {
           <span className="absolute -bottom-1 -left-1 h-[3px] w-[3px] rounded-full bg-[#FAD078] shadow-[0_0_4px_2px_rgba(250,208,120,0.8)]" />
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }

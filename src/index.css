@@ -101,3 +101,8 @@
     @apply bg-primary text-primary-foreground;
   }
 }
+
+@keyframes streak-breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.85; }
+}

@@ -7,7 +7,7 @@ const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
-const SPARKLE_COUNT = 24; // магические точечки вдоль линии
+const SPARKLE_COUNT = 40; // магические точечки вдоль линии
 const SPARKLE_BASES = Array.from({ length: SPARKLE_COUNT }, (_, i) => 6 + (88 * i) / (SPARKLE_COUNT - 1)); // базовые позиции вдоль линии (%)
 
 // Динамический логотип-слайдер «до/после».
@@ -98,13 +98,13 @@ export default function PhoenixLogoSlider({ className = '' }) {
         const t = SPARKLE_BASES[i];
         const isStatic = i % 4 === 0; // спокойные огоньки, видны в статике
         if (active) {
-          // хаотичное движение в разные стороны рядом с разделительной линией
-          xRef.current[i] += (Math.random() - 0.5) * jitter * 4;
-          yRef.current[i] += (Math.random() - 0.5) * jitter * 4;
-          xRef.current[i] = Math.max(-18, Math.min(18, xRef.current[i]));
-          yRef.current[i] = Math.max(-12, Math.min(12, yRef.current[i]));
+          // хаотичное движение в разные стороны рядом с разделительной линией (замедлено вдвое, радиус вдвое меньше)
+          xRef.current[i] += (Math.random() - 0.5) * jitter * 2;
+          yRef.current[i] += (Math.random() - 0.5) * jitter * 2;
+          xRef.current[i] = Math.max(-9, Math.min(9, xRef.current[i]));
+          yRef.current[i] = Math.max(-6, Math.min(6, yRef.current[i]));
           const twinkle = 0.4 + Math.random() * 0.6;
-          const scale = 0.6 + Math.random() * 0.9;
+          const scale = 0.4 + Math.random() * 1.4; // разный размер точек
           el.style.opacity = String(twinkle);
           el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(${scale.toFixed(2)})`;
         } else {
@@ -168,12 +168,12 @@ export default function PhoenixLogoSlider({ className = '' }) {
         </div>
       </div>
 
-      {/* Птица — верхний слой слева (уменьшена на 10%, опущена на 10%) */}
+      {/* Птица — верхний слой слева (опущена на 10%) */}
       <img
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[53%] h-[99%] w-auto -translate-y-1/2 object-contain" />
+        className="pointer-events-none absolute -left-[6%] top-[53%] h-[104%] w-auto -translate-y-1/2 object-contain" />
       
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}

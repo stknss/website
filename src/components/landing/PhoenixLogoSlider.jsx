@@ -1,17 +1,14 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/653f40b18_eskiz5.png';
-const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/dae9b8c6e_real5wframe.png';
-const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/a874daf08_birdfull.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/63949b1f5_eskiz5.png';
+const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/601b699ca_real5wframe.png';
+const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/dfec69cb7_birdpaintedlowq.png';
 
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
 const SPARKLE_COUNT = 80; // магические точечки вдоль линии
 const SPARKLE_BASES = Array.from({ length: SPARKLE_COUNT }, (_, i) => 6 + (88 * i) / (SPARKLE_COUNT - 1)); // базовые позиции вдоль линии (%)
-const SPARKLE_LENS = Array.from({ length: SPARKLE_COUNT }, () => 6 + Math.random() * 16); // длины световых линий (px)
-const SPARKLE_PHASES = Array.from({ length: SPARKLE_COUNT }, () => Math.random() * Math.PI * 2); // фазы мерцания
-const SPARKLE_DRIFT = Array.from({ length: SPARKLE_COUNT }, () => Math.random() * Math.PI * 2); // фазы вертикального покачивания
 
 // Динамический логотип-слайдер «до/после».
 // Контейнер всегда квадратный (aspect-square); размер задаётся через className
@@ -31,6 +28,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
   const speedRef = useRef(0); // 0..1, текущая скорость движения ползунка
   const holdRef = useRef(false); // удерживается кнопка/палец
   const sparklesRef = useRef([]);
+  const xRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // горизонтальные смещения точек (±15px)
+  const yRef = useRef(new Array(SPARKLE_COUNT).fill(0)); // вертикальное дрожание точек
 
   const setFromClientX = useCallback((clientX) => {
     const el = containerRef.current;
@@ -92,24 +91,30 @@ export default function PhoenixLogoSlider({ className = '' }) {
       speedRef.current *= Math.pow(0.9, k); // затухание скорости
       if (speedRef.current < 0.001) speedRef.current = 0;
       const active = speedRef.current > 0.01 || holdRef.current;
-      const tt = now / 1000;
-      const shimmer = 0.6 + speedRef.current * 2.5 + (holdRef.current ? 0.8 : 0); // частота мерцания (рад/с)
-      const ds = shimmer * dt / 1000; // приращение фазы за кадр — без скачков при смене скорости
+      const jitter = speedRef.current * 3 + (holdRef.current ? 1.3 : 0); // сила хаотичного дрожания
       for (let i = 0; i < SPARKLE_BASES.length; i++) {
         const el = sparklesRef.current[i];
         if (!el) continue;
-        const isStatic = i % 4 === 0; // спокойные линии, видны в статике
-        SPARKLE_PHASES[i] += ds;
-        const drift = Math.sin(tt * 0.9 + SPARKLE_DRIFT[i]) * 3; // плавное вертикальное покачивание
-        let op;
+        const t = SPARKLE_BASES[i];
+        const isStatic = i % 4 === 0; // спокойные огоньки, видны в статике
         if (active) {
-          op = 0.3 + 0.5 * (0.5 + 0.5 * Math.sin(SPARKLE_PHASES[i])); // плавное мерцание 0.3..0.8
+          // хаотичное движение в разные стороны рядом с разделительной линией (замедлено вдвое, радиус вдвое меньше)
+          xRef.current[i] += (Math.random() - 0.5) * jitter * 1;
+          yRef.current[i] += (Math.random() - 0.5) * jitter * 1;
+          xRef.current[i] = Math.max(-9, Math.min(9, xRef.current[i]));
+          yRef.current[i] = Math.max(-6, Math.min(6, yRef.current[i]));
+          const twinkle = 0.4 + Math.random() * 0.6;
+          const scale = 0.4 + Math.random() * 1.4; // разный размер точек
+          el.style.opacity = String(twinkle);
+          el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(${scale.toFixed(2)})`;
         } else {
-          op = isStatic ? 0.25 + 0.15 * Math.sin(SPARKLE_PHASES[i] * 0.5) : 0; // медленное дыхание
+          // статика: никакого мерцания, плавный возврат к покою
+          xRef.current[i] *= 0.8;
+          yRef.current[i] *= 0.8;
+          el.style.opacity = isStatic ? '0.5' : '0';
+          el.style.transform = `translate(calc(-50% + ${xRef.current[i].toFixed(1)}px), ${yRef.current[i].toFixed(1)}px) scale(1)`;
         }
-        el.style.opacity = op.toFixed(3);
-        el.style.transform = `translate(-50%, ${drift.toFixed(1)}px)`;
-        el.style.top = SPARKLE_BASES[i] + '%';
+        el.style.top = t + '%';
       }
       raf = requestAnimationFrame(loop);
     };
@@ -138,13 +143,13 @@ export default function PhoenixLogoSlider({ className = '' }) {
         style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
       
 
-      {/* Верхний слой — реализованный проект, обрезается по ползунку, +7px */}
+      {/* Верхний слой — реализованный проект, обрезается по ползунку, +10px */}
       <img
         src={REAL_URL}
         alt="Реализованный проект"
         draggable={false}
         className="absolute max-w-none rounded-full object-cover"
-        style={{ left: '-3.5px', top: '-3.5px', width: 'calc(100% + 7px)', height: 'calc(100% + 7px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+        style={{ left: '-5px', top: '-5px', width: 'calc(100% + 10px)', height: 'calc(100% + 10px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       
 
       {/* Линия-разделитель и блёстки, обрезаются по кругу */}
@@ -157,8 +162,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
           <span
             key={i}
             ref={(el) => {sparklesRef.current[i] = el;}}
-            className="pointer-events-none absolute left-1/2 w-[1.5px] rounded-full"
-            style={{ height: `${SPARKLE_LENS[i]}px`, background: 'linear-gradient(180deg, transparent, hsl(43 84% 72% / 0.35) 30%, #FFE5A3 50%, hsl(43 84% 72% / 0.35) 70%, transparent)', boxShadow: '0 0 6px 1px rgba(250,208,120,0.5)' }} />
+            className="absolute left-1/2 h-[2px] w-[2px] rounded-full bg-[#FFE5A3] shadow-[0_0_4px_1px_rgba(255,229,163,0.65)]" />
 
           )}
         </div>

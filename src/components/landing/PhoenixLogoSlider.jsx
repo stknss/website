@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback, useEffect } from 'react';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/32c1bfb4d_room2fullcrop.png';
-const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/1e9d7f04e_room2full.png';
-const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d37b60f34_bird-2.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/c55717c0a_eskiz5.png';
+const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/d84872031_real5.png';
+const BIRD_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/bee7ea559_bird5.png';
 
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
@@ -168,12 +168,13 @@ export default function PhoenixLogoSlider({ className = '' }) {
         </div>
       </div>
 
-      {/* Птица — верхний слой слева (опущена на 10%) */}
+      {/* Птица — верхний слой слева (опущена на 10% + 5px) */}
       <img
         src={BIRD_URL}
         alt="Жар-птица"
         draggable={false}
-        className="pointer-events-none absolute -left-[6%] top-[53%] h-[104%] w-auto -translate-y-1/2 object-contain" />
+        style={{ transform: 'translateY(calc(-50% + 5px))' }}
+        className="pointer-events-none absolute -left-[6%] top-[53%] h-[104%] w-auto object-contain" />
       
 
       {/* Рукоятка ползунка с магическим золотистым свечением */}

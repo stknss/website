@@ -56,7 +56,7 @@ export default function MagicLightning() {
             d={b.path}
             fill="none"
             stroke="#FAD078"
-            strokeWidth={2.5}
+            strokeWidth={0.5}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
             style={{
@@ -67,7 +67,7 @@ export default function MagicLightning() {
             d={b.branch}
             fill="none"
             stroke="#FAD078"
-            strokeWidth={2.2}
+            strokeWidth={0.35}
             strokeLinecap="round"
             vectorEffect="non-scaling-stroke"
             opacity={0.7}

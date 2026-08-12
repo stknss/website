@@ -69,13 +69,17 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-valuemax={100}
       aria-label="До и после: эскиз и реализованный проект">
 
-      {/* Нижний слой — эскиз (чёрновик), слегка приподнят, +10px */}
-      <img
-        src={ESKIZ_URL}
-        alt="Эскиз интерьера"
-        draggable={false}
-        className="absolute max-w-none rounded-full object-cover py-1"
-        style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
+      {/* Нижний слой — эскиз (чёрновик), слегка приподнят, +10px.
+           Обёрнут в clip-circle: иначе круг эскиза (больше контейнера) виден
+           кольцом за границей круга — воспринимается как утечка свечения. */}
+      <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
+        <img
+          src={ESKIZ_URL}
+          alt="Эскиз интерьера"
+          draggable={false}
+          className="absolute max-w-none rounded-full object-cover py-1"
+          style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
+      </div>
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку.
            Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки

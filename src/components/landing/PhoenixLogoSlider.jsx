@@ -77,24 +77,35 @@ export default function PhoenixLogoSlider({ className = '' }) {
         className="absolute max-w-none rounded-full object-cover py-1"
         style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
 
-      {/* Верхний слой — реализованный проект, обрезается по ползунку. Размер -2px, поднят на 3px выше */}
-      <img
-        src={REAL_URL}
-        alt="Реализованный проект"
-        draggable={false}
-        className="absolute max-w-none rounded-full object-cover"
-        style={{ left: '-2.5px', top: '-6.5px', width: 'calc(100% + 5px)', height: 'calc(100% + 5px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      {/* Верхний слой — реализованный проект, обрезается по ползунку.
+           Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
+           выходит за границу круга, т.к. изображение больше контейнера. */}
+      <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
+        <img
+          src={REAL_URL}
+          alt="Реализованный проект"
+          draggable={false}
+          className="absolute max-w-none rounded-full object-cover"
+          style={{ left: '-2.5px', top: '-6.5px', width: 'calc(100% + 5px)', height: 'calc(100% + 5px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+      </div>
 
-      {/* Линия-разделитель + магические молнии, обрезаются по кругу */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full">
+      {/* Линия-разделитель + магические молнии, обрезаются по кругу.
+           clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
+           (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style={{ clipPath: 'circle(50%)' }}>
         {/* Молнии в узком (±5px) диапазоне вокруг разделителя, следуют за ползунком */}
         <div
           className="absolute top-0 bottom-0 w-[20px] -translate-x-1/2"
           style={{ left: `${pos}%` }}>
           <MagicLightning />
         </div>
+        {/* Мягкое свечение разделителя — через размытый слой (paint, обрезается clip-path),
+             не box-shadow (выходил силуэтом за круг) */}
         <div
-          className="absolute top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent shadow-[0_0_14px_4px_rgba(250,208,120,0.55)]"
+          className="absolute top-0 bottom-0 w-[16px] -translate-x-1/2 rounded-full bg-[#FAD078]/30"
+          style={{ left: `${pos}%`, filter: 'blur(7px)' }} />
+        <div
+          className="absolute top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
           style={{ left: `${pos}%` }} />
       </div>
 

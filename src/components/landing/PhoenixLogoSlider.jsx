@@ -9,6 +9,21 @@ const INITIAL = 80; // 80% слева — реализованный проек�
 const HANDLE_HALF = 16; // половина рукоятки (32px)
 const ESKIZ_LIFT = 3; // подъём эскиза, px
 
+// ════════════════════════════════════════════════════════════════
+//  Настройка слоя РЕАЛИЗОВАННОГО ПРОЕКТА (real)
+//  Меняйте значения ниже, чтобы сдвинуть/растянуть реальное фото
+//  внутри круга. Координаты — относительно квадратного контейнера.
+//    left / top       — сдвиг по горизонтали/вертикали ('-2.5px', '5%', ...)
+//    widthAdd/heightAdd — на сколько px картинка шире/выше контейнера
+//  clipPath (inset) обрезает слой по ползунку — НЕ трогать.
+// ════════════════════════════════════════════════════════════════
+const REAL_POSITION = {
+  left: '-2.5px',    // горизонталь
+  top: '-6.5px',     // вертикаль
+  widthAdd: 5,      // +px к ширине
+  heightAdd: 5,     // +px к высоте
+};
+
 // Динамический логотип-слайдер «до/после».
 // Контейнер всегда квадратный (aspect-square). Нижний слой — эскиз (чёрновик,
 // слегка приподнят), поверх — реализованный проект, обрезаемый по позиции
@@ -84,13 +99,16 @@ export default function PhoenixLogoSlider({ className = '' }) {
       {/* Верхний слой — реализованный проект, обрезается по ползунку.
            Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
            выходит за границу круга, т.к. изображение больше контейнера. */}
+      {/* Верхний слой — РЕАЛИЗОВАННЫЙ ПРОЕКТ.
+           Позиция/размер настраиваются в объекте REAL_POSITION (вверху файла).
+           Обёрнут в clip-circle, обрезается по ползунку (inset справа). */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={REAL_URL}
           alt="Реализованный проект"
           draggable={false}
           className="absolute max-w-none rounded-full object-cover"
-          style={{ left: '-2.5px', top: '-6.5px', width: 'calc(100% + 5px)', height: 'calc(100% + 5px)', clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
+          style={{ left: REAL_POSITION.left, top: REAL_POSITION.top, width: `calc(100% + ${REAL_POSITION.widthAdd}px)`, height: `calc(100% + ${REAL_POSITION.heightAdd}px)`, clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       </div>
 
       {/* Линия-разделитель + магические молнии, обрезаются по кругу.
@@ -116,17 +134,21 @@ export default function PhoenixLogoSlider({ className = '' }) {
       {/* Птица — верхний слой слева. Позиция настраивается в src/components/landing/PhoenixBird.jsx */}
       <PhoenixBird />
 
-      {/* Рукоятка ползунка с магическим золотистым свечением */}
-      <div
-        className="pointer-events-none absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
-        style={{ left: `${pos}%` }}>
+      {/* Рукоятка ползунка с магическим золотистым свечением.
+           Обёрнута в clip-circle: box-shadow рукоятки иначе выходит за круг
+           у правого края (где нет птицы, перекрывающей свечение). */}
+      <div className="pointer-events-none absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
+        <div
+          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ left: `${pos}%` }}>
 
-        <div className="relative flex h-8 w-8 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]">
-          <span className="pointer-events-none absolute inset-[-3px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
-          <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
-            <path d="M9 7 L4 12 L9 17" />
-            <path d="M15 7 L20 12 L15 17" />
-          </svg>
+          <div className="relative flex h-8 w-8 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]">
+            <span className="pointer-events-none absolute inset-[-3px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
+            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 7 L4 12 L9 17" />
+              <path d="M15 7 L20 12 L15 17" />
+            </svg>
+          </div>
         </div>
       </div>
     </div>

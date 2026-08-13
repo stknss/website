@@ -2,8 +2,8 @@ import { useRef, useState, useCallback, useEffect } from 'react';
 import PhoenixBird from '@/components/landing/PhoenixBird';
 import MagicLightning from '@/components/landing/MagicLightning';
 
-const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9c66fca55_eskiz5-1.png';
-const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7b0845187_real5wframe-1.png';
+const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9f86d4f84_eskiz1.png';
+const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/b8748f8ce_realwframe1.png';
 
 // ════════════════════════════════════════════════════════════════
 //  Настройка РУКОЯТКИ ползунка
@@ -11,6 +11,7 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 // ════════════════════════════════════════════════════════════════
 const HANDLE = {
   size: 27,        // диаметр рукоятки, px
+  arrow: 14,       // размер стрелок < > внутри рукоятки, px
 };
 const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
 
@@ -107,8 +108,23 @@ export default function PhoenixLogoSlider({ className = '' }) {
   }, [setFromClientX]);
 
   const startDrag = (e) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+    // На тач-устройствах ползунок двигается только если касание началось
+    // на самой рукоятке — касание в другую часть круга не сдвигает линию.
+    if (e.touches) {
+      const rect = el.getBoundingClientRect();
+      const handleX = (pos / 100) * rect.width;
+      const handleY = rect.height / 2;
+      const dx = clientX - rect.left - handleX;
+      const dy = clientY - rect.top - handleY;
+      const reach = HANDLE.size / 2 + 14; // запас под палец
+      if (dx * dx + dy * dy > reach * reach) return;
+    }
     dragging.current = true;
-    setFromClientX(e.touches ? e.touches[0].clientX : e.clientX);
+    setFromClientX(clientX);
   };
 
   return (
@@ -156,17 +172,17 @@ export default function PhoenixLogoSlider({ className = '' }) {
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style={{ clipPath: 'circle(50%)' }}>
         {/* Молнии в узком (±5px) диапазоне вокруг разделителя, следуют за ползунком */}
         <div
-          className="absolute top-0 bottom-0 w-[20px] -translate-x-1/2"
+          className="absolute top-[2px] bottom-[2px] w-[20px] -translate-x-1/2"
           style={{ left: `${pos}%` }}>
           <MagicLightning />
         </div>
         {/* Мягкое свечение разделителя — через размытый слой (paint, обрезается clip-path),
              не box-shadow (выходил силуэтом за круг) */}
         <div
-          className="absolute top-0 bottom-0 w-[16px] -translate-x-1/2 rounded-full bg-[#FAD078]/30"
+          className="absolute top-[2px] bottom-[2px] w-[16px] -translate-x-1/2 rounded-full bg-[#FAD078]/30"
           style={{ left: `${pos}%`, filter: 'blur(7px)' }} />
         <div
-          className="absolute top-0 bottom-0 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
+          className="absolute top-[2px] bottom-[2px] w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
           style={{ left: `${pos}%` }} />
       </div>
 
@@ -182,8 +198,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
           style={{ left: `${pos}%` }}>
 
           <div className="relative flex items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]" style={{ height: HANDLE.size, width: HANDLE.size }}>
-            <span className="pointer-events-none absolute inset-[-3px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
-            <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+            <svg viewBox="0 0 24 24" className="text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: HANDLE.arrow, width: HANDLE.arrow }}>
               <path d="M9 7 L4 12 L9 17" />
               <path d="M15 7 L20 12 L15 17" />
             </svg>

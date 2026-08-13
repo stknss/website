@@ -11,7 +11,7 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 // ════════════════════════════════════════════════════════════════
 const HANDLE = {
   size: 25,        // диаметр рукоятки, px
-  arrow: 13,       // размер стрелок < > внутри рукоятки, px
+  arrow: 14,       // размер стрелок < > внутри рукоятки, px
 };
 const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
 

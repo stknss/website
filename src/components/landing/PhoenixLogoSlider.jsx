@@ -20,7 +20,7 @@ const ESKIZ_LIFT = 3; // подъём эскиза, px
 const REAL_POSITION = {
   left: '-0.5px',    // горизонталь
   top: '-0.5px',     // вертикаль
-  widthAdd: 0,      // +px к ширине
+  widthAdd: -3,      // +px к ширине
   heightAdd: 0,     // +px к высоте
 };
 

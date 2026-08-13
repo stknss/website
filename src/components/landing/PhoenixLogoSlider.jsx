@@ -5,8 +5,28 @@ import MagicLightning from '@/components/landing/MagicLightning';
 const ESKIZ_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/9c66fca55_eskiz5-1.png';
 const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/7b0845187_real5wframe-1.png';
 
-const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
-const HANDLE_HALF = 16; // половина рукоятки (32px)
+// ════════════════════════════════════════════════════════════════
+//  Настройка РУКОЯТКИ ползунка
+//    size — диаметр рукоятки в px (по умолчанию 32)
+// ════════════════════════════════════════════════════════════════
+const HANDLE = {
+  size: 32,        // диаметр рукоятки, px
+};
+const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
+
+// ════════════════════════════════════════════════════════════════
+//  Настройка РАЗДЕЛИТЕЛЬНОЙ ЛИНИИ
+//    start — стартовая позиция (%): 80 = 80% слева (реализация), 20% справа (эскиз)
+//    min   — минимальная позиция (%), не даёт линии уйти к левому краю круга
+//    max   — максимальная позиция (%), не даёт линии уйти к правому краю круга
+//  Уменьшите min/max, если слои стали меньше и у краёв виден фон.
+// ════════════════════════════════════════════════════════════════
+const DIVIDER = {
+  start: 80,       // стартовая позиция, %
+  min: 8,          // минимальная позиция, %
+  max: 92,         // максимальная позиция, %
+};
+const INITIAL = DIVIDER.start;
 
 
 // ════════════════════════════════════════════════════════════════
@@ -58,7 +78,12 @@ export default function PhoenixLogoSlider({ className = '' }) {
     const limit = Math.sqrt(Math.max(0, r * r - HANDLE_HALF * HANDLE_HALF));
     const minX = r + HANDLE_HALF - limit;
     const maxX = r - HANDLE_HALF + limit;
-    const x = Math.max(minX, Math.min(maxX, clientX - rect.left));
+    // Доп. границы по настройке DIVIDER: линия не уходит к краям круга,
+    // где уменьшенные слои eskiz/real могут не перекрывать фон.
+    const minPx = (DIVIDER.min / 100) * rect.width;
+    const maxPx = (DIVIDER.max / 100) * rect.width;
+    let x = Math.max(minX, Math.min(maxX, clientX - rect.left));
+    x = Math.max(minPx, Math.min(maxPx, x));
     setPos((x / rect.width) * 100);
   }, []);
 
@@ -156,7 +181,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
           className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
           style={{ left: `${pos}%` }}>
 
-          <div className="relative flex h-8 w-8 items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]">
+          <div className="relative flex items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]" style={{ height: HANDLE.size, width: HANDLE.size }}>
             <span className="pointer-events-none absolute inset-[-3px] rounded-full border border-dashed border-[#FAD078]/40 animate-[spin_8s_linear_infinite]" />
             <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 7 L4 12 L9 17" />

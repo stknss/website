@@ -38,6 +38,7 @@ const DIVIDER = {
   min: 5,          // минимальная позиция, %
   max: 95,         // максимальная позиция, %
   inset: 5,        // отступ линии от верха/низа круга, px (больше = короче линия)
+  edgeCrop: 2,     // доп. обрезка самой линии/свечения по краям, px (на длину divider не влияет)
 };
 const INITIAL = DIVIDER.start;
 
@@ -205,10 +206,11 @@ export default function PhoenixLogoSlider({ className = '' }) {
           }}>
           <MagicLightning />
           <div
-            className="absolute inset-y-0 left-1/2 w-[16px] -translate-x-1/2 rounded-full"
-            style={{ background: 'linear-gradient(90deg, transparent, rgba(250,208,120,0.30) 35%, rgba(250,208,120,0.58) 50%, rgba(250,208,120,0.30) 65%, transparent)' }} />
+            className="absolute left-1/2 w-[16px] -translate-x-1/2 rounded-full"
+            style={{ top: DIVIDER.edgeCrop, bottom: DIVIDER.edgeCrop, background: 'linear-gradient(90deg, transparent, rgba(250,208,120,0.30) 35%, rgba(250,208,120,0.58) 50%, rgba(250,208,120,0.30) 65%, transparent)' }} />
           <div
-            className="absolute inset-y-0 left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent" />
+            className="absolute left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
+            style={{ top: DIVIDER.edgeCrop, bottom: DIVIDER.edgeCrop }} />
         </div>
       </div>
 

@@ -35,7 +35,7 @@ const ESKIZ_POSITION = {
   left: '-5px',     // горизонталь
   top: '-8px',      // вертикаль
   widthAdd: 5,     // +px к ширине
-  heightAdd: 13,    // +px к высоте
+  heightAdd: 7,    // +px к высоте
 };
 
 // Динамический логотип-слайдер «до/после».

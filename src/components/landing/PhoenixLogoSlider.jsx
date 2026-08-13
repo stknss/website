@@ -34,7 +34,7 @@ const REAL_POSITION = {
 const ESKIZ_POSITION = {
   left: '-5px',     // горизонталь
   top: '-8px',      // вертикаль
-  widthAdd: 10,     // +px к ширине
+  widthAdd: 5,     // +px к ширине
   heightAdd: 13,    // +px к высоте
 };
 

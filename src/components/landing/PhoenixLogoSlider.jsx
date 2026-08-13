@@ -144,6 +144,10 @@ export default function PhoenixLogoSlider({ className = '' }) {
     setFromClientX(clientX);
   };
 
+  // Длина разделителя = вертикальная хорда круга в текущей позиции ползунка.
+  // Линия физически не может выйти за круг — обрезка больше не нужна.
+  const chord = Math.sqrt(Math.max(0, 1 - Math.pow((pos - 50) / 50, 2))) * 100;
+
   return (
     <div
       ref={containerRef}
@@ -191,8 +195,14 @@ export default function PhoenixLogoSlider({ className = '' }) {
              Один layout-invalidating left на кадр вместо трёх. Свечение через
              CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
         <div
-          className="absolute w-[20px] -translate-x-1/2"
-          style={{ left: `${pos}%`, top: DIVIDER.inset, bottom: DIVIDER.inset, willChange: 'left' }}>
+          className="absolute w-[20px]"
+          style={{
+            left: `${pos}%`,
+            top: '50%',
+            height: `calc(${chord}% - ${2 * DIVIDER.inset}px)`,
+            transform: 'translate(-50%, -50%)',
+            willChange: 'left, transform',
+          }}>
           <MagicLightning />
           <div
             className="absolute inset-y-0 left-1/2 w-[16px] -translate-x-1/2 rounded-full"

@@ -20,8 +20,8 @@ const ESKIZ_LIFT = 3; // подъём эскиза, px
 const REAL_POSITION = {
   left: '-2.5px',    // горизонталь
   top: '-6.5px',     // вертикаль
-  widthAdd: 5,      // +px к ширине
-  heightAdd: 5,     // +px к высоте
+  widthAdd: 0,      // +px к ширине
+  heightAdd: 0,     // +px к высоте
 };
 
 // Динамический логотип-слайдер «до/после».

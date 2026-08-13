@@ -10,7 +10,7 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 //    size — диаметр рукоятки в px (по умолчанию 32)
 // ════════════════════════════════════════════════════════════════
 const HANDLE = {
-  size: 15,        // диаметр рукоятки, px
+  size: 25,        // диаметр рукоятки, px
 };
 const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
 

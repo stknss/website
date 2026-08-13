@@ -209,7 +209,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
             className="absolute left-1/2 w-[16px] -translate-x-1/2 rounded-full"
             style={{ top: DIVIDER.edgeCrop, bottom: DIVIDER.edgeCrop, background: 'linear-gradient(90deg, transparent, rgba(250,208,120,0.30) 35%, rgba(250,208,120,0.58) 50%, rgba(250,208,120,0.30) 65%, transparent)' }} />
           <div
-            className="absolute left-1/2 w-[10px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
+            className="absolute left-1/2 w-[25px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
             style={{ top: DIVIDER.edgeCrop, bottom: DIVIDER.edgeCrop }} />
         </div>
       </div>

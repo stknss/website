@@ -12,8 +12,19 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 const HANDLE = {
   size: 25,        // диаметр рукоятки, px
   arrow: 13,       // размер стрелок < > внутри рукоятки, px
+  arrowGap: 6,     // расстояние между < и > (единицы viewBox 24) — ↑ раздвигает стрелки
+  arrowWidth: 5,   // ширина каждого шеврона (единицы viewBox 24)
 };
 const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
+
+// Путь для шевронов < >. arrowGap — расстояние между ними, arrowWidth — ширина.
+// Считается один раз при загрузке модуля.
+const ARROW_D = (() => {
+  const tipL = 12 - HANDLE.arrowGap / 2;
+  const tipR = 12 + HANDLE.arrowGap / 2;
+  const w = HANDLE.arrowWidth;
+  return `M${tipL} 7 L${tipL - w} 12 L${tipL} 17 M${tipR} 7 L${tipR + w} 12 L${tipR} 17`;
+})();
 
 // ════════════════════════════════════════════════════════════════
 //  Настройка РАЗДЕЛИТЕЛЬНОЙ ЛИНИИ
@@ -26,6 +37,7 @@ const DIVIDER = {
   start: 78,       // стартовая позиция, %
   min: 7,          // минимальная позиция, %
   max: 93,         // максимальная позиция, %
+  inset: 5,        // отступ линии от верха/низа круга, px (больше = короче линия)
 };
 const INITIAL = DIVIDER.start;
 
@@ -179,8 +191,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
              Один layout-invalidating left на кадр вместо трёх. Свечение через
              CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
         <div
-          className="absolute top-[3.5px] bottom-[3.5px] w-[20px] -translate-x-1/2"
-          style={{ left: `${pos}%`, willChange: 'left' }}>
+          className="absolute w-[20px] -translate-x-1/2"
+          style={{ left: `${pos}%`, top: DIVIDER.inset, bottom: DIVIDER.inset, willChange: 'left' }}>
           <MagicLightning />
           <div
             className="absolute inset-y-0 left-1/2 w-[16px] -translate-x-1/2 rounded-full"
@@ -202,7 +214,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
           style={{ left: `${pos}%`, willChange: 'left' }}>
           <div className="relative flex items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]" style={{ height: HANDLE.size, width: HANDLE.size }}>
             <svg viewBox="0 0 24 24" className="text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: HANDLE.arrow, width: HANDLE.arrow }}>
-              <path d="M10 7 L5 12 L10 17 M14 7 L19 12 L14 17" />
+              <path d={ARROW_D} />
             </svg>
           </div>
         </div>

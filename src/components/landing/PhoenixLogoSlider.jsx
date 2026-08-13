@@ -7,7 +7,7 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 
 const INITIAL = 80; // 80% слева — реализованный проект, 20% справа — эскиз
 const HANDLE_HALF = 16; // половина рукоятки (32px)
-const ESKIZ_LIFT = 3; // подъём эскиза, px
+
 
 // ════════════════════════════════════════════════════════════════
 //  Настройка слоя РЕАЛИЗОВАННОГО ПРОЕКТА (real)
@@ -22,6 +22,20 @@ const REAL_POSITION = {
   top: '-1.5px',     // вертикаль
   widthAdd: -3,      // +px к ширине
   heightAdd: 0,     // +px к высоте
+};
+
+// ════════════════════════════════════════════════════════════════
+//  Настройка слоя ЭСКИЗА (eskiz) — нижний слой, чёрновик
+//  Меняйте значения, чтобы сдвинуть/растянуть эскиз внутри круга.
+//    left / top       — сдвиг по горизонтали/вертикали ('-5px', '3%', ...)
+//    widthAdd/heightAdd — на сколько px картинка шире/выше контейнера
+//                         (уменьшите эти значения, чтобы сделать эскиз меньше)
+// ════════════════════════════════════════════════════════════════
+const ESKIZ_POSITION = {
+  left: '-5px',     // горизонталь
+  top: '-8px',      // вертикаль
+  widthAdd: 10,     // +px к ширине
+  heightAdd: 13,    // +px к высоте
 };
 
 // Динамический логотип-слайдер «до/после».
@@ -84,16 +98,16 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-valuemax={100}
       aria-label="До и после: эскиз и реализованный проект">
 
-      {/* Нижний слой — эскиз (чёрновик), слегка приподнят, +10px.
-           Обёрнут в clip-circle: иначе круг эскиза (больше контейнера) виден
-           кольцом за границей круга — воспринимается как утечка свечения. */}
+      {/* Нижний слой — ЭСКИЗ (чёрновик).
+           Позиция/размер настраиваются в объекте ESKIZ_POSITION (вверху файла).
+           Обёрнут в clip-circle. */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={ESKIZ_URL}
           alt="Эскиз интерьера"
           draggable={false}
           className="absolute max-w-none rounded-full object-cover py-1"
-          style={{ left: '-5px', top: `-${ESKIZ_LIFT + 5}px`, width: 'calc(100% + 10px)', height: `calc(100% + ${ESKIZ_LIFT + 10}px)` }} />
+          style={{ left: ESKIZ_POSITION.left, top: ESKIZ_POSITION.top, width: `calc(100% + ${ESKIZ_POSITION.widthAdd}px)`, height: `calc(100% + ${ESKIZ_POSITION.heightAdd}px)` }} />
       </div>
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку.

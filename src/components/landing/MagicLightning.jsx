@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Магические молнии вдоль линии-разделителя слайдера.
 // Узкий (±5px от разделителя) набор ветвящихся вертикальных «разрядов»,
 // которые хаотично пульсируют и слегка дрожат. Полностью на CSS-анимациях
@@ -37,7 +39,7 @@ const BOLTS = Array.from({ length: BOLT_COUNT }, (_, i) => ({
   jitterDuration: (2.2 + (i % 2) * 0.6).toFixed(2),
 }));
 
-export default function MagicLightning() {
+function MagicLightningImpl() {
   return (
     <svg
       viewBox="0 0 20 100"
@@ -77,3 +79,5 @@ export default function MagicLightning() {
     </svg>
   );
 }
+
+export default memo(MagicLightningImpl);

@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 // Выделенный компонент птицы для слайдера «Жар-птица».
 // Позиция и размер настраиваются здесь вручную — без остального кода слайдера.
 //
@@ -16,7 +18,7 @@ const BIRD_POSITION = {
   dy: 5,         // сдвиг вниз на 5px
 };
 
-export default function PhoenixBird({ position = BIRD_POSITION, className = '' }) {
+function PhoenixBirdImpl({ position = BIRD_POSITION, className = '' }) {
   const { top, left, size, dy } = position;
   return (
     <img
@@ -34,3 +36,5 @@ export default function PhoenixBird({ position = BIRD_POSITION, className = '' }
     />
   );
 }
+
+export default memo(PhoenixBirdImpl);

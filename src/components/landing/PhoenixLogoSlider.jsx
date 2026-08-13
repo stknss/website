@@ -70,6 +70,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
   const containerRef = useRef(null);
   const [pos, setPos] = useState(INITIAL);
   const dragging = useRef(false);
+  const rafId = useRef(null);
 
   const setFromClientX = useCallback((clientX) => {
     const el = containerRef.current;
@@ -79,14 +80,18 @@ export default function PhoenixLogoSlider({ className = '' }) {
     const limit = Math.sqrt(Math.max(0, r * r - HANDLE_HALF * HANDLE_HALF));
     const minX = r + HANDLE_HALF - limit;
     const maxX = r - HANDLE_HALF + limit;
-    // Доп. границы по настройке DIVIDER: линия не уходит к краям круга,
-    // где уменьшенные слои eskiz/real могут не перекрывать фон.
     const minPx = (DIVIDER.min / 100) * rect.width;
     const maxPx = (DIVIDER.max / 100) * rect.width;
     let x = Math.max(minX, Math.min(maxX, clientX - rect.left));
     x = Math.max(minPx, Math.min(maxPx, x));
-    setPos((x / rect.width) * 100);
+    const next = (x / rect.width) * 100;
+    // Батчим через requestAnimationFrame — не больше одного setState на кадр,
+    // убирает лишние ре-рендеры при частом mousemove/touchmove.
+    if (rafId.current) cancelAnimationFrame(rafId.current);
+    rafId.current = requestAnimationFrame(() => setPos(next));
   }, []);
+
+  useEffect(() => () => { if (rafId.current) cancelAnimationFrame(rafId.current); }, []);
 
   useEffect(() => {
     const move = (e) => {
@@ -170,20 +175,19 @@ export default function PhoenixLogoSlider({ className = '' }) {
            clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
            (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style={{ clipPath: 'circle(50%)' }}>
-        {/* Молнии в узком (±5px) диапазоне вокруг разделителя, следуют за ползунком */}
+        {/* Единый движущийся контейнер разделителя: молнии + свечение + линия.
+             Один layout-invalidating left на кадр вместо трёх. Свечение через
+             CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
         <div
-          className="absolute top-[2px] bottom-[2px] w-[20px] -translate-x-1/2"
-          style={{ left: `${pos}%` }}>
+          className="absolute top-[3.5px] bottom-[3.5px] w-[20px] -translate-x-1/2"
+          style={{ left: `${pos}%`, willChange: 'left' }}>
           <MagicLightning />
+          <div
+            className="absolute inset-y-0 left-1/2 w-[16px] -translate-x-1/2 rounded-full"
+            style={{ background: 'linear-gradient(90deg, transparent, rgba(250,208,120,0.30) 35%, rgba(250,208,120,0.58) 50%, rgba(250,208,120,0.30) 65%, transparent)' }} />
+          <div
+            className="absolute inset-y-0 left-1/2 w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent" />
         </div>
-        {/* Мягкое свечение разделителя — через размытый слой (paint, обрезается clip-path),
-             не box-shadow (выходил силуэтом за круг) */}
-        <div
-          className="absolute top-[2px] bottom-[2px] w-[16px] -translate-x-1/2 rounded-full bg-[#FAD078]/30"
-          style={{ left: `${pos}%`, filter: 'blur(7px)' }} />
-        <div
-          className="absolute top-[2px] bottom-[2px] w-[2px] -translate-x-1/2 bg-gradient-to-b from-transparent via-[#FAD078] to-transparent"
-          style={{ left: `${pos}%` }} />
       </div>
 
       {/* Птица — верхний слой слева. Позиция настраивается в src/components/landing/PhoenixBird.jsx */}
@@ -195,12 +199,10 @@ export default function PhoenixLogoSlider({ className = '' }) {
       <div className="pointer-events-none absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <div
           className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
-          style={{ left: `${pos}%` }}>
-
+          style={{ left: `${pos}%`, willChange: 'left' }}>
           <div className="relative flex items-center justify-center rounded-full border border-[#FAD078]/70 bg-background/70 backdrop-blur-md shadow-[0_0_16px_4px_rgba(250,208,120,0.45)]" style={{ height: HANDLE.size, width: HANDLE.size }}>
             <svg viewBox="0 0 24 24" className="text-[#FAD078]" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ height: HANDLE.arrow, width: HANDLE.arrow }}>
-              <path d="M9 7 L4 12 L9 17" />
-              <path d="M15 7 L20 12 L15 17" />
+              <path d="M10 7 L5 12 L10 17 M14 7 L19 12 L14 17" />
             </svg>
           </div>
         </div>

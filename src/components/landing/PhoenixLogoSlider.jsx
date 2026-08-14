@@ -162,8 +162,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-label="До и после: эскиз и реализованный проект">
 
       {/* Нижний слой — ЭСКИЗ (чёрновик).
-            Позиция/размер настраиваются в объекте ESKIZ_POSITION (вверху файла).
-            Обёрнут в clip-circle. */}
+             Позиция/размер настраиваются в объекте ESKIZ_POSITION (вверху файла).
+             Обёрнут в clip-circle. */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={ESKIZ_URL}
@@ -174,27 +174,27 @@ export default function PhoenixLogoSlider({ className = '' }) {
       </div>
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку.
-            Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
-            выходит за границу круга, т.к. изображение больше контейнера. */}
+             Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
+             выходит за границу круга, т.к. изображение больше контейнера. */}
       {/* Верхний слой — РЕАЛИЗОВАННЫЙ ПРОЕКТ.
-            Позиция/размер настраиваются в объекте REAL_POSITION (вверху файла).
-            Обёрнут в clip-circle, обрезается по ползунку (inset справа). */}
+             Позиция/размер настраиваются в объекте REAL_POSITION (вверху файла).
+             Обёрнут в clip-circle, обрезается по ползунку (inset справа). */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={REAL_URL}
           alt="Реализованный проект"
           draggable={false}
-          className="absolute max-w-none rounded-full object-cover mx-1"
+          className="absolute max-w-none rounded-full object-cover"
           style={{ left: REAL_POSITION.left, top: REAL_POSITION.top, width: `calc(100% + ${REAL_POSITION.widthAdd}px)`, height: `calc(100% + ${REAL_POSITION.heightAdd}px)`, clipPath: `inset(0 ${100 - pos}% 0 0)` }} />
       </div>
 
       {/* Линия-разделитель + магические молнии, обрезаются по кругу.
-            clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
-            (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
+             clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
+             (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style={{ clipPath: 'circle(50%)' }}>
         {/* Единый движущийся контейнер разделителя: молнии + свечение + линия.
-              Один layout-invalidating left на кадр вместо трёх. Свечение через
-              CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
+               Один layout-invalidating left на кадр вместо трёх. Свечение через
+               CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
         <div
           className="absolute w-[20px]"
           style={{
@@ -218,8 +218,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
       <PhoenixBird />
 
       {/* Рукоятка ползунка с магическим золотистым свечением.
-            Обёрнута в clip-circle: box-shadow рукоятки иначе выходит за круг
-            у правого края (где нет птицы, перекрывающей свечение). */}
+             Обёрнута в clip-circle: box-shadow рукоятки иначе выходит за круг
+             у правого края (где нет птицы, перекрывающей свечение). */}
       <div className="pointer-events-none absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <div
           className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"

@@ -10,10 +10,10 @@ const REAL_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d848
 //    size — диаметр рукоятки в px (по умолчанию 32)
 // ════════════════════════════════════════════════════════════════
 const HANDLE = {
-  size: 25, // диаметр рукоятки, px
-  arrow: 13, // размер стрелок < > внутри рукоятки, px
-  arrowGap: 7, // расстояние между < и > (единицы viewBox 24) — ↑ раздвигает стрелки
-  arrowWidth: 5 // ширина каждого шеврона (единицы viewBox 24)
+  size: 25,        // диаметр рукоятки, px
+  arrow: 13,       // размер стрелок < > внутри рукоятки, px
+  arrowGap: 7,     // расстояние между < и > (единицы viewBox 24) — ↑ раздвигает стрелки
+  arrowWidth: 5,   // ширина каждого шеврона (единицы viewBox 24)
 };
 const HANDLE_HALF = HANDLE.size / 2; // половина рукоятки (для границ)
 
@@ -34,11 +34,11 @@ const ARROW_D = (() => {
 //  Уменьшите min/max, если слои стали меньше и у краёв виден фон.
 // ════════════════════════════════════════════════════════════════
 const DIVIDER = {
-  start: 82, // стартовая позиция, %
-  min: 5, // минимальная позиция, %
-  max: 95, // максимальная позиция, %
-  inset: 5, // отступ линии от верха/низа круга, px (больше = короче линия)
-  edgeCrop: 2 // доп. обрезка самой линии/свечения по краям, px (на длину divider не влияет)
+  start: 82,       // стартовая позиция, %
+  min: 5,          // минимальная позиция, %
+  max: 95,         // максимальная позиция, %
+  inset: 5,        // отступ линии от верха/низа круга, px (больше = короче линия)
+  edgeCrop: 2,     // доп. обрезка самой линии/свечения по краям, px (на длину divider не влияет)
 };
 const INITIAL = DIVIDER.start;
 
@@ -52,10 +52,10 @@ const INITIAL = DIVIDER.start;
 //  clipPath (inset) обрезает слой по ползунку — НЕ трогать.
 // ════════════════════════════════════════════════════════════════
 const REAL_POSITION = {
-  left: '-0.5px', // горизонталь
-  top: '0px', // вертикаль
-  widthAdd: -3, // +px к ширине
-  heightAdd: +0.5 // +px к высоте
+  left: '-0.5px',    // горизонталь
+  top: '0px',     // вертикаль
+  widthAdd: -3,      // +px к ширине
+  heightAdd: +0.5,     // +px к высоте
 };
 
 // ════════════════════════════════════════════════════════════════
@@ -66,10 +66,10 @@ const REAL_POSITION = {
 //                         (уменьшите эти значения, чтобы сделать эскиз меньше)
 // ════════════════════════════════════════════════════════════════
 const ESKIZ_POSITION = {
-  left: '-5px', // горизонталь
-  top: '-2px', // вертикаль
-  widthAdd: 5, // +px к ширине
-  heightAdd: 7 // +px к высоте
+  left: '-5px',     // горизонталь
+  top: '-2px',      // вертикаль
+  widthAdd: 5,     // +px к ширине
+  heightAdd: 7,    // +px к высоте
 };
 
 // Динамический логотип-слайдер «до/после».
@@ -93,18 +93,18 @@ export default function PhoenixLogoSlider({ className = '' }) {
     const limit = Math.sqrt(Math.max(0, r * r - HANDLE_HALF * HANDLE_HALF));
     const minX = r + HANDLE_HALF - limit;
     const maxX = r - HANDLE_HALF + limit;
-    const minPx = DIVIDER.min / 100 * rect.width;
-    const maxPx = DIVIDER.max / 100 * rect.width;
+    const minPx = (DIVIDER.min / 100) * rect.width;
+    const maxPx = (DIVIDER.max / 100) * rect.width;
     let x = Math.max(minX, Math.min(maxX, clientX - rect.left));
     x = Math.max(minPx, Math.min(maxPx, x));
-    const next = x / rect.width * 100;
+    const next = (x / rect.width) * 100;
     // Батчим через requestAnimationFrame — не больше одного setState на кадр,
     // убирает лишние ре-рендеры при частом mousemove/touchmove.
     if (rafId.current) cancelAnimationFrame(rafId.current);
     rafId.current = requestAnimationFrame(() => setPos(next));
   }, []);
 
-  useEffect(() => () => {if (rafId.current) cancelAnimationFrame(rafId.current);}, []);
+  useEffect(() => () => { if (rafId.current) cancelAnimationFrame(rafId.current); }, []);
 
   useEffect(() => {
     const move = (e) => {
@@ -112,7 +112,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
       e.preventDefault?.();
       setFromClientX(e.touches ? e.touches[0].clientX : e.clientX);
     };
-    const stop = () => {dragging.current = false;};
+    const stop = () => { dragging.current = false; };
     window.addEventListener('mousemove', move);
     window.addEventListener('mouseup', stop);
     window.addEventListener('touchmove', move, { passive: false });
@@ -134,7 +134,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
     // на самой рукоятке — касание в другую часть круга не сдвигает линию.
     if (e.touches) {
       const rect = el.getBoundingClientRect();
-      const handleX = pos / 100 * rect.width;
+      const handleX = (pos / 100) * rect.width;
       const handleY = rect.height / 2;
       const dx = clientX - rect.left - handleX;
       const dy = clientY - rect.top - handleY;
@@ -162,8 +162,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
       aria-label="До и после: эскиз и реализованный проект">
 
       {/* Нижний слой — ЭСКИЗ (чёрновик).
-             Позиция/размер настраиваются в объекте ESKIZ_POSITION (вверху файла).
-             Обёрнут в clip-circle. */}
+           Позиция/размер настраиваются в объекте ESKIZ_POSITION (вверху файла).
+           Обёрнут в clip-circle. */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={ESKIZ_URL}
@@ -174,11 +174,11 @@ export default function PhoenixLogoSlider({ className = '' }) {
       </div>
 
       {/* Верхний слой — реализованный проект, обрезается по ползунку.
-             Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
-             выходит за границу круга, т.к. изображение больше контейнера. */}
+           Обёрнут в clip-circle: иначе прямая кромка (хорда) от inset-обрезки
+           выходит за границу круга, т.к. изображение больше контейнера. */}
       {/* Верхний слой — РЕАЛИЗОВАННЫЙ ПРОЕКТ.
-             Позиция/размер настраиваются в объекте REAL_POSITION (вверху файла).
-             Обёрнут в clip-circle, обрезается по ползунку (inset справа). */}
+           Позиция/размер настраиваются в объекте REAL_POSITION (вверху файла).
+           Обёрнут в clip-circle, обрезается по ползунку (inset справа). */}
       <div className="absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <img
           src={REAL_URL}
@@ -189,12 +189,12 @@ export default function PhoenixLogoSlider({ className = '' }) {
       </div>
 
       {/* Линия-разделитель + магические молнии, обрезаются по кругу.
-             clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
-             (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
+           clip-path: circle(50%) гарантированно обрезает и свечение, и сами молнии
+           (overflow/border-radius не обрезает box-shadow — давал силуэт за кругом). */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-full" style={{ clipPath: 'circle(50%)' }}>
         {/* Единый движущийся контейнер разделителя: молнии + свечение + линия.
-               Один layout-invalidating left на кадр вместо трёх. Свечение через
-               CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
+             Один layout-invalidating left на кадр вместо трёх. Свечение через
+             CSS-градиент без filter:blur — убирает дорогой repaint-размытия. */}
         <div
           className="absolute w-[20px]"
           style={{
@@ -202,7 +202,7 @@ export default function PhoenixLogoSlider({ className = '' }) {
             top: '50%',
             height: `calc(${chord}% - ${2 * DIVIDER.inset}px)`,
             transform: 'translate(-50%, -50%)',
-            willChange: 'left, transform'
+            willChange: 'left, transform',
           }}>
           <MagicLightning />
           <div
@@ -218,8 +218,8 @@ export default function PhoenixLogoSlider({ className = '' }) {
       <PhoenixBird />
 
       {/* Рукоятка ползунка с магическим золотистым свечением.
-             Обёрнута в clip-circle: box-shadow рукоятки иначе выходит за круг
-             у правого края (где нет птицы, перекрывающей свечение). */}
+           Обёрнута в clip-circle: box-shadow рукоятки иначе выходит за круг
+           у правого края (где нет птицы, перекрывающей свечение). */}
       <div className="pointer-events-none absolute inset-0" style={{ clipPath: 'circle(50%)' }}>
         <div
           className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -231,6 +231,6 @@ export default function PhoenixLogoSlider({ className = '' }) {
           </div>
         </div>
       </div>
-    </div>);
-
+    </div>
+  );
 }

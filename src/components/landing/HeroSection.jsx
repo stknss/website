@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import PhoenixLogoSlider from '@/components/landing/PhoenixLogoSlider';
+
+const LOGO_URL = 'https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/561e2c803_ChatGPTImage13202622_08_44.png';
 
 export default function HeroSection() {
   return (
@@ -33,7 +34,11 @@ export default function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <PhoenixLogoSlider className="w-full max-w-[21.4rem] sm:max-w-[25.7rem]" />
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/cbecafbf6_logomain3-2.png"
+
+          alt="Жар-птица — символ бюро"
+          className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
+          loading="eager" />
         </motion.div>
 
         {/* Left: text */}
@@ -88,8 +93,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
-          className="hidden lg:flex items-center justify-end lg:col-span-1 my-1">
-          <PhoenixLogoSlider className="h-[60.6vh] w-auto max-w-full" />
+          className="hidden lg:flex items-center justify-center lg:col-span-1">
+          <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/cbecafbf6_logomain3-2.png"
+
+          alt="Жар-птица — символ бюро"
+          className="w-full max-h-[75vh] object-contain"
+          loading="eager" />
         </motion.div>
       </div>
     </section>);

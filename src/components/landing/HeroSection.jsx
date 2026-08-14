@@ -26,14 +26,14 @@ export default function HeroSection() {
         }} />
       
 
-      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-start gap-8 px-6 pt-28 pb-20 lg:grid-cols-2 lg:items-center lg:gap-0 lg:px-10 lg:py-24">
+      <div className="relative mx-auto grid min-h-screen max-w-7xl grid-cols-1 items-start gap-8 px-6 pt-28 pb-20 lg:grid-cols-2 lg:items-center lg:gap-0 lg:px-10 lg:py-24 2xl:max-w-[1800px]">
         {/* Logo for tablet & mobile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="flex items-center justify-center lg:hidden">
-          <PhoenixLogoSlider className="w-full max-w-[21.4rem] sm:max-w-[25.7rem] translate-x-[3px]" />
+          <PhoenixLogoSlider className="w-full max-w-[21.4rem] sm:max-w-[25.7rem]" />
         </motion.div>
 
         {/* Left: text */}

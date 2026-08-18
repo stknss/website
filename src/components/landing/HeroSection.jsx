@@ -97,7 +97,7 @@ export default function HeroSection() {
           <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/cbecafbf6_logomain3-2.png"
 
           alt="Жар-птица — символ бюро"
-          className="w-full max-h-[60vh] object-contain translate-x-[15px]"
+          className="w-full max-h-[60vh] object-contain translate-x-[20px]"
           loading="eager" />
         </motion.div>
       </div>

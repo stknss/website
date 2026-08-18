@@ -90,7 +90,7 @@ export default function HeroSection() {
 
         {/* Right: logo — desktop */}
         <motion.div
-          initial={{ opacity: 0, scale: 1.96 }}
+          initial={{ opacity: 0, scale: 3.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
           className="hidden lg:flex items-center justify-center lg:col-span-1">

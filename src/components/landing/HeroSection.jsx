@@ -33,7 +33,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.1 }}
-          className="flex items-center justify-center lg:hidden -translate-x-[30px]"
+          className="flex items-center justify-center lg:hidden -translate-x-[3px]"
           <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/cbecafbf6_logomain3-2.png"
 
           alt="Жар-птица — символ бюро"

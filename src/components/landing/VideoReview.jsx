@@ -1,7 +1,7 @@
 const VIDEO_ID = 'SjgB45muIQk'; // ID видео на YouTube
 const VIDEO_START = 1139; // секунда, с которой начинается воспроизведение
 
-export default function VideoReview({ caption = 'Видеообзор одного из проектов (для отображения необходимо включить VPN)' }) {
+export default function VideoReview({ caption = 'Видеообзор одного из проектов' }) {
   return (
     <div className="mx-auto mt-16 max-w-7xl">
       <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">{caption}</p>

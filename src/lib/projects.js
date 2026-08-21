@@ -25,7 +25,7 @@ const projects = [
     slug: 'clever-park',
     title: 'Clever park',
     meta: '160 м² · Екатеринбург · реализация под ключ',
-    image: 'https://storage.yandexcloud.net/zharptizza/Clever%20park%20160%20sq/3%20(осн%20моб).jpg',
+    image: 'https://storage.yandexcloud.net/zharptizza/Clever%20park%20160%20sq/1%20(осн).jpg',
     mobileImage: 'https://storage.yandexcloud.net/zharptizza/Clever%20park%20160%20sq/3%20(осн%20моб).jpg',
     alt: 'Современная кухня с деревянными фасадами, каменным островом и латунными деталями',
     wide: true,

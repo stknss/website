@@ -16,7 +16,7 @@ export default function Portfolio() {  const orderedSlugs = ['clever-park-95', '
   const ordered = orderedSlugs.map((slug) => {
     const p = projects.find((p) => p.slug === slug);
     if (!p) return null;
-    if (slug === 'clever-park') return { ...p, image: p.gallery[1] };
+    if (slug === 'clever-park') return { ...p, image: p.gallery[2] };
     return p;
   }).filter(Boolean);
   const cardAspect = '9 / 10';

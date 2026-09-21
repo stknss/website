@@ -11,7 +11,23 @@ const trackProjectClick = (slug) => {
   }
 };
 
-export default function Portfolio() {  const orderedSlugs = ['clever-park-95', 'green-park-hotel', 'zhk-kandinskiy', 'clever-park', 'dom-italian-provence','house-sverdlovsk', 'ekaterininskiy-3d',  'dom-palniks', 'office-nefteyugansk'];
+export default function Portfolio() {
+  const orderedSlugs = [
+    'clever-park-95',
+    'green-park-hotel',
+    'zhk-kandinskiy',
+    'clever-park',
+    'zhk-nova-park',
+    'dom-italian-provence',
+    'zhk-park-stolits',
+    'house-sverdlovsk',
+    'house-shilovsky-park',
+    'ekaterininskiy-3d',
+    'house-sysert',
+    'dom-palniks',
+    'house-koptyaki',
+    'office-nefteyugansk',
+  ];
 
   const ordered = orderedSlugs.map((slug) => {
     const p = projects.find((p) => p.slug === slug);

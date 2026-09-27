@@ -65,6 +65,7 @@ const packages = [
   includes: [
   'управление реализацией на объекте, выбор подрядчиков; контроль бюджета;',
   'контроль соответствия ремонта проекту;',
+  'гарантия на выполненные работы на 3 года;',
   'ответы на вопросы строителей и подрядчиков;',
   'корректировка и уточнение решений по месту;',
   'контроль важных деталей и узлов;',
@@ -178,7 +179,7 @@ export default function Pricelist() {
             <BackButton />
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Стоимость</p>
           </div>
-          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-6xl">Стоимость услуг и пакетов проектирования</h1>
+          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-5xl">Стоимость услуг и пакетов проектирования</h1>
         </div>
 
         {/* Пакеты */}

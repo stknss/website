@@ -4,30 +4,29 @@ const services = [
   {
     icon: PencilRuler,
     title: 'Дизайн-проект',
-    text: 'Планировочные решения, визуализации и полный комплект рабочих чертежей — основа будущего интерьера.',
+    text: 'Планировочные решения, визуализация и полный комплект рабочих чертежей.',
   },
   {
     icon: ClipboardCheck,
     title: 'Авторский надзор',
-    text: 'Сопровождаем реализацию и следим, чтобы всё было выполнено точно по проекту — без отклонений и ошибок.',
+    text: 'Сопровождаем реализацию и следим, чтобы всё было выполнено точно по проекту',
   },
   {
     icon: Hammer,
     title: 'Дизайнерский ремонт',
-    text: 'Берём на себя полный цикл под ключ: от демонтажа до финальной установки мебели и декора.',
+    text: 'Берём на себя полный цикл под ключ: от демонтажа до финальной установки мебели и декора, с гарантией на выполненные работы',
   },
 ];
 
 export default function ServicesInfographic() {
   return (
-    <div className="relative mt-8">
-      <div className="absolute bottom-6 left-[22px] top-6 w-px bg-border" aria-hidden="true" />
-      <div className="space-y-3">
-        {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <div key={service.title} className="relative flex items-start gap-4">
-              <span className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-card text-primary">
+    <div className="mt-8">
+      {services.map((service, i) => {
+        const Icon = service.icon;
+        return (
+          <div key={service.title}>
+            <div className="flex items-center gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-card text-primary">
                 <Icon className="h-5 w-5" />
               </span>
               <div className="flex-1 rounded-[1.5rem] border border-border bg-card p-5">
@@ -35,9 +34,12 @@ export default function ServicesInfographic() {
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
               </div>
             </div>
-          );
-        })}
-      </div>
+            {i < services.length - 1 && (
+              <span className="my-1.5 ml-[22px] block h-3 w-px bg-border" aria-hidden="true" />
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -447,6 +447,7 @@ export const designSlugs = [
   'zhk-park-stolits',
   'house-koptyaki',
   'house-shilovsky-park',
+  'house-sysert',
   'ekaterininskiy-3d',
 ];
 

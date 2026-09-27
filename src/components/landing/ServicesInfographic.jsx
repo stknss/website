@@ -35,7 +35,7 @@ export default function ServicesInfographic() {
               </div>
             </div>
             {i < services.length - 1 && (
-              <span className="my-1.5 ml-[22px] block h-3 w-px bg-border" aria-hidden="true" />
+              <span className="my-1 ml-[22px] block h-8 w-px bg-border" aria-hidden="true" />
             )}
           </div>
         );

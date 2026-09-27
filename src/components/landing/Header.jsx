@@ -5,7 +5,7 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { label: 'Процесс', href: '#process' },
   { label: 'Дизайн-проекты', href: '/portfolio-design' },
-  { label: 'Работы', href: '#portfolio' },
+  { label: 'Работы', href: '/portfolio' },
   { label: 'О нас', href: '/about' },
   { label: 'Специалисты', href: '/specialists' },
   { label: 'Стоимость', href: '/pricelist' },

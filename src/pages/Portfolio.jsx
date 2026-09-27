@@ -20,7 +20,6 @@ export default function Portfolio() {
     'zhk-kandinskiy',
     'clever-park',
     'house-sverdlovsk',
-    'house-sysert',
     'dom-palniks',
     'office-nefteyugansk',
   ];

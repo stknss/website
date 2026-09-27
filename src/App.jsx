@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import Specialists from './pages/Specialists';
 import Portfolio from './pages/Portfolio';
+import PortfolioDesign from './pages/PortfolioDesign';
 import ProjectDetail from './pages/ProjectDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import About from './pages/About';
@@ -48,6 +49,7 @@ const AuthenticatedApp = () => {
         <Route path="/" element={<Home />} />
         <Route path="/specialists" element={<Specialists />} />
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio-design" element={<PortfolioDesign />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/about" element={<About />} />

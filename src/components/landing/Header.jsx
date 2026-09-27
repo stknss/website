@@ -7,7 +7,7 @@ const navItems = [
   { label: 'Работы', href: '#portfolio' },
   { label: 'О нас', href: '/about' },
   { label: 'Специалисты', href: '/specialists' },
-  { label: 'Прайс-лист', href: '/pricelist' },
+  { label: 'Стоимость', href: '/pricelist' },
   { label: 'Контакты', href: '#contact' },
 ];
 

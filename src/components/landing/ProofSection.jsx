@@ -34,11 +34,14 @@ export default function ProofSection() {
         </div>
         <div className="lg:col-span-7">
           
-          <h2 id="proof-title" className="font-display text-[2.75rem] font-light italic leading-none text-foreground md:text-7xl">В нашей работе баланс: взгляд дизайнера и подход инженера‑строителя
+          <h2 id="proof-title" className="font-display text-[2.75rem] font-light italic leading-none text-foreground md:text-7xl">Мы работаем в том формате, который нужен именно вам
 
           </h2>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">Мы ведём проект от первой идеи до последнего предмета на полке: видим пространство художественно, считаем технически и информируем клиента по всем нюансам ремонта.
-
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Вы можете заказать отдельно дизайн-проект — и реализовать его своими силами. Можете взять
+            авторский надзор за дизайнерским ремонтом, чтобы всё было выполнено точно по изначальной
+            задумке. А можете передать нам полный цикл под ключ: от демонтажа до финальной установки
+            мебели — единой командой и с ответственностью за результат.
 
           </p>
           <blockquote className="mt-12 border-l-2 border-primary pl-7">

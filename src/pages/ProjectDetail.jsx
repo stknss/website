@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import projects, { getProjectBySlug } from '@/lib/projects';
+import { getProjectBySlug } from '@/lib/projects';
 import BackButton from '@/components/BackButton';
 import Lightbox from '@/components/Lightbox';
 import MasonryGallery from '@/components/MasonryGallery';
@@ -30,8 +30,6 @@ export default function ProjectDetail() {
       </main>
     );
   }
-
-  const otherProjects = projects.filter((p) => p.slug !== slug);
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -70,7 +68,7 @@ export default function ProjectDetail() {
             />
           )}
 
-          <div className="mt-14 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-14">
             <Link
               to="/portfolio"
               className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]"
@@ -78,20 +76,6 @@ export default function ProjectDetail() {
               Посмотреть все работы
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
-
-            {otherProjects.length > 0 && (
-              <div className="flex flex-wrap gap-4">
-                {otherProjects.map((p) => (
-                  <Link
-                    key={p.slug}
-                    to={`/project/${p.slug}`}
-                    className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground transition hover:border-primary hover:text-primary"
-                  >
-                    {p.title} <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                ))}
-              </div>
-            )}
           </div>
         </div>
       </section>

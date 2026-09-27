@@ -22,7 +22,7 @@ export default function DesignPortfolioSection() {
           Наши дизайн-проекты
         </p>
       </div>
-      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
         {designProjects.map((project, i) => (
           <Link
             key={project.slug}

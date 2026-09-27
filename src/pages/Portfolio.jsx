@@ -14,6 +14,7 @@ const trackProjectClick = (slug) => {
 export default function Portfolio() {
   const orderedSlugs = [
     'clever-park-95',
+    'zhk-nova-park',
     'green-park-hotel',
     'zhk-kandinskiy',
     'clever-park',

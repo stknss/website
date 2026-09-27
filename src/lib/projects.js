@@ -411,11 +411,11 @@ const projects = [
 export default projects;
 
 // Порядок на home: ЖК Кандинский (узкий), Clever park 160 (широкий), Грин Парк (широкий), Частный дом (широкий)
-export const featuredSlugs = ['zhk-kandinskiy', 'clever-park', 'green-park-hotel', 'house-sverdlovsk'];
+// Порядок на home. Временно скрыты: green-park-hotel, house-sverdlovsk.
+export const featuredSlugs = ['zhk-kandinskiy', 'clever-park'];
 
 // Проекты, выполненные как дизайн-проект (без реализации).
 export const designSlugs = [
-  'zhk-nova-park',
   'zhk-park-stolits',
   'house-koptyaki',
   'house-shilovsky-park',
@@ -424,7 +424,6 @@ export const designSlugs = [
 
 // Дизайн-проекты, показываемые на главной странице.
 export const featuredDesignSlugs = [
-  'zhk-nova-park',
   'zhk-park-stolits',
   'house-koptyaki',
   'house-shilovsky-park',

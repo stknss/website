@@ -95,13 +95,11 @@ export default function Specialists() {
           <div className="rounded-[2rem] border border-border bg-card p-8 md:p-12">
             <div className="flex items-center gap-4">
               <Award className="h-10 w-10 text-primary" />
-              <h3 className="font-display text-3xl font-light italic">Почему семейное бюро?</h3>
+              <h3 className="font-display text-3xl font-light italic">В нашей работе баланс: взгляд дизайнера и подход инженера-строителя</h3>
             </div>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">Мы — муж и жена, архитектор-дизайнер и инженер-строитель. Это значит, что проект проходит двойной контроль: художественный и технический. И мы рядом на всём пути — от эскиза до финальной уборки перед вашим новосельем.
-
-
-
-
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground">
+              Мы ведём проект от первой идеи до последнего предмета на полке: видим пространство
+              художественно, считаем технически и информируем клиента по всем нюансам ремонта.
             </p>
           </div>
         </div>

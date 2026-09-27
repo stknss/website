@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Quote } from 'lucide-react';
+import ServicesInfographic from '@/components/landing/ServicesInfographic';
 
 export default function ProofSection() {
   return (
@@ -34,26 +34,16 @@ export default function ProofSection() {
         </div>
         <div className="lg:col-span-7">
           
-          <h2 id="proof-title" className="font-display text-[2.75rem] font-light italic leading-none text-foreground md:text-7xl">Мы работаем в том формате, который нужен именно вам
+          <h2 id="proof-title" className="font-display text-[2.75rem] font-light italic leading-none text-foreground md:text-7xl">Наши услуги
 
           </h2>
+          <ServicesInfographic />
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Вы можете заказать отдельно дизайн-проект — и реализовать его своими силами. Можете взять
-            авторский надзор за дизайнерским ремонтом, чтобы всё было выполнено точно по изначальной
-            задумке. А можете передать нам полный цикл под ключ: от демонтажа до финальной установки
-            мебели — единой командой и с ответственностью за результат.
-
+            Мы работаем в том формате, который нужен именно вам: вы можете заказать отдельно
+            дизайн-проект, либо обратиться за авторским надзором, чтобы всё было выполнено точно по
+            изначальной задумке. А можете передать нам полный цикл под ключ: от планировок и демонтажа до
+            финальной установки мебели с гарантией за результат.
           </p>
-          <blockquote className="mt-12 border-l-2 border-primary pl-7">
-            <Quote className="mb-5 h-8 w-8 text-primary opacity-60" />
-            <p className="font-display text-3xl italic leading-tight text-foreground md:text-4xl">
-              «Получился интерьер, в котором всё красиво, удобно и продумано до миллиметра.
-              Главное — мы чувствовали спокойствие на каждом этапе».
-            </p>
-            <cite className="mt-5 block font-mono text-xs not-italic uppercase tracking-[0.2em] text-muted-foreground">
-              Клиенты бюро · квартира для семьи
-            </cite>
-          </blockquote>
         </div>
       </div>
     </section>);

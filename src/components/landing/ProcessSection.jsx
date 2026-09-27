@@ -11,10 +11,10 @@ export default function ProcessSection() {
   return (
     <section id="process" className="px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="process-title">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-16">
+        <div className="mb-8">
           <p id="process-title" className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Процесс под ключ</p>
         </div>
-        <div className="grid mt-8 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map(([number, title, text], i) =>
           <motion.div
             key={number}

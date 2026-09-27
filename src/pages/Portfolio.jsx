@@ -43,7 +43,7 @@ export default function Portfolio() {
           </div>
           <h1
             id="portfolio-title"
-            className="mt-5 max-w-4xl font-display text-4xl font-light italic leading-none md:text-5xl"
+            className="mt-5 font-display text-4xl font-light italic leading-none md:text-5xl xl:whitespace-nowrap"
           >
             Проекты полного цикла с дизайном и ремонтом под ключ
           </h1>

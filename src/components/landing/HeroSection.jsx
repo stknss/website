@@ -37,7 +37,7 @@ export default function HeroSection() {
           <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/3ba8540db_ChatGPTImageSep28202601_24_51AM-2.png"
 
           alt="Жар-птица — символ бюро"
-          className="w-full max-w-md object-contain sm:max-w-lg sm:-mt-8 opacity-85"
+          className="w-full max-w-sm object-contain sm:max-w-md opacity-85"
           loading="eager" />
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function HeroSection() {
 
           </h1>
 
-          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground mt-8">Создаем уникальные интерьеры с душой и вниманием к деталям. Полный цикл — от идеи до воплощения
+          <p className="max-w-xl text-lg leading-relaxed text-muted-foreground mt-8">Создаем уникальные интерьеры с душой и вниманием к деталям. Полный цикл - от идеи до воплощения
 
 
           </p>
@@ -68,10 +68,10 @@ export default function HeroSection() {
             )}
           </div>
 
-          <div className="mt-10 -ml-1 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:justify-start md:ml-0 md:justify-center lg:justify-start">
+          <div className="mt-10 -ml-1 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:justify-start md:ml-0 md:justify-center lg:justify-start">
             <a
               href="#contact"
-              className="group inline-flex w-full whitespace-nowrap sm:w-auto min-h-12 items-center justify-center rounded-full bg-primary px-6 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
+              className="group inline-flex w-full whitespace-nowrap sm:w-auto min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)]">
               Забронировать встречу
               <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -79,7 +79,7 @@ export default function HeroSection() {
             </a>
             <a
               href="#portfolio"
-              className="group inline-flex w-full whitespace-nowrap sm:w-auto min-h-12 items-center justify-center rounded-full border border-border px-6 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]">
+              className="group inline-flex w-full whitespace-nowrap sm:w-auto min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)]">
               Смотреть работы
               <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-border transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
@@ -97,7 +97,7 @@ export default function HeroSection() {
           <img src="https://media.base44.com/images/public/6a25b90cc69d8cc1446d8488/3ba8540db_ChatGPTImageSep28202601_24_51AM-2.png"
 
           alt="Жар-птица — символ бюро"
-          className="w-full max-h-[82vh] object-contain"
+          className="w-full max-h-[75vh] object-contain"
           loading="eager" />
         </motion.div>
       </div>

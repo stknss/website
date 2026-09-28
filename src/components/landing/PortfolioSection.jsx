@@ -15,7 +15,7 @@ export default function PortfolioSection() {
     .filter(Boolean);
 
   return (
-    <section className="px-6 py-16 lg:px-10 lg:py-20" aria-labelledby="portfolio-title">
+    <section className="px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="portfolio-title">
       <div id="portfolio" className="mx-auto mb-8 max-w-7xl scroll-mt-0">
         <p id="portfolio-title" className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Проекты с реализацией дизайнерского ремонта</p>
       </div>

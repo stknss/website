@@ -27,7 +27,7 @@ export default function PortfolioDesign() {
           </div>
           <h1
             id="portfolio-design-title"
-            className="mt-5 font-display text-4xl font-light italic leading-none md:text-5xl xl:whitespace-nowrap"
+            className="mt-5 max-w-4xl font-display text-5xl font-light italic leading-none md:text-7xl"
           >
             Дизайн-проекты с полной рабочей документацией
           </h1>

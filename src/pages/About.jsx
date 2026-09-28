@@ -60,12 +60,9 @@ export default function About() {
             <BackButton />
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-primary">О нас</p>
           </div>
-          <h1 className="mt-5 font-display text-4xl font-light italic leading-none md:text-5xl">
-            Дизайн-бюро «Жар-птица»
-          </h1>
           <div className="mt-8 space-y-6 text-lg leading-relaxed text-muted-foreground">
             <p>
-              — команда профессионалов, объединённых одной целью: создавать
+              Дизайн-бюро «Жар-птица» — команда профессионалов, объединённых одной целью: создавать
               пространство, где всё продумано до мелочей — от первого эскиза до финальной расстановки
               мебели.
             </p>

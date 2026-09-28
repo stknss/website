@@ -3,7 +3,7 @@ import ServicesInfographic from '@/components/landing/ServicesInfographic';
 
 export default function ProofSection() {
   return (
-    <section id="philosophy" className="px-6 py-24 lg:px-10 lg:py-32 bg-secondary/30" aria-labelledby="proof-title">
+    <section id="philosophy" className="px-6 py-24 lg:px-10 lg:py-20 bg-secondary/30" aria-labelledby="proof-title">
       <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-stretch">
         <div className="lg:col-span-5">
           <motion.div

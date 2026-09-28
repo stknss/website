@@ -3,13 +3,13 @@ import { motion } from 'framer-motion';
 const steps = [
 ['01', 'Видение', 'Собираем образ жизни, привычки семьи и художественное направление будущего дома.'],
 ['02', 'Проект', 'Переводим идею в планировки, узлы, спецификации и инженерную логику.'],
-['03', 'Детали', 'Финально собираем интерьер: свет, фактуры, декор и ощущение дома.'],
-['04', 'Реализация', 'Ведём объект, координируем подрядчиков и следим за качеством на каждом этапе.']];
+['03', 'Реализация', 'Ведём объект, координируем подрядчиков и следим за качеством на каждом этапе.'],
+['04', 'Детали', 'Финально собираем интерьер: свет, фактуры, декор и ощущение дома.']];
 
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="px-6 py-24 lg:px-10 lg:py-32" aria-labelledby="process-title">
+    <section id="process" className="px-6 py-24 lg:px-10 lg:py-20" aria-labelledby="process-title">
       <div className="mx-auto max-w-7xl">
         <div className="mb-8">
           <p id="process-title" className="font-mono text-sm uppercase tracking-[0.28em] text-primary">Процесс под ключ</p>

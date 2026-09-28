@@ -71,16 +71,16 @@ export default function HeroSection() {
           <div className="mt-10 -ml-1 flex flex-col items-start gap-4 sm:flex-row sm:justify-start md:ml-0 md:justify-center lg:justify-start">
             <a
               href="#contact"
-              className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center whitespace-nowrap rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)] lg:px-5 lg:py-3">
-              Забронировать встречу
+              className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center rounded-full bg-primary px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-primary-foreground transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.35)] lg:w-[14.5rem] lg:flex-none lg:px-4 lg:py-3">
+              Забронировать<br className="hidden lg:inline" /> встречу
               <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-primary-foreground/30 transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </a>
             <a
               href="#portfolio"
-              className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center whitespace-nowrap rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)] lg:px-5 lg:py-3">
-              Смотреть работы
+              className="group inline-flex w-full sm:w-auto min-h-12 items-center justify-center rounded-full border border-border px-7 py-4 font-mono text-sm uppercase tracking-[0.18em] text-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_18px_60px_hsl(var(--primary)/0.2)] lg:w-[14.5rem] lg:flex-none lg:px-4 lg:py-3">
+              Смотреть<br className="hidden lg:inline" /> работы
               <span className="ml-3 flex h-7 w-7 items-center justify-center rounded-full border border-border transition group-hover:translate-x-1">
                 <ArrowRight className="h-3.5 w-3.5" />
               </span>

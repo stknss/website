@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import projects, { featuredSlugs } from '@/lib/projects';
 import ProjectCover from '@/components/landing/ProjectCover';
+import CardHoverLines from '@/components/landing/CardHoverLines';
 
 const trackProjectClick = (slug) => {
   if (typeof window.gtag === "function") {
@@ -29,7 +30,7 @@ export default function PortfolioSection() {
         >
             <ProjectCover project={project} className={`aspect-[4/5] w-full object-cover ${project.wide ? 'md:aspect-[7/4]' : 'md:aspect-[5/4]'} ${project.objectPosition === 'center' ? 'object-center' : 'object-bottom'} transition duration-700 group-hover:scale-105`} />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-            {/* Анимация диагональных линий временно отключена */}
+            <CardHoverLines />
             <div className="absolute bottom-2 left-6 right-6 flex flex-col gap-1.5 rounded-2xl border border-border bg-background/65 p-3 backdrop-blur-[10px] sm:bottom-4 sm:left-8 sm:right-8 sm:p-4 md:p-3 lg:p-4">
               <h3 className="text-xl font-body hyphens-manual md:text-[22px] lg:text-[25px]">{project.title}</h3>
               <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground [word-spacing:-0.12em] sm:[word-spacing:0]">{project.meta}</p>

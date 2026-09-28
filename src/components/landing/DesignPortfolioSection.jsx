@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import projects, { featuredDesignSlugs } from '@/lib/projects';
 import PortfolioCover from '@/components/landing/PortfolioCover';
+import CardHoverLines from '@/components/landing/CardHoverLines';
 
 const trackProjectClick = (slug) => {
   if (typeof window.gtag === 'function') {
@@ -43,6 +44,7 @@ export default function DesignPortfolioSection() {
                 imgClassName="transition duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+              <CardHoverLines />
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="rounded-2xl border border-border bg-card/25 p-3 backdrop-blur-[9.6px]">
                   <h3 className="text-[20px] font-body hyphens-manual">{project.title}</h3>

@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 
 export default function ContactSection() {
   return (
-    <footer id="contact" className="relative scroll-mt-[-3.5rem] overflow-hidden border-t border-border px-6 py-24 lg:scroll-mt-[-8rem] lg:px-10 lg:py-32" aria-labelledby="contact-title">
+    <footer id="contact" className="relative scroll-mt-[-1rem] overflow-hidden border-t border-border px-6 pt-4 pb-24 lg:scroll-mt-[-8rem] lg:px-10 lg:py-32" aria-labelledby="contact-title">
       <div
         className="absolute inset-0 pointer-events-none"
         aria-hidden="true"

@@ -444,6 +444,7 @@ export const featuredSlugs = ['zhk-kandinskiy', 'clever-park'];
 
 // Проекты, выполненные как дизайн-проект (без реализации).
 export const designSlugs = [
+  'zhk-makarovskiy',
   'zhk-park-stolits',
   'house-koptyaki',
   'house-shilovsky-park',

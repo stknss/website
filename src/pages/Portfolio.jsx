@@ -13,13 +13,12 @@ const trackProjectClick = (slug) => {
 
 export default function Portfolio() {
   const orderedSlugs = [
-    'zhk-makarovskiy',
     'clever-park-95',
     'zhk-nova-park',
-    'green-park-hotel',
+    'house-sverdlovsk',
     'zhk-kandinskiy',
     'clever-park',
-    'house-sverdlovsk',
+    'green-park-hotel',
     'dom-palniks',
     'office-nefteyugansk',
   ];
